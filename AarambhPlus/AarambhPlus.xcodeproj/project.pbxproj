@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		724BAE11241C5D97A8375348 /* Pods_AarambhPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */; };
 		E89A72F2213FB2D200BAD081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A72F1213FB2D200BAD081 /* AppDelegate.swift */; };
 		E89A72F7213FB2D200BAD081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89A72F5213FB2D200BAD081 /* Main.storyboard */; };
 		E89A72F9213FB2D500BAD081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E89A72F8213FB2D500BAD081 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 		E89A7307213FB2D500BAD081 /* AarambhPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A7306213FB2D500BAD081 /* AarambhPlusTests.swift */; };
 		E89A7312213FB2D500BAD081 /* AarambhPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A7311213FB2D500BAD081 /* AarambhPlusUITests.swift */; };
 		E89A7327213FB51300BAD081 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A7326213FB51300BAD081 /* BaseViewController.swift */; };
+		E89A732D213FB97600BAD081 /* APNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A732C213FB97600BAD081 /* APNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		88CD0D0E617EDDD6658C2824 /* Pods-AarambhPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.release.xcconfig"; sourceTree = "<group>"; };
+		BC0C54DCDD5AE4EEBC63AB30 /* Pods-AarambhPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.debug.xcconfig"; sourceTree = "<group>"; };
+		D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AarambhPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89A72EE213FB2D200BAD081 /* AarambhPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AarambhPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89A72F1213FB2D200BAD081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E89A72F6213FB2D200BAD081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		E89A7311213FB2D500BAD081 /* AarambhPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AarambhPlusUITests.swift; sourceTree = "<group>"; };
 		E89A7313213FB2D500BAD081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E89A7326213FB51300BAD081 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E89A732C213FB97600BAD081 /* APNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724BAE11241C5D97A8375348 /* Pods_AarambhPlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FA743A79287972A5BDA477E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC0C54DCDD5AE4EEBC63AB30 /* Pods-AarambhPlus.debug.xcconfig */,
+				88CD0D0E617EDDD6658C2824 /* Pods-AarambhPlus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC32BB3C5AC40EF5224D9FF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E89A72E5213FB2D200BAD081 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,8 @@
 				E89A7305213FB2D500BAD081 /* AarambhPlusTests */,
 				E89A7310213FB2D500BAD081 /* AarambhPlusUITests */,
 				E89A72EF213FB2D200BAD081 /* Products */,
+				2FA743A79287972A5BDA477E /* Pods */,
+				AC32BB3C5AC40EF5224D9FF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,24 +180,11 @@
 		E89A7322213FB33E00BAD081 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				E89A7323213FB33E00BAD081 /* Extensions */,
-				E89A7324213FB33E00BAD081 /* Reusable */,
+				E89A732B213FB8F200BAD081 /* App Setups */,
+				E89A7329213FB8F200BAD081 /* Extensions */,
+				E89A732A213FB8F200BAD081 /* Reusables */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		E89A7323213FB33E00BAD081 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E89A7324213FB33E00BAD081 /* Reusable */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Reusable;
 			sourceTree = "<group>";
 		};
 		E89A7325213FB33E00BAD081 /* Views */ = {
@@ -181,6 +194,28 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E89A7329213FB8F200BAD081 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E89A732A213FB8F200BAD081 /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
+		E89A732B213FB8F200BAD081 /* App Setups */ = {
+			isa = PBXGroup;
+			children = (
+				E89A732C213FB97600BAD081 /* APNavigationController.swift */,
+			);
+			path = "App Setups";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E89A7316213FB2D500BAD081 /* Build configuration list for PBXNativeTarget "AarambhPlus" */;
 			buildPhases = (
+				DC10DED9DBD7E28470DBA467 /* [CP] Check Pods Manifest.lock */,
 				E89A72EA213FB2D200BAD081 /* Sources */,
 				E89A72EB213FB2D200BAD081 /* Frameworks */,
 				E89A72EC213FB2D200BAD081 /* Resources */,
+				1A13D85B056E53A03F9726AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,12 +344,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A13D85B056E53A03F9726AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC10DED9DBD7E28470DBA467 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AarambhPlus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E89A72EA213FB2D200BAD081 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E89A7327213FB51300BAD081 /* BaseViewController.swift in Sources */,
+				E89A732D213FB97600BAD081 /* APNavigationController.swift in Sources */,
 				E89A72F2213FB2D200BAD081 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +563,7 @@
 		};
 		E89A7317213FB2D500BAD081 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC0C54DCDD5AE4EEBC63AB30 /* Pods-AarambhPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -501,6 +581,7 @@
 		};
 		E89A7318213FB2D500BAD081 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88CD0D0E617EDDD6658C2824 /* Pods-AarambhPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
