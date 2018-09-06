@@ -190,9 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				E89A7320213FB33E00BAD081 /* Controllers */,
-				E89A7321213FB33E00BAD081 /* Models */,
 				E89A7322213FB33E00BAD081 /* Utilities */,
-				E89A7325213FB33E00BAD081 /* Views */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -206,13 +204,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		E89A7321213FB33E00BAD081 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		E89A7322213FB33E00BAD081 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,13 +212,6 @@
 				E89A732A213FB8F200BAD081 /* Reusables */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		E89A7325213FB33E00BAD081 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E89A732A213FB8F200BAD081 /* Reusables */ = {
