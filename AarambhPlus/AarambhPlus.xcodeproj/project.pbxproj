@@ -189,6 +189,8 @@
 		E89A731F213FB33E00BAD081 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E8F5056F214130D200FEF0C0 /* Models */,
+				E8F50570214130D200FEF0C0 /* Views */,
 				E89A7320213FB33E00BAD081 /* Controllers */,
 				E89A7322213FB33E00BAD081 /* Utilities */,
 			);
@@ -244,6 +246,20 @@
 				E89A7337213FDB6900BAD081 /* HomeScreenController.swift */,
 			);
 			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		E8F5056F214130D200FEF0C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E8F50570214130D200FEF0C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
