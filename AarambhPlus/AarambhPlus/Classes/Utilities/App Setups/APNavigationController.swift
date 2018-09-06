@@ -41,7 +41,10 @@ private extension APNavigationController {
     }
     
     @objc func hambergerButtonClicked(_ sender: UIBarButtonItem) {
-//        NavigationViewController.showSideMenu(type: SideMenuType.menu)
+        let controller = HamburgerMenuController.controller()
+        controller.modalPresentationStyle = .custom
+        controller.transitioningDelegate = controller
+        present(controller, animated: true, completion: nil)
     }
     
     func createHambergerButton() {
@@ -49,6 +52,7 @@ private extension APNavigationController {
                                                style: UIBarButtonItemStyle.plain,
                                                target: self,
                                                action: #selector(APNavigationController.hambergerButtonClicked(_:)))
+        hambergerButton?.tintColor = UIColor.black
     }
     
     func createBackButton() {
@@ -56,6 +60,7 @@ private extension APNavigationController {
                                           style: UIBarButtonItemStyle.plain,
                                           target: self,
                                           action: #selector(APNavigationController.backButtonClicked(_:)))
+        backButton?.tintColor = UIColor.black
     }
 }
 
