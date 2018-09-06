@@ -10,6 +10,16 @@ import UIKit
 
 class APNavigationController: UINavigationController {
 
+    var hambergerButton: UIBarButtonItem?
+    var backButton: UIBarButtonItem?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate = self
+        createHambergerButton()
+        createBackButton()
+    }
+    
     func setRootViewController(_ controller: UIViewController, animated: Bool) {
     }
     
@@ -19,6 +29,54 @@ class APNavigationController: UINavigationController {
             tabBarController?.tabBar.isHidden = true
         } else {
             tabBarController?.tabBar.isHidden = false
+        }
+    }
+
+}
+
+private extension APNavigationController {
+    
+    @objc func backButtonClicked(_ sender: UIBarButtonItem) {
+        self.popViewController(animated: true)
+    }
+    
+    @objc func hambergerButtonClicked(_ sender: UIBarButtonItem) {
+//        NavigationViewController.showSideMenu(type: SideMenuType.menu)
+    }
+    
+    func createHambergerButton() {
+        self.hambergerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger_menu"),
+                                               style: UIBarButtonItemStyle.plain,
+                                               target: self,
+                                               action: #selector(APNavigationController.hambergerButtonClicked(_:)))
+    }
+    
+    func createBackButton() {
+        self.backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "back_nav"),
+                                          style: UIBarButtonItemStyle.plain,
+                                          target: self,
+                                          action: #selector(APNavigationController.backButtonClicked(_:)))
+    }
+}
+
+extension APNavigationController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        if navigationController.viewControllers.count <= 1 {
+            viewController.navigationItem.leftBarButtonItem = self.hambergerButton
+            tabBarController?.tabBar.isHidden = false
+        } else {
+            tabBarController?.tabBar.isHidden = true
+            viewController.navigationItem.leftBarButtonItem = self.backButton
+        }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if navigationController.viewControllers.count <= 1 {
+            tabBarController?.tabBar.isHidden = false
+            viewController.navigationItem.leftBarButtonItem = self.hambergerButton
+        } else {
+            tabBarController?.tabBar.isHidden = true
+            viewController.navigationItem.leftBarButtonItem = self.backButton
         }
     }
 }

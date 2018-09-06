@@ -8,10 +8,13 @@
 
 import UIKit
 
+
+/// This controller will 1st get call from app delegate method (didfinish )
 class LaunchViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        CustomLoader.addLoaderOn(self.view, gradient: false)
         createTabBarItems()
     }
 
@@ -19,6 +22,7 @@ class LaunchViewController: BaseViewController {
 
 private extension LaunchViewController {
     
+    /// <#Description#>
     func createTabBarItems() {
         let barItems:[TabBarItemType] = [.home,.movies,.search,.more]
         var controllers = [UIViewController]()
@@ -44,6 +48,7 @@ private extension LaunchViewController {
         }
         let tabBar = TabBarController()
         tabBar.viewControllers = controllers
+        CustomLoader.removeLoaderFrom(self.view)
         appDelegate?.window??.rootViewController = APNavigationController(rootViewController: tabBar)
         
     }
