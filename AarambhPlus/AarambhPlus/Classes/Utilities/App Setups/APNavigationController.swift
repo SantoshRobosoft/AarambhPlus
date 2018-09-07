@@ -42,8 +42,7 @@ private extension APNavigationController {
     
     @objc func hambergerButtonClicked(_ sender: UIBarButtonItem) {
         let controller = HamburgerMenuController.controller()
-        controller.modalPresentationStyle = .custom
-        controller.transitioningDelegate = controller
+        
         present(controller, animated: true, completion: nil)
     }
     

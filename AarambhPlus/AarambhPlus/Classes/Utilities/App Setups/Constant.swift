@@ -13,3 +13,6 @@ let appDelegate = UIApplication.shared.delegate
 let windowWidth = UIScreen.main.bounds.width
 let windowHight = UIScreen.main.bounds.height
 let CustomLoaderTag = 1666
+
+//UserDefault keys
+let kSavedUser = "saved_user"

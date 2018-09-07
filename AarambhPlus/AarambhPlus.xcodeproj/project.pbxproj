@@ -26,8 +26,16 @@
 		E89A733A213FF47500BAD081 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A7339213FF47500BAD081 /* CustomLoader.swift */; };
 		E89B1C65214006A4002823D6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B1C64214006A4002823D6 /* UIColorExtension.swift */; };
 		E89B1C6721400A85002823D6 /* HamburgerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B1C6621400A85002823D6 /* HamburgerAnimation.swift */; };
-		E8F5056A2141224100FEF0C0 /* HamburgerMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F505692141224100FEF0C0 /* HamburgerMenuController.swift */; };
-		E8F5056C2141255C00FEF0C0 /* HamburgerMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F5056B2141255C00FEF0C0 /* HamburgerMenu.storyboard */; };
+		E8B4A45721426A41004E54D2 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B4A45621426A41004E54D2 /* User.storyboard */; };
+		E8B4A45921426CF0004E54D2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A45821426CF0004E54D2 /* LoginController.swift */; };
+		E8B4A45B21426D10004E54D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A45A21426D10004E54D2 /* User.swift */; };
+		E8B4A45D21426D2B004E54D2 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A45C21426D2B004E54D2 /* UserManager.swift */; };
+		E8B4A4612142748C004E54D2 /* HamburgerMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B4A45F2142748C004E54D2 /* HamburgerMenu.storyboard */; };
+		E8B4A4622142748C004E54D2 /* HamburgerMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A4602142748C004E54D2 /* HamburgerMenuController.swift */; };
+		E8B4A464214274B9004E54D2 /* HamburgerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A463214274B9004E54D2 /* HamburgerCell.swift */; };
+		E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */; };
+		E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */; };
+		E8B4A46A21429490004E54D2 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A46921429490004E54D2 /* SignUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +84,16 @@
 		E89A7339213FF47500BAD081 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
 		E89B1C64214006A4002823D6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		E89B1C6621400A85002823D6 /* HamburgerAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerAnimation.swift; sourceTree = "<group>"; };
-		E8F505692141224100FEF0C0 /* HamburgerMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuController.swift; sourceTree = "<group>"; };
-		E8F5056B2141255C00FEF0C0 /* HamburgerMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HamburgerMenu.storyboard; sourceTree = "<group>"; };
+		E8B4A45621426A41004E54D2 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		E8B4A45821426CF0004E54D2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		E8B4A45A21426D10004E54D2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E8B4A45C21426D2B004E54D2 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		E8B4A45F2142748C004E54D2 /* HamburgerMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HamburgerMenu.storyboard; sourceTree = "<group>"; };
+		E8B4A4602142748C004E54D2 /* HamburgerMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerMenuController.swift; sourceTree = "<group>"; };
+		E8B4A463214274B9004E54D2 /* HamburgerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerCell.swift; sourceTree = "<group>"; };
+		E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldModel.swift; sourceTree = "<group>"; };
+		E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldCell.swift; sourceTree = "<group>"; };
+		E8B4A46921429490004E54D2 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +216,7 @@
 		E89A7320213FB33E00BAD081 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8B4A45521426A36004E54D2 /* User */,
 				E89A7334213FD7E700BAD081 /* HomeScreen */,
 				E89A7326213FB51300BAD081 /* BaseViewController.swift */,
 			);
@@ -219,11 +236,10 @@
 		E89A732A213FB8F200BAD081 /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				E8B4A45E2142748C004E54D2 /* Hamburger */,
 				E89A7339213FF47500BAD081 /* CustomLoader.swift */,
 				E810976F213FFB320059913B /* FadeTransition.swift */,
 				E89B1C6621400A85002823D6 /* HamburgerAnimation.swift */,
-				E8F505692141224100FEF0C0 /* HamburgerMenuController.swift */,
-				E8F5056B2141255C00FEF0C0 /* HamburgerMenu.storyboard */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -248,9 +264,33 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		E8B4A45521426A36004E54D2 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E8B4A45621426A41004E54D2 /* User.storyboard */,
+				E8B4A45821426CF0004E54D2 /* LoginController.swift */,
+				E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */,
+				E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */,
+				E8B4A46921429490004E54D2 /* SignUpController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		E8B4A45E2142748C004E54D2 /* Hamburger */ = {
+			isa = PBXGroup;
+			children = (
+				E8B4A45F2142748C004E54D2 /* HamburgerMenu.storyboard */,
+				E8B4A4602142748C004E54D2 /* HamburgerMenuController.swift */,
+				E8B4A463214274B9004E54D2 /* HamburgerCell.swift */,
+			);
+			path = Hamburger;
+			sourceTree = "<group>";
+		};
 		E8F5056F214130D200FEF0C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E8B4A45A21426D10004E54D2 /* User.swift */,
+				E8B4A45C21426D2B004E54D2 /* UserManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -369,10 +409,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E89A72FC213FB2D500BAD081 /* LaunchScreen.storyboard in Resources */,
+				E8B4A4612142748C004E54D2 /* HamburgerMenu.storyboard in Resources */,
 				E89A7336213FD7F700BAD081 /* HomeScreen.storyboard in Resources */,
 				E89A72F9213FB2D500BAD081 /* Assets.xcassets in Resources */,
 				E89A72F7213FB2D200BAD081 /* Main.storyboard in Resources */,
-				E8F5056C2141255C00FEF0C0 /* HamburgerMenu.storyboard in Resources */,
+				E8B4A45721426A41004E54D2 /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,17 +481,24 @@
 			files = (
 				E89B1C6721400A85002823D6 /* HamburgerAnimation.swift in Sources */,
 				E89A7327213FB51300BAD081 /* BaseViewController.swift in Sources */,
-				E8F5056A2141224100FEF0C0 /* HamburgerMenuController.swift in Sources */,
 				E89A732D213FB97600BAD081 /* APNavigationController.swift in Sources */,
+				E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */,
+				E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */,
 				E8109776213FFE0D0059913B /* StringExtension.swift in Sources */,
 				E89A7338213FDB6900BAD081 /* HomeScreenController.swift in Sources */,
+				E8B4A4622142748C004E54D2 /* HamburgerMenuController.swift in Sources */,
+				E8B4A45D21426D2B004E54D2 /* UserManager.swift in Sources */,
 				E89A7331213FC37F00BAD081 /* Constant.swift in Sources */,
+				E8B4A464214274B9004E54D2 /* HamburgerCell.swift in Sources */,
 				E89A7333213FC6AD00BAD081 /* TabBarController.swift in Sources */,
+				E8B4A45B21426D10004E54D2 /* User.swift in Sources */,
 				E89A72F2213FB2D200BAD081 /* AppDelegate.swift in Sources */,
 				E89A733A213FF47500BAD081 /* CustomLoader.swift in Sources */,
+				E8B4A46A21429490004E54D2 /* SignUpController.swift in Sources */,
 				E89B1C65214006A4002823D6 /* UIColorExtension.swift in Sources */,
 				E8109774213FFDA00059913B /* UILabelExtension.swift in Sources */,
 				E89A732F213FC28300BAD081 /* LaunchViewController.swift in Sources */,
+				E8B4A45921426CF0004E54D2 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

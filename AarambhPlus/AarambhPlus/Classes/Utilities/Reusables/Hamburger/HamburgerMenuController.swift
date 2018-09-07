@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum HamburgerCellType: Int {
+    case profile = 0, item
+}
+
 class HamburgerMenuController: UIViewController {
 
     @IBOutlet weak private var tableView: UITableView!
@@ -19,7 +23,10 @@ class HamburgerMenuController: UIViewController {
     }
 
     class func controller() -> HamburgerMenuController {
-        return UIStoryboard(name: "HamburgerMenu", bundle: nil).instantiateViewController(withIdentifier: "\(HamburgerMenuController.self)") as! HamburgerMenuController
+        let controller = UIStoryboard(name: "HamburgerMenu", bundle: nil).instantiateViewController(withIdentifier: "\(HamburgerMenuController.self)") as! HamburgerMenuController
+        controller.modalPresentationStyle = .custom
+        controller.transitioningDelegate = controller
+        return controller
     }
     
     @IBAction func dismissOnTap(_ sender: UIButton) {
@@ -39,33 +46,44 @@ extension HamburgerMenuController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            return tableView.dequeueReusableCell(withIdentifier: "HamburgerProfileCell", for: indexPath)
+        if indexPath.row == HamburgerCellType.profile.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HamburgerProfileCell", for: indexPath) as! HamburgerProfileCell
+            cell.updateUI()
+            return cell
         } else {
-            return tableView.dequeueReusableCell(withIdentifier: "HamburgerItemCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HamburgerItemCell", for: indexPath) as! HamburgerItemCell
+            return cell
         }
     }
 }
 
 extension HamburgerMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.row == HamburgerCellType.profile.rawValue {
+            self.performSelector(onMainThread: #selector(pushLoginScreen), with: nil, waitUntilDone: false)
+        }
     }
+}
+
+private extension HamburgerMenuController {
+    @objc func pushLoginScreen() {
+        dismiss(animated: true) {
+            (appDelegate?.window??.rootViewController  as? APNavigationController)?.pushViewController(LoginController.controller(), animated: true)
+        }
+    }
+    
 }
 
 extension HamburgerMenuController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented _: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let animator = SidePanelCustomTransitionAnimator()
         animator.duration = 0.4
-//        animator.direction = .left
         return animator
     }
     
     func animationController(forDismissed _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let animator = SidePanelCustomTransitionAnimator()
         animator.duration = 0.4
-//        animator.direction = .right
         return animator
     }
-    
 }

@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HamburgerProfileCell" rowHeight="136" id="BID-cb-7Ea">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HamburgerProfileCell" rowHeight="136" id="BID-cb-7Ea" customClass="HamburgerProfileCell" customModule="AarambhPlus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="262.5" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BID-cb-7Ea" id="wfs-HA-UhZ">
@@ -60,8 +60,12 @@
                                                 <constraint firstItem="7Ve-j3-5yk" firstAttribute="top" secondItem="lo3-45-V9p" secondAttribute="bottom" constant="10" id="x0N-L4-dec"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="7Ve-j3-5yk" id="T1R-PJ-1ph"/>
+                                            <outlet property="profilePicImageView" destination="lo3-45-V9p" id="UrF-Qb-iLq"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HamburgerItemCell" rowHeight="62" id="4NS-KU-lMC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HamburgerItemCell" rowHeight="62" id="4NS-KU-lMC" customClass="HamburgerItemCell" customModule="AarambhPlus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="164" width="262.5" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4NS-KU-lMC" id="BMY-f4-scW">
@@ -92,6 +96,9 @@
                                                 <constraint firstItem="FDM-nh-P5a" firstAttribute="leading" secondItem="BMY-f4-scW" secondAttribute="leading" id="yFD-t8-mgJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="XGG-jc-Fkq" id="kLP-1b-zMW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
