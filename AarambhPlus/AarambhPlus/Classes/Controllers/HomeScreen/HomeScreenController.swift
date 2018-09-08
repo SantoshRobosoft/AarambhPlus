@@ -10,10 +10,12 @@ import UIKit
 
 class HomeScreenController: BaseViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var viewModel: HomeScreenViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fetchData()
     }
     
     class func controller() -> HomeScreenController {
@@ -21,8 +23,53 @@ class HomeScreenController: BaseViewController {
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        navigationController?.pushViewController(HomeScreenController.controller(), animated: true)
+        NetworkManager.fetchHomePageDetails(parameters: nil) { (data) in
+            if let data = data.response?.data {
+                print(data)
+            }
+        }
+    }
+
+}
+
+extension HomeScreenController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return viewModel?.NumberOfSection(in: collectionView) ?? 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.collectionView(collectionView , numberOfItemsInSection: section) ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return viewModel?.collectionView(collectionView, cellForItemAt: indexPath) ?? UICollectionViewCell()
+    }
+}
 
+extension HomeScreenController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return viewModel?.collectionView(collectionView, layout:collectionViewLayout, sizeForItemAt:indexPath) ?? CGSize.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return viewModel?.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: section) ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return viewModel?.collectionView(collectionView, layout:collectionViewLayout, insetForSectionAt:section) ?? UIEdgeInsets.zero
+    }
+}
+
+private extension HomeScreenController {
+    func fetchData() {
+        CustomLoader.addLoaderOn(view, gradient: false)
+        NetworkManager.fetchHomePageDetails(parameters: nil) { [weak self] (data) in
+            if let layouts = data.response?.data {
+                self?.viewModel = HomeScreenViewModel(Layout: layouts)
+                self?.viewModel?.registerNibWith(collectionView: (self?.collectionView!)!)
+                self?.collectionView.reloadData()
+                CustomLoader.removeLoaderFrom(self?.view)
+            }
+        }
+    }
 }

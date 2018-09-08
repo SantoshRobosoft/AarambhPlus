@@ -33,11 +33,11 @@ private extension LaunchViewController {
                 vc.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "Home_tab"), selectedImage: #imageLiteral(resourceName: "Home_tab"))
                 controllers.append(vc)
             case .movies:
-                let vc = HomeScreenController.controller()
+                let vc = LaunchViewController()
                 vc.tabBarItem = UITabBarItem(title: "Movies", image: #imageLiteral(resourceName: "Movie_tab"), selectedImage: #imageLiteral(resourceName: "Movie_tab"))
                 controllers.append(vc)
             case .search:
-                let vc = HomeScreenController.controller()
+                let vc = LaunchViewController()
                 vc.tabBarItem = UITabBarItem(title: "Search", image: #imageLiteral(resourceName: "Search_tab"), selectedImage: #imageLiteral(resourceName: "Search_tab"))
                 controllers.append(vc)
             case .more:

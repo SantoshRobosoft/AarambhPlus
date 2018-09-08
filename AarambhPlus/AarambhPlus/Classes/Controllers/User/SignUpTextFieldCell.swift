@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class SignUpTextFieldCell: UICollectionViewCell {
-    @IBOutlet weak private var textField: UITextField!
+    @IBOutlet weak private var textField: SkyFloatingLabelTextField!
     @IBOutlet weak private var errorLabel: UILabel!
     
     private var indexPath: IndexPath!
@@ -18,6 +19,8 @@ class SignUpTextFieldCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         textField.delegate = self
+        textField.selectedLineColor = UIColor.appColor()
+        textField.selectedTitleColor = UIColor.appColor()
     }
     
     func updateUI(info: SignUpTextFieldModel, at index: IndexPath) {
@@ -25,7 +28,13 @@ class SignUpTextFieldCell: UICollectionViewCell {
         self.model = info
         textField.placeholder = info.placeHolder
         textField.text = info.currentValue
-        errorLabel.text = info.errorMessage
+        if let error = info.errorMessage {
+            textField.errorMessage = ""//info.placeHolder
+            textField.errorColor = UIColor.red
+            errorLabel.text = error
+        } else {
+            errorLabel.text = nil
+        }
     }
     
 }
@@ -48,6 +57,13 @@ extension SignUpTextFieldCell: UITextFieldDelegate {
 class SignUpButtonCell: UICollectionViewCell {
     var signUpButtonClicked: ((_ sender: UIButton) -> Void)?
     
+    @IBOutlet weak private var signUpButton: UIButton!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        signUpButton.layer.borderColor = UIColor.appColor().cgColor
+        signUpButton.layer.borderWidth = 1
+    }
     @IBAction func didTapSignUpButton(_ sender: UIButton) {
         sender.isEnabled = false
         signUpButtonClicked?(sender)

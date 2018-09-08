@@ -20,15 +20,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4hH-xC-afn">
-                                <rect key="frame" x="0.0" y="-23" width="262.5" height="690"/>
+                                <rect key="frame" x="0.0" y="-23" width="300" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HamburgerProfileCell" rowHeight="136" id="BID-cb-7Ea" customClass="HamburgerProfileCell" customModule="AarambhPlus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="262.5" height="136"/>
+                                        <rect key="frame" x="0.0" y="28" width="300" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BID-cb-7Ea" id="wfs-HA-UhZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="262.5" height="136"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="136"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="lo3-45-V9p">
@@ -38,10 +38,10 @@
                                                         <constraint firstAttribute="height" constant="60" id="tr3-h9-pZg"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="25"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santosh Sahoo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-j3-5yk">
@@ -66,10 +66,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HamburgerItemCell" rowHeight="62" id="4NS-KU-lMC" customClass="HamburgerItemCell" customModule="AarambhPlus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="164" width="262.5" height="62"/>
+                                        <rect key="frame" x="0.0" y="164" width="300" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4NS-KU-lMC" id="BMY-f4-scW">
-                                            <rect key="frame" x="0.0" y="0.0" width="262.5" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGG-jc-Fkq">
@@ -107,7 +107,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3L-QL-041">
-                                <rect key="frame" x="262.5" y="0.0" width="112.5" height="667"/>
+                                <rect key="frame" x="300" y="0.0" width="75" height="667"/>
                                 <connections>
                                     <action selector="dismissOnTap:" destination="KUt-cG-Ohi" eventType="touchUpInside" id="mfN-po-TLu"/>
                                 </connections>
@@ -115,7 +115,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4hH-xC-afn" firstAttribute="width" secondItem="Msg-pP-Se7" secondAttribute="width" multiplier="0.7" id="89Z-Np-aQC"/>
+                            <constraint firstItem="4hH-xC-afn" firstAttribute="width" secondItem="Msg-pP-Se7" secondAttribute="width" multiplier="0.8" id="89Z-Np-aQC"/>
                             <constraint firstItem="j3L-QL-041" firstAttribute="leading" secondItem="4hH-xC-afn" secondAttribute="trailing" id="IRj-jv-SuB"/>
                             <constraint firstItem="4hH-xC-afn" firstAttribute="top" secondItem="Msg-pP-Se7" secondAttribute="top" constant="-23" id="MYw-I2-qky"/>
                             <constraint firstItem="E8e-sM-X0v" firstAttribute="bottom" secondItem="j3L-QL-041" secondAttribute="bottom" id="NZk-w8-mhE"/>
