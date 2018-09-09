@@ -8,5 +8,6 @@ target 'AarambhPlus' do
   # Pods for AarambhPlus
   pod 'Kingfisher', '~> 4.0'
   pod 'Alamofire'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 
 end
