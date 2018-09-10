@@ -11,13 +11,14 @@ import UIKit
 class Layout: NSObject, Codable {
 
     var layOut: String?
+    var title: String?
     var mediaItems: [MediaItem]?
     
     //not from response
     var layoutType: LayoutType = .row_Item
     
     enum CodingKeys: String, CodingKey {
-        case layOut
+        case layOut, title
         case mediaItems = "items"
     }
 }
@@ -32,5 +33,9 @@ extension Layout: TopBannerProtocol {
             return LayoutType(rawValue: layout)
         }
         return nil
+    }
+    
+    func getTitle() -> String? {
+        return title
     }
 }

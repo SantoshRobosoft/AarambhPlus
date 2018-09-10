@@ -17,7 +17,7 @@ extension UIImageView {
             let resourece = ImageResource(downloadURL: url, cacheKey: cacheName ?? url.absoluteString)
             self.kf.setImage(with: resourece, placeholder: placeholder, options: nil, progressBlock: { _, _ in
             }, completionHandler: { imagr, error, _, _ in
-                print("image downloaded \(urlstring)")
+                print("image downloaded \(urlstring ?? "")")
                 print(error ?? "nil")
                 completionHandler?(imagr, error)
             })
@@ -36,5 +36,15 @@ extension UIImageView {
         let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
         blurEffectView.frame = self.bounds
         self.addSubview(blurEffectView)
+    }
+    
+    func addGradientView() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 1.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = frame
+        self.layer.insertSublayer(gradient, at: 0)
     }
 }

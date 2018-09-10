@@ -13,6 +13,13 @@ class RowItemCell: UICollectionViewCell {
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        imageView.addGradientView()
+        layer.cornerRadius = 5
+        layer.masksToBounds = true
+    }
+    
     func configureCell(dataSource: LayoutProtocol?) {
         imageView.setKfImage(dataSource?.getImageUrl())
         titleLabel.text = dataSource?.getTitle()
