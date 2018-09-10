@@ -58,6 +58,14 @@ extension HomeScreenController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return viewModel?.collectionView(collectionView, layout:collectionViewLayout, insetForSectionAt:section) ?? UIEdgeInsets.zero
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return viewModel?.collectionView(collectionView,viewForSupplementaryElementOfKind: kind, at: indexPath) ?? UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return viewModel?.collectionView(collectionView, layout: collectionViewLayout, referenceSizeForHeaderInSection: section) ?? CGSize.zero
+    }
 }
 
 private extension HomeScreenController {

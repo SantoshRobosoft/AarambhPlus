@@ -11,6 +11,7 @@ import UIKit
 protocol TopBannerProtocol: class {
     func getItem() -> [LayoutProtocol]
     func getItemType() -> LayoutType?
+    func getTitle() -> String?
 }
 
 protocol LayoutProtocol: class {
@@ -33,8 +34,9 @@ class TopBannerCell: UICollectionViewCell {
     }
     
     func configureCell(info: TopBannerProtocol?) {
-        self.dataSource = info
-        self.collectionView.reloadData()
+        dataSource = info
+        collectionViewSetup()
+        collectionView.reloadData()
     }
 }
 
@@ -57,7 +59,9 @@ extension TopBannerCell: UICollectionViewDataSource {
                 cell.configureCell(dataSource: dataSource?.getItem()[indexPath.row])
                 return cell
             case .nXn_Grid:
-                return UICollectionViewCell()
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RowItemCell", for: indexPath) as! RowItemCell
+                cell.configureCell(dataSource: dataSource?.getItem()[indexPath.row])
+                return cell
             }
         }
         return UICollectionViewCell()
@@ -70,9 +74,9 @@ extension TopBannerCell: UICollectionViewDelegateFlowLayout {
         if let layOut = dataSource?.getItemType() {
             switch layOut {
             case .top_Banner:
-                return CGSize(width: windowWidth, height: 180)
+                return CGSize(width: windowWidth, height: 220)
             case .row_Item:
-                return CGSize(width: (windowWidth - 30)/2, height: 120)
+                return CGSize(width: (windowWidth - 100)/2, height: 200)
             case .small_Carousel:
                 return CGSize(width: windowWidth/2 , height: 100)
             case .nXn_Grid:
@@ -82,7 +86,7 @@ extension TopBannerCell: UICollectionViewDelegateFlowLayout {
         return CGSize.zero
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if let layOut = dataSource?.getItemType() {
             switch layOut {
             case .top_Banner:
@@ -95,6 +99,11 @@ extension TopBannerCell: UICollectionViewDelegateFlowLayout {
                 return 0
             }
         }
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
         return 0
     }
     
@@ -112,5 +121,17 @@ extension TopBannerCell: UICollectionViewDelegateFlowLayout {
             }
         }
         return UIEdgeInsets.zero
+    }
+}
+
+private extension TopBannerCell {
+    
+    func collectionViewSetup() {
+        if let layOut = dataSource?.getItemType() {
+            switch layOut {
+            case .top_Banner: collectionView.isPagingEnabled = true
+            case .row_Item,. small_Carousel,.nXn_Grid: collectionView.isPagingEnabled = false
+            }
+        }
     }
 }

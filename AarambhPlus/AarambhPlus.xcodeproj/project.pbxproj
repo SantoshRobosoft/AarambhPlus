@@ -60,6 +60,9 @@
 		E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */; };
 		E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */; };
 		E8B4A46A21429490004E54D2 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A46921429490004E54D2 /* SignUpController.swift */; };
+		E8E6F6322146570D009481C1 /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6F6312146570D009481C1 /* VideoListController.swift */; };
+		E8E6F63421466DCA009481C1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */; };
+		E8E6F63621466E00009481C1 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E6F63521466E00009481C1 /* SectionHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +145,9 @@
 		E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldModel.swift; sourceTree = "<group>"; };
 		E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldCell.swift; sourceTree = "<group>"; };
 		E8B4A46921429490004E54D2 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		E8E6F6312146570D009481C1 /* VideoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
+		E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		E8E6F63521466E00009481C1 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +214,8 @@
 				E8472A6E214404320002AC5F /* TopBannerCell.swift */,
 				E8472A6F214404320002AC5F /* TopBannerCell.xib */,
 				E8472A76214406060002AC5F /* RowItemCell.xib */,
+				E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */,
+				E8E6F63521466E00009481C1 /* SectionHeaderView.xib */,
 			);
 			path = HomeScreenViews;
 			sourceTree = "<group>";
@@ -283,6 +291,7 @@
 				E8B4A45521426A36004E54D2 /* User */,
 				E89A7334213FD7E700BAD081 /* HomeScreen */,
 				E89A7326213FB51300BAD081 /* BaseViewController.swift */,
+				E8E6F6312146570D009481C1 /* VideoListController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -519,6 +528,7 @@
 				E8472A75214404320002AC5F /* TopBannerCell.xib in Resources */,
 				E89A7336213FD7F700BAD081 /* HomeScreen.storyboard in Resources */,
 				E89A72F9213FB2D500BAD081 /* Assets.xcassets in Resources */,
+				E8E6F63621466E00009481C1 /* SectionHeaderView.xib in Resources */,
 				E89A72F7213FB2D200BAD081 /* Main.storyboard in Resources */,
 				E8B4A45721426A41004E54D2 /* User.storyboard in Resources */,
 			);
@@ -607,6 +617,7 @@
 				E89B56C32143E230000C22CD /* DataResource.swift in Sources */,
 				E8472A72214404320002AC5F /* RowItemCell.swift in Sources */,
 				E89A7338213FDB6900BAD081 /* HomeScreenController.swift in Sources */,
+				E8E6F6322146570D009481C1 /* VideoListController.swift in Sources */,
 				E89B56C72143E230000C22CD /* FileDownloadRequestManager.swift in Sources */,
 				E8B4A4622142748C004E54D2 /* HamburgerMenuController.swift in Sources */,
 				E89B56C52143E230000C22CD /* RequestManager.swift in Sources */,
@@ -628,6 +639,7 @@
 				E8B4A45921426CF0004E54D2 /* LoginController.swift in Sources */,
 				E8472A73214404320002AC5F /* SmallCarouselCell.swift in Sources */,
 				E89B56C92143E230000C22CD /* MultipartUploadRequestor.swift in Sources */,
+				E8E6F63421466DCA009481C1 /* SectionHeaderView.swift in Sources */,
 				E89B56AE2143DEF7000C22CD /* MediaItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

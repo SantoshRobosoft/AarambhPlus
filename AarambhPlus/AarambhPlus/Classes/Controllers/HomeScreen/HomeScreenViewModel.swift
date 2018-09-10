@@ -20,13 +20,14 @@ class HomeScreenViewModel: NSObject {
     init(Layout: [Layout]) {
         self.layouts = Layout
         super.init()
-        self.removeLayoutsWithEmptyItems()
+//        self.removeLayoutsWithEmptyItems()
     }
     
     func registerNibWith(collectionView: UICollectionView) {
         collectionView.register(UINib(nibName: "TopBannerCell", bundle: nil) , forCellWithReuseIdentifier: "TopBannerCell")
         collectionView.register(UINib(nibName: "RowItemCell", bundle: nil) , forCellWithReuseIdentifier: "RowItemCell")
         collectionView.register(UINib(nibName: "BannerImageCell", bundle: nil) , forCellWithReuseIdentifier: "BannerImageCell")
+        collectionView.register(UINib(nibName: "SectionHeaderView", bundle: nil ), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SectionHeaderView")
     }
     
     func NumberOfSection(in collectionView: UICollectionView) -> Int {
@@ -48,13 +49,13 @@ class HomeScreenViewModel: NSObject {
         if let layOut = layouts[indexPath.section].layOut,let layOuType = LayoutType(rawValue: layOut) {
             switch layOuType {
             case .top_Banner:
-                return CGSize(width: windowWidth, height: 180)
+                return CGSize(width: windowWidth, height: 220)
             case .row_Item:
-                return CGSize(width: windowWidth, height: 120)
+                return CGSize(width: windowWidth, height: 200)
             case .small_Carousel:
                 return CGSize(width: windowWidth , height: 100)
             case .nXn_Grid:
-                return CGSize.zero
+                return CGSize.zero//CGSize(width: windowWidth, height: 200)
             }
         }
         return CGSize.zero
@@ -90,6 +91,50 @@ class HomeScreenViewModel: NSObject {
             }
         }
         return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let layOut = layouts[indexPath.section].layOut,let layOuType = LayoutType(rawValue: layOut) {
+            switch layOuType {
+            case .row_Item:
+                if UICollectionElementKindSectionHeader == kind {
+                    let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SectionHeaderView", for: indexPath)as! SectionHeaderView
+                    header.configureHeader(title: layouts[indexPath.section].getTitle())
+                    return header
+                }
+            case .small_Carousel:
+                if UICollectionElementKindSectionHeader == kind {
+                    let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SectionHeaderView", for: indexPath)as! SectionHeaderView
+                    header.configureHeader(title: layouts[indexPath.section].getTitle())
+                    return header
+                }
+            case .nXn_Grid:
+                return UICollectionReusableView()
+//                if UICollectionElementKindSectionHeader == kind {
+//                    let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SectionHeaderView", for: indexPath) as! SectionHeaderView
+//                    header.configureHeader(title: layouts[indexPath.section].getTitle())
+//                    return header
+//                }
+            case .top_Banner:
+                return UICollectionReusableView()
+            }
+        }
+        return UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if let layOutStr = layouts[section].layOut,let layOuType = LayoutType(rawValue: layOutStr) {
+            let layOut = layouts[section].getItem()
+            switch layOuType {
+            case .row_Item:
+                if !layOut.isEmpty {
+                    return CGSize(width: windowWidth, height: 60)
+                }
+            case .top_Banner, .small_Carousel, .nXn_Grid:
+                return CGSize.zero
+            }
+        }
+        return CGSize.zero
     }
 
 }
