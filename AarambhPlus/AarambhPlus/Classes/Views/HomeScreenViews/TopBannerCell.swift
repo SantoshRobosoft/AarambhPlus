@@ -78,7 +78,7 @@ extension TopBannerCell: UICollectionViewDelegateFlowLayout {
             case .row_Item:
                 return CGSize(width: (windowWidth - 100)/2, height: 200)
             case .small_Carousel:
-                return CGSize(width: windowWidth/2 , height: 100)
+                return CGSize(width: windowWidth/2 , height: 150)
             case .nXn_Grid:
                 return CGSize.zero
             }

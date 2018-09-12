@@ -17,8 +17,6 @@ extension UIImageView {
             let resourece = ImageResource(downloadURL: url, cacheKey: cacheName ?? url.absoluteString)
             self.kf.setImage(with: resourece, placeholder: placeholder, options: nil, progressBlock: { _, _ in
             }, completionHandler: { imagr, error, _, _ in
-                print("image downloaded \(urlstring ?? "")")
-                print(error ?? "nil")
                 completionHandler?(imagr, error)
             })
         } else if let placeholder = placeholder {

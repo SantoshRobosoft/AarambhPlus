@@ -53,7 +53,7 @@ class HomeScreenViewModel: NSObject {
             case .row_Item:
                 return CGSize(width: windowWidth, height: 200)
             case .small_Carousel:
-                return CGSize(width: windowWidth , height: 100)
+                return CGSize(width: windowWidth , height: 150)
             case .nXn_Grid:
                 return CGSize.zero//CGSize(width: windowWidth, height: 200)
             }
@@ -99,13 +99,13 @@ class HomeScreenViewModel: NSObject {
             case .row_Item:
                 if UICollectionElementKindSectionHeader == kind {
                     let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SectionHeaderView", for: indexPath)as! SectionHeaderView
-                    header.configureHeader(title: layouts[indexPath.section].getTitle())
+                    header.configureHeader(title: layouts[indexPath.section].getTitle(), obj: layouts[indexPath.section])
                     return header
                 }
             case .small_Carousel:
                 if UICollectionElementKindSectionHeader == kind {
                     let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SectionHeaderView", for: indexPath)as! SectionHeaderView
-                    header.configureHeader(title: layouts[indexPath.section].getTitle())
+                    header.configureHeader(title: layouts[indexPath.section].getTitle(), obj: layouts[indexPath.section])
                     return header
                 }
             case .nXn_Grid:

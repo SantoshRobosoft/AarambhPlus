@@ -9,24 +9,24 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class LoginController: UIViewController {
+class LoginController: BaseViewController {
 
-    @IBOutlet weak private var userNameTextField: SkyFloatingLabelTextField!
-    @IBOutlet weak private var passwordTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak private var userNameTextField: UITextField!
+    @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Log In"
-        userNameTextField.selectedLineColor = UIColor.appColor()
-        userNameTextField.selectedTitleColor = UIColor.appColor()
-        passwordTextField.selectedLineColor = UIColor.appColor()
-        passwordTextField.selectedTitleColor = UIColor.appColor()
-        
-        loginButton.layer.borderWidth = 1
-        loginButton.layer.borderColor = UIColor.appColor().cgColor
+//        userNameTextField.selectedLineColor = UIColor.appColor()
+//        userNameTextField.selectedTitleColor = UIColor.appColor()
+//        passwordTextField.selectedLineColor = UIColor.appColor()
+//        passwordTextField.selectedTitleColor = UIColor.appColor()
+        addGradient()
+//        loginButton.layer.borderWidth = 1
+//        loginButton.layer.borderColor = UIColor.appColor().cgColor
     }
-    
+        
     class func controller() -> LoginController {
         return UIStoryboard(name: "User", bundle: nil).instantiateViewController(withIdentifier: "LoginController") as! LoginController
     }
@@ -39,6 +39,22 @@ class LoginController: UIViewController {
     }
     
     @IBAction func didTapLogInButton(_ sender: UIButton) {
+        guard let email = userNameTextField.text, !email.isEmpty else  {
+            showAlert(title: "Error!", message: "Please enter email.")
+            return
+        }
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            showAlert(title: "Error!", message: "Please enter password.")
+            return
+        }
+        CustomLoader.addLoaderOn(view, gradient: false)
+        NetworkManager.loginWith(email: email, password: password) {[weak self] (result) in
+            CustomLoader.removeLoaderFrom(self?.view)
+            if let response = self?.parseError(result) {
+                UserManager.shared.updateUser(response.data)
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
 }
@@ -52,9 +68,9 @@ extension LoginController: UITextFieldDelegate {
     func initialSetUp() {
         userNameTextField.delegate = self
         passwordTextField.delegate = self
-        userNameTextField.selectedTitleColor = UIColor.appColor()
-        passwordTextField.selectedTitleColor = UIColor.appColor()
-        userNameTextField.selectedLineColor = UIColor.appColor()
-        passwordTextField.selectedLineColor = UIColor.appColor()
+//        userNameTextField.selectedTitleColor = UIColor.appColor()
+//        passwordTextField.selectedTitleColor = UIColor.appColor()
+//        userNameTextField.selectedLineColor = UIColor.appColor()
+//        passwordTextField.selectedLineColor = UIColor.appColor()
     }
 }

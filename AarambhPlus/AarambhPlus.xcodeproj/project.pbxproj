@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		724BAE11241C5D97A8375348 /* Pods_AarambhPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */; };
+		E80C35D52147ED2700155C6F /* RestApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80C35D42147ED2700155C6F /* RestApis.swift */; };
 		E8109774213FFDA00059913B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8109773213FFDA00059913B /* UILabelExtension.swift */; };
 		E8109776213FFE0D0059913B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8109775213FFE0D0059913B /* StringExtension.swift */; };
 		E8472A592143EB1C0002AC5F /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8472A582143EB1C0002AC5F /* HomeScreenViewModel.swift */; };
@@ -63,6 +64,9 @@
 		E8E6F6322146570D009481C1 /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6F6312146570D009481C1 /* VideoListController.swift */; };
 		E8E6F63421466DCA009481C1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */; };
 		E8E6F63621466E00009481C1 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E6F63521466E00009481C1 /* SectionHeaderView.xib */; };
+		E8EEC6E12149290B005D76A9 /* ProfileDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EEC6E02149290B005D76A9 /* ProfileDetailCell.swift */; };
+		E8EEC6E3214929C4005D76A9 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EEC6E2214929C4005D76A9 /* ProfileDetailViewController.swift */; };
+		E8EEC6E521492E09005D76A9 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EEC6E421492E09005D76A9 /* GridViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,7 @@
 		88CD0D0E617EDDD6658C2824 /* Pods-AarambhPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.release.xcconfig"; sourceTree = "<group>"; };
 		BC0C54DCDD5AE4EEBC63AB30 /* Pods-AarambhPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AarambhPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E80C35D42147ED2700155C6F /* RestApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApis.swift; sourceTree = "<group>"; };
 		E810976F213FFB320059913B /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		E8109773213FFDA00059913B /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		E8109775213FFE0D0059913B /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -148,6 +153,9 @@
 		E8E6F6312146570D009481C1 /* VideoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
 		E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E8E6F63521466E00009481C1 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		E8EEC6E02149290B005D76A9 /* ProfileDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailCell.swift; sourceTree = "<group>"; };
+		E8EEC6E2214929C4005D76A9 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
+		E8EEC6E421492E09005D76A9 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +333,7 @@
 				E89A732E213FC28300BAD081 /* LaunchViewController.swift */,
 				E89A7330213FC37F00BAD081 /* Constant.swift */,
 				E89A7332213FC6AD00BAD081 /* TabBarController.swift */,
+				E80C35D42147ED2700155C6F /* RestApis.swift */,
 			);
 			path = "App Setups";
 			sourceTree = "<group>";
@@ -335,6 +344,7 @@
 				E89A7335213FD7F700BAD081 /* HomeScreen.storyboard */,
 				E89A7337213FDB6900BAD081 /* HomeScreenController.swift */,
 				E8472A582143EB1C0002AC5F /* HomeScreenViewModel.swift */,
+				E8EEC6E421492E09005D76A9 /* GridViewController.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -382,6 +392,7 @@
 				E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */,
 				E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */,
 				E8B4A46921429490004E54D2 /* SignUpController.swift */,
+				E8EEC6E2214929C4005D76A9 /* ProfileDetailViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -394,6 +405,14 @@
 				E8B4A463214274B9004E54D2 /* HamburgerCell.swift */,
 			);
 			path = Hamburger;
+			sourceTree = "<group>";
+		};
+		E8EEC6DF214928EE005D76A9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E8EEC6E02149290B005D76A9 /* ProfileDetailCell.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		E8F5056F214130D200FEF0C0 /* Models */ = {
@@ -410,6 +429,7 @@
 		E8F50570214130D200FEF0C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8EEC6DF214928EE005D76A9 /* Profile */,
 				E8472A69214404320002AC5F /* HomeScreenViews */,
 			);
 			path = Views;
@@ -600,8 +620,10 @@
 			files = (
 				E89B1C6721400A85002823D6 /* HamburgerAnimation.swift in Sources */,
 				E8472A682143F6EC0002AC5F /* ImageViewExtension.swift in Sources */,
+				E8EEC6E12149290B005D76A9 /* ProfileDetailCell.swift in Sources */,
 				E8472A592143EB1C0002AC5F /* HomeScreenViewModel.swift in Sources */,
 				E89B56C82143E230000C22CD /* JSONRequestor.swift in Sources */,
+				E8EEC6E3214929C4005D76A9 /* ProfileDetailViewController.swift in Sources */,
 				E89B56CA2143E230000C22CD /* Requestor.swift in Sources */,
 				E89B56B02143DF0E000C22CD /* Layout.swift in Sources */,
 				E89A7327213FB51300BAD081 /* BaseViewController.swift in Sources */,
@@ -615,6 +637,7 @@
 				E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */,
 				E8109776213FFE0D0059913B /* StringExtension.swift in Sources */,
 				E89B56C32143E230000C22CD /* DataResource.swift in Sources */,
+				E8EEC6E521492E09005D76A9 /* GridViewController.swift in Sources */,
 				E8472A72214404320002AC5F /* RowItemCell.swift in Sources */,
 				E89A7338213FDB6900BAD081 /* HomeScreenController.swift in Sources */,
 				E8E6F6322146570D009481C1 /* VideoListController.swift in Sources */,
@@ -638,6 +661,7 @@
 				E89A732F213FC28300BAD081 /* LaunchViewController.swift in Sources */,
 				E8B4A45921426CF0004E54D2 /* LoginController.swift in Sources */,
 				E8472A73214404320002AC5F /* SmallCarouselCell.swift in Sources */,
+				E80C35D52147ED2700155C6F /* RestApis.swift in Sources */,
 				E89B56C92143E230000C22CD /* MultipartUploadRequestor.swift in Sources */,
 				E8E6F63421466DCA009481C1 /* SectionHeaderView.swift in Sources */,
 				E89B56AE2143DEF7000C22CD /* MediaItem.swift in Sources */,

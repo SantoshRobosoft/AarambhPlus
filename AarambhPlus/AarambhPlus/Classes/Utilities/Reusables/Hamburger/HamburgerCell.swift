@@ -20,6 +20,7 @@ class HamburgerProfileCell: UITableViewCell {
     func updateUI() {
         if UserManager.shared.isLoggedIn {
             nameLabel.text = UserManager.shared.user?.displayName
+            profilePicImageView.setKfImage(UserManager.shared.user?.profilePic)
         } else {
             nameLabel.text = "Click here to login."
         }

@@ -16,5 +16,6 @@ let CustomLoaderTag = 1666
 let iPad: Bool = (UIDevice.current.userInterfaceIdiom == .pad)
 
 //UserDefault keys
-let kSavedUser = "saved_user"
+let kSavedUserId = "saved_userId"
+let kSavedUserEmail = "saved_userEmail"
 

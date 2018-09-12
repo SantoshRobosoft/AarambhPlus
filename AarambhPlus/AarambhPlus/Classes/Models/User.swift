@@ -16,13 +16,17 @@ class User: NSObject, Codable {
     var nickName: String?
     var studioId: String?
     var isFree: String?
-    var isSubscribed: String?
+    var isSubscribed: Int?
+    var loginHistoryId: String?
+    var profilePic: String?
     
     enum CodingKeys: String, CodingKey {
         case id, email, isFree, isSubscribed
         case displayName = "display_name"
         case nickName = "nick_name"
         case studioId = "studio_id"
+        case loginHistoryId = "login_history_id"
+        case profilePic = "profile_image"
     }
     
 }

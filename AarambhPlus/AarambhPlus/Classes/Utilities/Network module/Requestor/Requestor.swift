@@ -233,10 +233,10 @@ extension BaseRequestor {
             return
         }
         let dataReq = DataResource<T>(loadFromServer: { (completion) -> DataRequestID in
-            var responseKeyvalue = "data"
-            if let res = responseKey?.replacingFirstOccurrenceOfString(target: "data.", withString: "") {
-                responseKeyvalue += ".\(res)"
-            }
+            let responseKeyvalue = responseKey
+//            if let res = responseKey?.replacingFirstOccurrenceOfString(target: "data.", withString: "") {
+//                responseKeyvalue += ".\(res)"
+//            }
             var params = parameters
             var urlString = url
             if parameters != nil, method == .get {

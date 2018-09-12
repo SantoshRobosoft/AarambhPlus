@@ -10,7 +10,7 @@ import UIKit
 import SkyFloatingLabelTextField
 
 class SignUpTextFieldCell: UICollectionViewCell {
-    @IBOutlet weak private var textField: SkyFloatingLabelTextField!
+    @IBOutlet weak private var textField: UITextField!
     @IBOutlet weak private var errorLabel: UILabel!
     
     private var indexPath: IndexPath!
@@ -19,8 +19,8 @@ class SignUpTextFieldCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         textField.delegate = self
-        textField.selectedLineColor = UIColor.appColor()
-        textField.selectedTitleColor = UIColor.appColor()
+//        textField.selectedLineColor = UIColor.appColor()
+//        textField.selectedTitleColor = UIColor.appColor()
     }
     
     func updateUI(info: SignUpTextFieldModel, at index: IndexPath) {
@@ -29,8 +29,8 @@ class SignUpTextFieldCell: UICollectionViewCell {
         textField.placeholder = info.placeHolder
         textField.text = info.currentValue
         if let error = info.errorMessage {
-            textField.errorMessage = ""//info.placeHolder
-            textField.errorColor = UIColor.red
+//            textField.errorMessage = ""//info.placeHolder
+//            textField.errorColor = UIColor.red
             errorLabel.text = error
         } else {
             errorLabel.text = nil

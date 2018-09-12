@@ -9,7 +9,7 @@
 import UIKit
 
 enum TabBarItemType {
-    case home, movies, search, more
+    case home, music, originals, jatra, movies
 }
 
 class TabBarController: UITabBarController {

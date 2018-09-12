@@ -60,7 +60,14 @@ extension HomeScreenController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        return viewModel?.collectionView(collectionView,viewForSupplementaryElementOfKind: kind, at: indexPath) ?? UICollectionReusableView()
+        if UICollectionElementKindSectionHeader == kind, let header = viewModel?.collectionView(collectionView,viewForSupplementaryElementOfKind: kind, at: indexPath) as? SectionHeaderView {
+            header.viewMoreClicked = { [weak self] (sender, layout) in
+                sender.isEnabled = true
+                self?.openGridScreen(layOut: layout)
+            }
+            return header
+        }
+        return  UICollectionReusableView()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -79,5 +86,11 @@ private extension HomeScreenController {
                 CustomLoader.removeLoaderFrom(self?.view)
             }
         }
+    }
+    
+    func openGridScreen(layOut: Layout?) {
+        let controller = VideoListController.controller()
+        controller.layout = layOut
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

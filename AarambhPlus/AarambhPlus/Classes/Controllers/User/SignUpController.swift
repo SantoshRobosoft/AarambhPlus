@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpController: UIViewController {
+class SignUpController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -24,6 +24,8 @@ class SignUpController: UIViewController {
         super.viewDidLoad()
         title = "Sign Up"
         createFieldsInSignUpScreen()
+        addGradient()
+//        addGradientToCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,5 +116,17 @@ private extension SignUpController {
                 }
             }
         }
+    }
+    
+    func addGradientToCollectionView() {
+        let colorTop = UIColor.colorRGB(255, g: 200, b: 55).cgColor
+        let colorBottom = UIColor.colorRGB(255, g: 128, b: 8).cgColor
+        let gradient = CAGradientLayer()
+        gradient.colors = [colorTop, colorBottom]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 1.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = view.frame
+        self.collectionView.layer.insertSublayer(gradient, at: 0)
     }
 }

@@ -23,19 +23,29 @@ class UserManager: NSObject {
             return
         }
         self.user = user
-        self.saveUserToLocalStorage(user: user)
+        self.saveUserToLocalStorage(userId: user.id, email: user.email)
     }
     
     func getUserFromLocalStorage() {
-        if let data = UserDefaults.standard.object(forKey: kSavedUser) as? Data, let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
-            self.user = user
-        }
+        
+    }
+    
+    func logoutUser(handler: ((_ success: Bool)->Void)?) {
+        UserDefaults.standard.removeObject(forKey: kSavedUserId)
+        UserDefaults.standard.removeObject(forKey: kSavedUserEmail)
+        UserDefaults.standard.synchronize()
+        self.user = nil
+        handler?(true)
     }
 }
 
 private extension UserManager {
-    func saveUserToLocalStorage(user: User) {
-        let obj = NSKeyedArchiver.archivedData(withRootObject: user)
-        UserDefaults.standard.set(obj, forKey: kSavedUser)
+    func saveUserToLocalStorage(userId: String?, email: String?) {
+        guard let userId = userId else {
+            return
+        }
+        UserDefaults.standard.set(userId, forKey: kSavedUserId)
+        UserDefaults.standard.set(email, forKey: kSavedUserEmail)
+        UserDefaults.standard.synchronize()
     }
 }

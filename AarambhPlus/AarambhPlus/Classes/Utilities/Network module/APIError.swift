@@ -18,6 +18,7 @@ public enum APIError: Error {
     case needRetry
     case generalError(code: Int?, message: String?)
     case accountBlocked(message:String?)
+    case loginFailed(message:String?)
 
     func localizedDescription() -> String {
         switch self {
@@ -33,6 +34,8 @@ public enum APIError: Error {
             return message ?? "Something went wrong. please try later"
         case .accountBlocked(let message):
             return message ?? "Something went wrong. please try later"
+        case .loginFailed(let message):
+            return message ?? "Login failed."
         default:
             return "Something went wrong. please try later"
         }

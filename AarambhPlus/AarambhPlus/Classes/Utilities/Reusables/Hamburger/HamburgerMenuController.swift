@@ -60,7 +60,11 @@ extension HamburgerMenuController: UITableViewDataSource {
 extension HamburgerMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == HamburgerCellType.profile.rawValue {
-            self.performSelector(onMainThread: #selector(pushLoginScreen), with: nil, waitUntilDone: false)
+            if UserManager.shared.isLoggedIn {
+                self.performSelector(onMainThread: #selector(pushProfileScreen), with: nil, waitUntilDone: false)
+            } else {
+                self.performSelector(onMainThread: #selector(pushLoginScreen), with: nil, waitUntilDone: false)
+            }
         }
     }
 }
@@ -72,6 +76,11 @@ private extension HamburgerMenuController {
         }
     }
     
+    @objc func pushProfileScreen() {
+        dismiss(animated: true) {
+            (appDelegate?.window??.rootViewController  as? APNavigationController)?.pushViewController(ProfileDetailViewController.controller(), animated: true)
+        }
+    }
 }
 
 extension HamburgerMenuController: UIViewControllerTransitioningDelegate {
