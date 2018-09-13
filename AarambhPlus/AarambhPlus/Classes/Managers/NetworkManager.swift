@@ -30,7 +30,6 @@ class NetworkManager: NSObject {
         BaseRequestor.postRequest(url: RestApis.shared.userInfoUrl, parameters: param, handler: handler)
     }
     
-    
     class func signOut(user: User, handler: (APICompletion<CODE>)? = nil) {
         var param = [String:Any]()
         param["email"] = user.email
@@ -39,7 +38,7 @@ class NetworkManager: NSObject {
         BaseRequestor.postRequest(url: RestApis.shared.logOutUrl, parameters: param, handler: handler)
     }
     
-    class func registerUser(param: String, handler: (APICompletion<[Layout]>)? = nil) {
-        
+    class func registerUser(param: [String:Any], handler: (APICompletion<User>)? = nil) {
+        BaseRequestor.postRequest(url: RestApis.shared.signUpUrl, parameters: param , handler: handler)
     }
 }

@@ -14,4 +14,5 @@ enum APIStatusCode: Int {
     case invalidAccessToken = 3463
     case sessionExpired = 3462
     case loginFailedErrorCode = 406
+    case signUpFailedErrorCode = 422
 }

@@ -100,6 +100,10 @@ class JSONRequestor: BaseRequestor {
                 //invalid access token
                 return (false, APIError.loginFailed(message: json["msg"] as? String))
             }
+            guard status != APIStatusCode.signUpFailedErrorCode.rawValue else {
+                //invalid access token
+                return (false, APIError.loginFailed(message: json["msg"] as? String))
+            }
             guard status != APIStatusCode.invalidAccessToken.rawValue else {
                 //invalid access token
                 return (false, APIError.invalidAccessToken)

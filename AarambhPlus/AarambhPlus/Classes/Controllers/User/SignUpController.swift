@@ -100,16 +100,37 @@ private extension SignUpController {
         // validate the data and hit the api
         collectionView.endEditing(true)
         var noError = true
+        var params = [String:Any]()
         for file in fields {
+            if let serverKey = file.getServerKey() {
+                params[serverKey] = file.currentValue
+            }
             if !file.validate(){
                 noError = false
             }
+        }
+        if fields[3].currentValue != fields[4].currentValue {
+            fields[4].errorMessage = "Password mismatch."
+            noError = false
         }
         if !noError {
             collectionView.reloadData()
             return
         }
-        if let controllers = navigationController?.viewControllers{
+        params["authToken"] = kAuthToken
+        CustomLoader.addLoaderOn(view, gradient: false)
+        NetworkManager.registerUser(param: params) {[weak self] (result) in
+            CustomLoader.removeLoaderFrom(self?.view)
+            if let response = self?.parseError(result) {
+                UserManager.shared.updateUser(response.data)
+                self?.popToRootViewController()
+            }
+        }
+        
+    }
+    
+    func popToRootViewController() {
+        if let controllers = navigationController?.viewControllers {
             for controller in controllers {
                 if !(controller.isKind(of: LoginController.self) || controller.isKind(of: LoginController.self)) {
                     navigationController?.popToViewController(controller, animated: true)

@@ -26,8 +26,19 @@ class SignUpTextFieldModel: NSObject {
             errorMessage = "Please enter \(placeHolder ?? "")"
             return false
         } else {
+            if placeHolder?.lowercased() == "email", currentValue?.isValidEmail() == false {
+                errorMessage = "please enter a valid email id"
+                return false
+            }
             errorMessage = nil
         }
         return true
+    }
+    
+    func getServerKey() -> String? {
+        if placeHolder?.lowercased().contains("confirm password") == true {
+            return nil
+        }
+        return placeHolder?.lowercased()
     }
 }
