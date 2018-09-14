@@ -25,6 +25,10 @@ class CarouselViewCell: UICollectionViewCell {
         carouselView.delegate = self
         carouselView.dataSource = self
         carouselView.isPagingEnabled = true
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
         timer?.invalidate()
     }
     
@@ -38,6 +42,7 @@ class CarouselViewCell: UICollectionViewCell {
         if items.count > 1 {
             timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(autoScrollBanner), userInfo: nil, repeats: true)
         }
+//        timer?.fire()
     }
     
     @objc func autoScrollBanner() {
