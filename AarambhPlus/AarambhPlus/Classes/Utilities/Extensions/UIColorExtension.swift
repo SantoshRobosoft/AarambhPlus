@@ -15,6 +15,6 @@ extension UIColor {
     }
     
     class func appColor() -> UIColor {
-        return UIColor.colorRGB(110, g: 36, b: 151)
+        return UIColor.colorRGB(255, g: 128, b: 8)
     }
 }

@@ -13,6 +13,7 @@ enum LayoutType: String {
     
 }
 
+typealias cellSelectionHandler = ((_ model: Any?, _ index: Int) -> Void)
 
 class HomeScreenViewModel: NSObject {
     var layouts = [Layout]()
@@ -27,6 +28,7 @@ class HomeScreenViewModel: NSObject {
         collectionView.register(UINib(nibName: "TopBannerCell", bundle: nil) , forCellWithReuseIdentifier: "TopBannerCell")
         collectionView.register(UINib(nibName: "RowItemCell", bundle: nil) , forCellWithReuseIdentifier: "RowItemCell")
         collectionView.register(UINib(nibName: "BannerImageCell", bundle: nil) , forCellWithReuseIdentifier: "BannerImageCell")
+        collectionView.register(UINib(nibName: "CarouselViewCell", bundle: nil) , forCellWithReuseIdentifier: "CarouselViewCell")
         collectionView.register(UINib(nibName: "SectionHeaderView", bundle: nil ), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SectionHeaderView")
     }
     
@@ -38,11 +40,23 @@ class HomeScreenViewModel: NSObject {
         return 1//layouts[section].mediaItems?.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopBannerCell", for: indexPath) as! TopBannerCell
-            cell.configureCell(info: layouts[indexPath.section])
-            return cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, handler: cellSelectionHandler?) -> UICollectionViewCell {
+        
+        if let layOut = layouts[indexPath.section].layOut,let layOuType = LayoutType(rawValue: layOut) {
+            switch layOuType {
+            case .top_Banner:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselViewCell", for: indexPath) as! CarouselViewCell
+                cell.handler = handler
+                cell.configureCellWith(layout: layouts[indexPath.section])
+                return cell
+            case .row_Item, .nXn_Grid, .small_Carousel:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopBannerCell", for: indexPath) as! TopBannerCell
+                cell.handler = handler
+                cell.configureCell(info: layouts[indexPath.section])
+                return cell
+            }
+        }
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -126,11 +140,11 @@ class HomeScreenViewModel: NSObject {
         if let layOutStr = layouts[section].layOut,let layOuType = LayoutType(rawValue: layOutStr) {
             let layOut = layouts[section].getItem()
             switch layOuType {
-            case .row_Item:
+            case .row_Item, .small_Carousel:
                 if !layOut.isEmpty {
                     return CGSize(width: windowWidth, height: 60)
                 }
-            case .top_Banner, .small_Carousel, .nXn_Grid:
+            case .top_Banner, .nXn_Grid:
                 return CGSize.zero
             }
         }

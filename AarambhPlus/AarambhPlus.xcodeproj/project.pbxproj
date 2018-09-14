@@ -20,6 +20,11 @@
 		E8472A74214404320002AC5F /* TopBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8472A6E214404320002AC5F /* TopBannerCell.swift */; };
 		E8472A75214404320002AC5F /* TopBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8472A6F214404320002AC5F /* TopBannerCell.xib */; };
 		E8472A77214406060002AC5F /* RowItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8472A76214406060002AC5F /* RowItemCell.xib */; };
+		E866E09B214BA3FC0045F2DB /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = E866E099214BA3FC0045F2DB /* iCarousel.m */; };
+		E866E09C214BA3FC0045F2DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E866E09A214BA3FC0045F2DB /* Info.plist */; };
+		E866E09F214BA60A0045F2DB /* CarouselViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E866E09E214BA60A0045F2DB /* CarouselViewCell.xib */; };
+		E866E0A1214BA6810045F2DB /* CarouselViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E866E0A0214BA6810045F2DB /* CarouselViewCell.swift */; };
+		E866E0A7214BCB6C0045F2DB /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E866E0A6214BCB6C0045F2DB /* VideoPlayerController.swift */; };
 		E89A72F2213FB2D200BAD081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A72F1213FB2D200BAD081 /* AppDelegate.swift */; };
 		E89A72F7213FB2D200BAD081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89A72F5213FB2D200BAD081 /* Main.storyboard */; };
 		E89A72F9213FB2D500BAD081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E89A72F8213FB2D500BAD081 /* Assets.xcassets */; };
@@ -103,6 +108,13 @@
 		E8472A6E214404320002AC5F /* TopBannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBannerCell.swift; sourceTree = "<group>"; };
 		E8472A6F214404320002AC5F /* TopBannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBannerCell.xib; sourceTree = "<group>"; };
 		E8472A76214406060002AC5F /* RowItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RowItemCell.xib; sourceTree = "<group>"; };
+		E866E098214BA3FC0045F2DB /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		E866E099214BA3FC0045F2DB /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		E866E09A214BA3FC0045F2DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E866E09D214BA59D0045F2DB /* AarambhPlus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AarambhPlus-Bridging-Header.h"; sourceTree = "<group>"; };
+		E866E09E214BA60A0045F2DB /* CarouselViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselViewCell.xib; sourceTree = "<group>"; };
+		E866E0A0214BA6810045F2DB /* CarouselViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewCell.swift; sourceTree = "<group>"; };
+		E866E0A6214BCB6C0045F2DB /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
 		E89A72EE213FB2D200BAD081 /* AarambhPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AarambhPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89A72F1213FB2D200BAD081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E89A72F6213FB2D200BAD081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -224,8 +236,28 @@
 				E8472A76214406060002AC5F /* RowItemCell.xib */,
 				E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */,
 				E8E6F63521466E00009481C1 /* SectionHeaderView.xib */,
+				E866E09E214BA60A0045F2DB /* CarouselViewCell.xib */,
+				E866E0A0214BA6810045F2DB /* CarouselViewCell.swift */,
 			);
 			path = HomeScreenViews;
+			sourceTree = "<group>";
+		};
+		E866E096214BA3B60045F2DB /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				E866E097214BA3FC0045F2DB /* iCarousel */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		E866E097214BA3FC0045F2DB /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				E866E098214BA3FC0045F2DB /* iCarousel.h */,
+				E866E099214BA3FC0045F2DB /* iCarousel.m */,
+				E866E09A214BA3FC0045F2DB /* Info.plist */,
+			);
+			path = iCarousel;
 			sourceTree = "<group>";
 		};
 		E89A72E5213FB2D200BAD081 = {
@@ -284,6 +316,7 @@
 		E89A731F213FB33E00BAD081 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E866E096214BA3B60045F2DB /* Library */,
 				E89B56AA2143DE91000C22CD /* Managers */,
 				E8F5056F214130D200FEF0C0 /* Models */,
 				E8F50570214130D200FEF0C0 /* Views */,
@@ -322,6 +355,7 @@
 				E89A7339213FF47500BAD081 /* CustomLoader.swift */,
 				E810976F213FFB320059913B /* FadeTransition.swift */,
 				E89B1C6621400A85002823D6 /* HamburgerAnimation.swift */,
+				E866E0A6214BCB6C0045F2DB /* VideoPlayerController.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -334,6 +368,7 @@
 				E89A7330213FC37F00BAD081 /* Constant.swift */,
 				E89A7332213FC6AD00BAD081 /* TabBarController.swift */,
 				E80C35D42147ED2700155C6F /* RestApis.swift */,
+				E866E09D214BA59D0045F2DB /* AarambhPlus-Bridging-Header.h */,
 			);
 			path = "App Setups";
 			sourceTree = "<group>";
@@ -549,7 +584,9 @@
 				E89A7336213FD7F700BAD081 /* HomeScreen.storyboard in Resources */,
 				E89A72F9213FB2D500BAD081 /* Assets.xcassets in Resources */,
 				E8E6F63621466E00009481C1 /* SectionHeaderView.xib in Resources */,
+				E866E09C214BA3FC0045F2DB /* Info.plist in Resources */,
 				E89A72F7213FB2D200BAD081 /* Main.storyboard in Resources */,
+				E866E09F214BA60A0045F2DB /* CarouselViewCell.xib in Resources */,
 				E8B4A45721426A41004E54D2 /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +669,7 @@
 				E89B56AC2143DEB9000C22CD /* NetworkManager.swift in Sources */,
 				E89B56BF2143E230000C22CD /* APIError.swift in Sources */,
 				E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */,
+				E866E0A7214BCB6C0045F2DB /* VideoPlayerController.swift in Sources */,
 				E89B56C22143E230000C22CD /* APIStatusCodes.swift in Sources */,
 				E89B56C12143E230000C22CD /* APIResponse.swift in Sources */,
 				E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */,
@@ -647,6 +685,7 @@
 				E89B56C62143E230000C22CD /* AttachmentRequestor.swift in Sources */,
 				E8472A70214404320002AC5F /* BannerImageCell.swift in Sources */,
 				E8B4A45D21426D2B004E54D2 /* UserManager.swift in Sources */,
+				E866E0A1214BA6810045F2DB /* CarouselViewCell.swift in Sources */,
 				E89A7331213FC37F00BAD081 /* Constant.swift in Sources */,
 				E89B56C02143E230000C22CD /* APIResource.swift in Sources */,
 				E8B4A464214274B9004E54D2 /* HamburgerCell.swift in Sources */,
@@ -663,6 +702,7 @@
 				E8472A73214404320002AC5F /* SmallCarouselCell.swift in Sources */,
 				E80C35D52147ED2700155C6F /* RestApis.swift in Sources */,
 				E89B56C92143E230000C22CD /* MultipartUploadRequestor.swift in Sources */,
+				E866E09B214BA3FC0045F2DB /* iCarousel.m in Sources */,
 				E8E6F63421466DCA009481C1 /* SectionHeaderView.swift in Sources */,
 				E89B56AE2143DEF7000C22CD /* MediaItem.swift in Sources */,
 			);
@@ -846,6 +886,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandev.AarambhPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AarambhPlus/Classes/Utilities/App Setups/AarambhPlus-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -864,6 +905,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandev.AarambhPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AarambhPlus/Classes/Utilities/App Setups/AarambhPlus-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

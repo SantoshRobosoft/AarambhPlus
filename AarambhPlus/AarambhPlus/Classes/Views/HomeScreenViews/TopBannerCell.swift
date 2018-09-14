@@ -24,6 +24,7 @@ class TopBannerCell: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dataSource: TopBannerProtocol?
+    var handler: cellSelectionHandler?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -78,7 +79,7 @@ extension TopBannerCell: UICollectionViewDelegateFlowLayout {
             case .row_Item:
                 return CGSize(width: (windowWidth - 100)/2, height: 200)
             case .small_Carousel:
-                return CGSize(width: windowWidth/2 , height: 150)
+                return CGSize(width: 350 , height: 150)
             case .nXn_Grid:
                 return CGSize.zero
             }
@@ -121,6 +122,10 @@ extension TopBannerCell: UICollectionViewDelegateFlowLayout {
             }
         }
         return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        handler?(dataSource?.getItem()[indexPath.row], indexPath.row)
     }
 }
 

@@ -16,6 +16,7 @@ class APNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+        navigationBar.backgroundColor = UIColor.appColor()
         createHambergerButton()
         createBackButton()
     }

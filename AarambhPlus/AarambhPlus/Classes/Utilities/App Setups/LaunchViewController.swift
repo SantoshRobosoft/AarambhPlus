@@ -50,6 +50,7 @@ private extension LaunchViewController {
             case .home:
                 let vc = HomeScreenController.controller()
                 vc.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "Home_tab"), selectedImage: #imageLiteral(resourceName: "Home_tab"))
+                vc.title = "Home"
                 controllers.append(vc)
             case .music:
                 let vc = VideoListController.controller()
@@ -72,6 +73,8 @@ private extension LaunchViewController {
         let tabBar = TabBarController()
         tabBar.viewControllers = controllers
         CustomLoader.removeLoaderFrom(self.view)
+        tabBar.tabBar.tintColor = UIColor.red
+        tabBar.tabBar.backgroundColor = UIColor.appColor()
         appDelegate?.window??.rootViewController = APNavigationController(rootViewController: tabBar)
         
     }

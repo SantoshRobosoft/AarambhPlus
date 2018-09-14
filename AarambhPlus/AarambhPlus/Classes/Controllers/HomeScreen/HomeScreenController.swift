@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class HomeScreenController: BaseViewController {
 
@@ -15,6 +17,8 @@ class HomeScreenController: BaseViewController {
     var viewModel: HomeScreenViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Home"
+        navigationController?.tabBarItem.title = "dfsfs"
         fetchData()
     }
     
@@ -42,7 +46,13 @@ extension HomeScreenController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return viewModel?.collectionView(collectionView, cellForItemAt: indexPath) ?? UICollectionViewCell()
+        if let cell = viewModel?.collectionView(collectionView, cellForItemAt: indexPath, handler: {[weak self] (info, index) in
+            self?.loadVideoPlayer()
+        }) {
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
 }
 
@@ -92,5 +102,17 @@ private extension HomeScreenController {
         let controller = VideoListController.controller()
         controller.layout = layOut
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func loadVideoPlayer() {
+        guard let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4") else {
+            return
+        }
+        let player = AVPlayer(url: videoURL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player?.play()
+        }
     }
 }
