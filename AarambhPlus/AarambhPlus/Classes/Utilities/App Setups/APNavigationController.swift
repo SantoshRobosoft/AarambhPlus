@@ -19,6 +19,15 @@ class APNavigationController: UINavigationController {
         navigationBar.backgroundColor = UIColor.appColor()
         createHambergerButton()
         createBackButton()
+        /*******************************Navigation Bar Gradient Colour************************************/
+        let gradient = CAGradientLayer()
+        let sizeLength = UIScreen.main.bounds.size.height * 2
+        let defaultNavigationBarFrame = CGRect(x: 0, y: 0, width: sizeLength, height: 64)
+        gradient.frame = defaultNavigationBarFrame
+        let colorBottom = UIColor.colorRGB(255, g: 200, b: 55).cgColor
+        let colorTop = UIColor.colorRGB(255, g: 128, b: 8).cgColor
+        gradient.colors = [colorTop, colorBottom]
+        UINavigationBar.appearance().setBackgroundImage(image(fromLayer: gradient), for: .default)
     }
     
     func setRootViewController(_ controller: UIViewController, animated: Bool) {
@@ -84,4 +93,12 @@ extension APNavigationController: UINavigationControllerDelegate {
             viewController.navigationItem.leftBarButtonItem = self.backButton
         }
     }
+}
+/*******************************Navigation Bar Gradient Colour************************************/
+func image(fromLayer layer: CALayer) -> UIImage {
+    UIGraphicsBeginImageContext(layer.frame.size)
+    layer.render(in: UIGraphicsGetCurrentContext()!)
+    let outputImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return outputImage!
 }
