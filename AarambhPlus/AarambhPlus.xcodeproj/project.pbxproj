@@ -21,7 +21,6 @@
 		E8472A75214404320002AC5F /* TopBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8472A6F214404320002AC5F /* TopBannerCell.xib */; };
 		E8472A77214406060002AC5F /* RowItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8472A76214406060002AC5F /* RowItemCell.xib */; };
 		E866E09B214BA3FC0045F2DB /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = E866E099214BA3FC0045F2DB /* iCarousel.m */; };
-		E866E09C214BA3FC0045F2DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E866E09A214BA3FC0045F2DB /* Info.plist */; };
 		E866E09F214BA60A0045F2DB /* CarouselViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E866E09E214BA60A0045F2DB /* CarouselViewCell.xib */; };
 		E866E0A1214BA6810045F2DB /* CarouselViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E866E0A0214BA6810045F2DB /* CarouselViewCell.swift */; };
 		E866E0A7214BCB6C0045F2DB /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E866E0A6214BCB6C0045F2DB /* VideoPlayerController.swift */; };
@@ -66,6 +65,7 @@
 		E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */; };
 		E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */; };
 		E8B4A46A21429490004E54D2 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A46921429490004E54D2 /* SignUpController.swift */; };
+		E8E640D22155307B0002568D /* VideoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E640D12155307B0002568D /* VideoDetailController.swift */; };
 		E8E6F6322146570D009481C1 /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6F6312146570D009481C1 /* VideoListController.swift */; };
 		E8E6F63421466DCA009481C1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */; };
 		E8E6F63621466E00009481C1 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E6F63521466E00009481C1 /* SectionHeaderView.xib */; };
@@ -110,7 +110,6 @@
 		E8472A76214406060002AC5F /* RowItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RowItemCell.xib; sourceTree = "<group>"; };
 		E866E098214BA3FC0045F2DB /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		E866E099214BA3FC0045F2DB /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-		E866E09A214BA3FC0045F2DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E866E09D214BA59D0045F2DB /* AarambhPlus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AarambhPlus-Bridging-Header.h"; sourceTree = "<group>"; };
 		E866E09E214BA60A0045F2DB /* CarouselViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselViewCell.xib; sourceTree = "<group>"; };
 		E866E0A0214BA6810045F2DB /* CarouselViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewCell.swift; sourceTree = "<group>"; };
@@ -162,6 +161,7 @@
 		E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldModel.swift; sourceTree = "<group>"; };
 		E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldCell.swift; sourceTree = "<group>"; };
 		E8B4A46921429490004E54D2 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		E8E640D12155307B0002568D /* VideoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailController.swift; sourceTree = "<group>"; };
 		E8E6F6312146570D009481C1 /* VideoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
 		E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E8E6F63521466E00009481C1 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
@@ -255,7 +255,6 @@
 			children = (
 				E866E098214BA3FC0045F2DB /* iCarousel.h */,
 				E866E099214BA3FC0045F2DB /* iCarousel.m */,
-				E866E09A214BA3FC0045F2DB /* Info.plist */,
 			);
 			path = iCarousel;
 			sourceTree = "<group>";
@@ -332,6 +331,7 @@
 				E8B4A45521426A36004E54D2 /* User */,
 				E89A7334213FD7E700BAD081 /* HomeScreen */,
 				E89A7326213FB51300BAD081 /* BaseViewController.swift */,
+				E8E640D12155307B0002568D /* VideoDetailController.swift */,
 				E8E6F6312146570D009481C1 /* VideoListController.swift */,
 			);
 			path = Controllers;
@@ -584,7 +584,6 @@
 				E89A7336213FD7F700BAD081 /* HomeScreen.storyboard in Resources */,
 				E89A72F9213FB2D500BAD081 /* Assets.xcassets in Resources */,
 				E8E6F63621466E00009481C1 /* SectionHeaderView.xib in Resources */,
-				E866E09C214BA3FC0045F2DB /* Info.plist in Resources */,
 				E89A72F7213FB2D200BAD081 /* Main.storyboard in Resources */,
 				E866E09F214BA60A0045F2DB /* CarouselViewCell.xib in Resources */,
 				E8B4A45721426A41004E54D2 /* User.storyboard in Resources */,
@@ -667,6 +666,7 @@
 				E89A732D213FB97600BAD081 /* APNavigationController.swift in Sources */,
 				E89B56C42143E230000C22CD /* ErrorHandling.swift in Sources */,
 				E89B56AC2143DEB9000C22CD /* NetworkManager.swift in Sources */,
+				E8E640D22155307B0002568D /* VideoDetailController.swift in Sources */,
 				E89B56BF2143E230000C22CD /* APIError.swift in Sources */,
 				E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */,
 				E866E0A7214BCB6C0045F2DB /* VideoPlayerController.swift in Sources */,
