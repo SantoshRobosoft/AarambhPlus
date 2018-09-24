@@ -8,18 +8,36 @@
 
 import UIKit
 
-enum HamburgerCellType: Int {
-    case profile = 0, item
+enum HamburgerCellType: Int, CaseIterable {
+    case profile = 0, items
 }
 
 class HamburgerMenuController: UIViewController {
 
     @IBOutlet weak private var tableView: UITableView!
     
+    var items = ["Favourites", "Watch List"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !items.contains("Log Out") {
+            if UserManager.shared.isLoggedIn {
+                items.append("Log Out")
+            } else {
+                for (index, item) in items.enumerated() {
+                    if item == "Log Out" {
+                        items.remove(at: index)
+                        return
+                    }
+                }
+            }
+        }
     }
 
     class func controller() -> HamburgerMenuController {
@@ -38,22 +56,35 @@ class HamburgerMenuController: UIViewController {
 extension HamburgerMenuController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return HamburgerCellType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let type = HamburgerCellType(rawValue: section) {
+            switch type {
+            case .profile:
+                return 1
+            case .items:
+                return items.count
+            }
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == HamburgerCellType.profile.rawValue {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HamburgerProfileCell", for: indexPath) as! HamburgerProfileCell
-            cell.updateUI()
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HamburgerItemCell", for: indexPath) as! HamburgerItemCell
-            return cell
+        if let type = HamburgerCellType(rawValue: indexPath.section) {
+            switch type {
+            case .profile:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "HamburgerProfileCell", for: indexPath) as! HamburgerProfileCell
+                cell.updateUI()
+                return cell
+            case .items:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "HamburgerItemCell", for: indexPath) as! HamburgerItemCell
+                cell.updateUI(title: items[indexPath.row])
+                return cell
+            }
         }
+        return UITableViewCell()
     }
 }
 

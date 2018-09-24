@@ -41,7 +41,7 @@ private extension LaunchViewController {
         }
     }
     
-    /// <#Description#>
+    /// sdfsfsdfsd
     func createTabBarItems() {
         let barItems:[TabBarItemType] = [.home, .music, .originals, .jatra, .movies]
         var controllers = [UIViewController]()
@@ -70,6 +70,12 @@ private extension LaunchViewController {
                 controllers.append(vc)
             }
         }
+        UITabBar.appearance().tintColor = UIColor.appColor()
+        UITabBar.appearance().unselectedItemTintColor = UIColor.gray
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.barTintColor = UIColor.white
+        navigationBarAppearance.tintColor = UIColor.appColor()
+        navigationBarAppearance.isTranslucent = false
         let tabBar = TabBarController()
         tabBar.viewControllers = controllers
         CustomLoader.removeLoaderFrom(self.view)

@@ -15,6 +15,6 @@ extension UIColor {
     }
     
     class func appColor() -> UIColor {
-        return UIColor.colorRGB(255, g: 128, b: 8)
+       return #colorLiteral(red: 0.9722746015, green: 0.6105168462, blue: 0.1090024188, alpha: 1)
     }
 }
