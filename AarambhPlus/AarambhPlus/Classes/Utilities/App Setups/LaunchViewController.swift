@@ -70,6 +70,7 @@ private extension LaunchViewController {
                 controllers.append(vc)
             }
         }
+
         let tabBar = TabBarController()
         tabBar.viewControllers = controllers
         CustomLoader.removeLoaderFrom(self.view)

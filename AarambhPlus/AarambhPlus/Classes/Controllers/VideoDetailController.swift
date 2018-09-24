@@ -49,7 +49,11 @@ extension VideoDetailController: UITableViewDataSource {
 extension VideoDetailController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            loadVideoPlayer()
+            if !UserManager.shared.isLoggedIn {
+                self.performSelector(onMainThread: #selector(pushLoginScreen), with: nil, waitUntilDone: false)
+            } else {
+                loadVideoPlayer()
+            }
         }
     }
 }
@@ -65,5 +69,9 @@ private extension VideoDetailController {
         self.present(playerViewController, animated: true) {
             playerViewController.player?.play()
         }
+    }
+    
+    @objc func pushLoginScreen() {
+        navigationController?.pushViewController(LoginController.controller(), animated: true)
     }
 }
