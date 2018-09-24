@@ -70,17 +70,9 @@ private extension LaunchViewController {
                 controllers.append(vc)
             }
         }
-        UITabBar.appearance().tintColor = UIColor.appColor()
-        UITabBar.appearance().unselectedItemTintColor = UIColor.gray
-        let navigationBarAppearance = UINavigationBar.appearance()
-        navigationBarAppearance.barTintColor = UIColor.white
-        navigationBarAppearance.tintColor = UIColor.appColor()
-        navigationBarAppearance.isTranslucent = false
         let tabBar = TabBarController()
         tabBar.viewControllers = controllers
         CustomLoader.removeLoaderFrom(self.view)
-//        tabBar.tabBar.tintColor = UIColor.red
-//        tabBar.tabBar.backgroundColor = UIColor.appColor()
         appDelegate?.window??.rootViewController = APNavigationController(rootViewController: tabBar)
         
     }

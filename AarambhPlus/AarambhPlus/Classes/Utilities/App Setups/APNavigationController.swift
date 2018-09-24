@@ -16,18 +16,17 @@ class APNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        navigationBar.backgroundColor = UIColor.appColor()
+//        navigationBar.backgroundColor = UIColor.appColor()
         createHambergerButton()
         createBackButton()
         /*******************************Navigation Bar Gradient Colour************************************/
         let gradient = CAGradientLayer()
-        let sizeLength = UIScreen.main.bounds.size.height * 2
-        let defaultNavigationBarFrame = CGRect(x: 0, y: 0, width: sizeLength, height: 64)
+        let defaultNavigationBarFrame = navigationBar.frame
         gradient.frame = defaultNavigationBarFrame
         let colorBottom = UIColor.colorRGB(255, g: 200, b: 55).cgColor
         let colorTop = UIColor.colorRGB(255, g: 128, b: 8).cgColor
         gradient.colors = [colorTop, colorBottom]
-        UINavigationBar.appearance().setBackgroundImage(image(fromLayer: gradient), for: .default)
+        UINavigationBar.appearance().barTintColor = UIColor.appColor()//setBackgroundImage(image(fromLayer: gradient), for: .default)
     }
     
     func setRootViewController(_ controller: UIViewController, animated: Bool) {
