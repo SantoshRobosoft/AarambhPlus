@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum HamburgerCellType: Int, CaseIterable {
+enum HamburgerCellType: Int {
     case profile = 0, items
 }
 
@@ -56,7 +56,7 @@ class HamburgerMenuController: UIViewController {
 extension HamburgerMenuController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return HamburgerCellType.allCases.count
+        return 2//HamburgerCellType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
