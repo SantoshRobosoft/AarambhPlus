@@ -17,8 +17,7 @@ class HomeScreenController: BaseViewController {
     var viewModel: HomeScreenViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
-        navigationController?.tabBarItem.title = "dfsfs"
+        navigationItem.title = "Home"
         fetchData()
     }
     

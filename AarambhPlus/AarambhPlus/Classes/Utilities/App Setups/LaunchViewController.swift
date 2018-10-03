@@ -43,38 +43,38 @@ private extension LaunchViewController {
     
     /// sdfsfsdfsd
     func createTabBarItems() {
-        let barItems:[TabBarItemType] = [.home, .music, .originals, .jatra, .movies]
-        var controllers = [UIViewController]()
-        for item in barItems {
-            switch item {
-            case .home:
-                let vc = HomeScreenController.controller()
-                vc.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "Home_tab"), selectedImage: #imageLiteral(resourceName: "Home_tab"))
-                vc.title = "Home"
-                controllers.append(vc)
-            case .music:
-                let vc = VideoListController.controller()
-                vc.tabBarItem = UITabBarItem(title: "Music", image: #imageLiteral(resourceName: "Movie_tab"), selectedImage: #imageLiteral(resourceName: "Movie_tab"))
-                controllers.append(vc)
-            case .originals:
-                let vc = VideoListController.controller()
-                vc.tabBarItem = UITabBarItem(title: "Original", image: #imageLiteral(resourceName: "Search_tab"), selectedImage: #imageLiteral(resourceName: "Search_tab"))
-                controllers.append(vc)
-            case .jatra:
-                let vc = HomeScreenController.controller()
-                vc.tabBarItem = UITabBarItem(title: "Jatra", image: #imageLiteral(resourceName: "Home_tab"), selectedImage: #imageLiteral(resourceName: "Home_tab"))
-                controllers.append(vc)
-            case .movies:
-                let vc = VideoListController.controller()
-                vc.tabBarItem = UITabBarItem(title: "Movies", image: #imageLiteral(resourceName: "Search_tab"), selectedImage: #imageLiteral(resourceName: "Search_tab"))
-                controllers.append(vc)
-            }
-        }
-
-        let tabBar = TabBarController()
-        tabBar.viewControllers = controllers
-        CustomLoader.removeLoaderFrom(self.view)
-        appDelegate?.window??.rootViewController = APNavigationController(rootViewController: tabBar)
-        
+//        let barItems:[TabBarItemType] = [.home, .music, .originals, .jatra, .movies]
+//        var controllers = [UIViewController]()
+//        for item in barItems {
+//            switch item {
+//            case .home:
+//                let vc = HomeScreenController.controller()
+//                vc.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "Home_tab"), selectedImage: #imageLiteral(resourceName: "Home_tab"))
+//                vc.title = "Home"
+//                controllers.append(vc)
+//            case .music:
+//                let vc = VideoListController.controller()
+//                vc.tabBarItem = UITabBarItem(title: "Music", image: #imageLiteral(resourceName: "Movie_tab"), selectedImage: #imageLiteral(resourceName: "Movie_tab"))
+//                controllers.append(vc)
+//            case .originals:
+//                let vc = VideoListController.controller()
+//                vc.tabBarItem = UITabBarItem(title: "Original", image: #imageLiteral(resourceName: "Search_tab"), selectedImage: #imageLiteral(resourceName: "Search_tab"))
+//                controllers.append(vc)
+//            case .jatra:
+//                let vc = HomeScreenController.controller()
+//                vc.tabBarItem = UITabBarItem(title: "Jatra", image: #imageLiteral(resourceName: "Home_tab"), selectedImage: #imageLiteral(resourceName: "Home_tab"))
+//                controllers.append(vc)
+//            case .movies:
+//                let vc = VideoListController.controller()
+//                vc.tabBarItem = UITabBarItem(title: "Movies", image: #imageLiteral(resourceName: "Search_tab"), selectedImage: #imageLiteral(resourceName: "Search_tab"))
+//                controllers.append(vc)
+//            }
+//        }
+//
+//        let tabBar = TabBarController()
+//        tabBar.viewControllers = controllers
+//        CustomLoader.removeLoaderFrom(self.view)
+//        appDelegate?.window??.rootViewController = APNavigationController(rootViewController: tabBar)
+//        
     }
 }

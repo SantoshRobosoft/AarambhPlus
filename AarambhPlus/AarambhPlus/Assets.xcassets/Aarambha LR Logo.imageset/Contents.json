@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Aarambha LR Logo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Aarambha LR Logo.png",
       "scale" : "2x"
     },
     {

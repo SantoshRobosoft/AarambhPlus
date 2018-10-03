@@ -65,6 +65,8 @@
 		E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */; };
 		E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */; };
 		E8B4A46A21429490004E54D2 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4A46921429490004E54D2 /* SignUpController.swift */; };
+		E8CF00B62164B86A00FD4803 /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF00B52164B86A00FD4803 /* StoryboardExtension.swift */; };
+		E8CF00B82164B97D00FD4803 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF00B72164B97D00FD4803 /* ViewControllerExtension.swift */; };
 		E8E640D22155307B0002568D /* VideoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E640D12155307B0002568D /* VideoDetailController.swift */; };
 		E8E6F6322146570D009481C1 /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6F6312146570D009481C1 /* VideoListController.swift */; };
 		E8E6F63421466DCA009481C1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */; };
@@ -161,6 +163,8 @@
 		E8B4A46521428F99004E54D2 /* SignUpTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldModel.swift; sourceTree = "<group>"; };
 		E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldCell.swift; sourceTree = "<group>"; };
 		E8B4A46921429490004E54D2 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		E8CF00B52164B86A00FD4803 /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
+		E8CF00B72164B97D00FD4803 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		E8E640D12155307B0002568D /* VideoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailController.swift; sourceTree = "<group>"; };
 		E8E6F6312146570D009481C1 /* VideoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
 		E8E6F63321466DCA009481C1 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 				E8109775213FFE0D0059913B /* StringExtension.swift */,
 				E89B1C64214006A4002823D6 /* UIColorExtension.swift */,
 				E8472A672143F6EC0002AC5F /* ImageViewExtension.swift */,
+				E8CF00B52164B86A00FD4803 /* StoryboardExtension.swift */,
+				E8CF00B72164B97D00FD4803 /* ViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -676,6 +682,7 @@
 				E8109776213FFE0D0059913B /* StringExtension.swift in Sources */,
 				E89B56C32143E230000C22CD /* DataResource.swift in Sources */,
 				E8EEC6E521492E09005D76A9 /* GridViewController.swift in Sources */,
+				E8CF00B62164B86A00FD4803 /* StoryboardExtension.swift in Sources */,
 				E8472A72214404320002AC5F /* RowItemCell.swift in Sources */,
 				E89A7338213FDB6900BAD081 /* HomeScreenController.swift in Sources */,
 				E8E6F6322146570D009481C1 /* VideoListController.swift in Sources */,
@@ -685,6 +692,7 @@
 				E89B56C62143E230000C22CD /* AttachmentRequestor.swift in Sources */,
 				E8472A70214404320002AC5F /* BannerImageCell.swift in Sources */,
 				E8B4A45D21426D2B004E54D2 /* UserManager.swift in Sources */,
+				E8CF00B82164B97D00FD4803 /* ViewControllerExtension.swift in Sources */,
 				E866E0A1214BA6810045F2DB /* CarouselViewCell.swift in Sources */,
 				E89A7331213FC37F00BAD081 /* Constant.swift in Sources */,
 				E89B56C02143E230000C22CD /* APIResource.swift in Sources */,

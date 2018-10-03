@@ -15,7 +15,7 @@ class VideoListController: UIViewController {
     var layout: Layout?
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = layout?.title ?? "Videos"
+//        title = layout?.title ?? "Videos"
         collectionView.register(UINib(nibName: "RowItemCell", bundle: nil) , forCellWithReuseIdentifier: "RowItemCell")
     }
 
