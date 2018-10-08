@@ -24,12 +24,16 @@ extension String {
         return false
     }
     
+    
+    /// Call this method to check a string is  numeric or not
+    ///
+    /// - Returns: bool value
     func isNumericVal() -> Bool {
         if isEmpty {
             return false
         }
         
-        let range = self.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
+        let range = self.replacingOccurrences(of: " ", with: "").rangeOfCharacter(from: CharacterSet.decimalDigits.inverted)
         return (range == nil)
     }
     

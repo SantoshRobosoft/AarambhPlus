@@ -103,7 +103,7 @@ extension HamburgerMenuController: UITableViewDelegate {
 private extension HamburgerMenuController {
     @objc func pushLoginScreen() {
         dismiss(animated: true) {
-            (appDelegate?.window??.rootViewController  as? APNavigationController)?.pushViewController(LoginController.controller(), animated: true)
+            UIViewController.rootViewController?.navigate(to: LoginController.self, of: .user, presentationType: .push, prepareForNavigation: nil)
         }
     }
     

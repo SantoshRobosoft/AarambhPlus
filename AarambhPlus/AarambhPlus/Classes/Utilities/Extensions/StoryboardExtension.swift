@@ -13,6 +13,7 @@ enum AppStoryboard: String {
     case hamburger = "HamburgerMenu"
     case main = "Main"
     case launch = "LaunchScreen"
+    case user = "User"
 //    case profile = "Profile"
 }
 

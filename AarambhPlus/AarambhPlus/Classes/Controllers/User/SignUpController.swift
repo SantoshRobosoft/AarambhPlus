@@ -8,12 +8,30 @@
 
 import UIKit
 
+enum SignUpFieldType: String, CaseIterable {
+    case name = "Name"
+    case email = "Email"
+    case mobile = "Mobile"
+    case password = "Password"
+    case confirmPassword = "Confirm Password"
+    
+    func getModel() -> SignUpTextFieldModel {
+        switch self {
+        case .name, .email, .mobile:
+            return SignUpTextFieldModel(placeHolder: rawValue, currentValue: nil)
+        case .password, .confirmPassword:
+            let model = SignUpTextFieldModel(placeHolder: rawValue, currentValue: nil)
+            model.isSecureText = true
+            return model
+        }
+    }
+}
+
 class SignUpController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    private var items = ["Name","Email","Mobile", "Password", "Confirm Password"]
     private var fields = [SignUpTextFieldModel]()
     
     class func controller() -> SignUpController {
@@ -56,7 +74,7 @@ class SignUpController: BaseViewController {
 
 extension SignUpController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fields.count + 1
+        return SignUpFieldType.allCases.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -89,9 +107,8 @@ extension SignUpController: UICollectionViewDelegateFlowLayout {
 }
 private extension SignUpController {
     func createFieldsInSignUpScreen() {
-        for item in items {
-            let field = SignUpTextFieldModel(placeHolder: item, currentValue: nil)
-            fields.append(field)
+        for item in SignUpFieldType.allCases {
+            fields.append(item.getModel())
         }
         collectionView.reloadData()
     }
@@ -149,5 +166,24 @@ private extension SignUpController {
         gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradient.frame = view.frame
         self.collectionView.layer.insertSublayer(gradient, at: 0)
+    }
+}
+
+class Box<T> {
+    typealias Listner = (T) -> Void
+    var listner: Listner?
+    var value: T {
+        didSet {
+            listner?(value)
+        }
+    }
+    
+    init(_ value: T) {
+        self.value = value
+    }
+    
+    func bind(_ listner: Listner?) {
+        self.listner = listner
+        listner?(value)
     }
 }

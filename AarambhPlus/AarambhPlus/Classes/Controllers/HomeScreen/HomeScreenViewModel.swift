@@ -32,7 +32,7 @@ class HomeScreenViewModel: NSObject {
         collectionView.register(UINib(nibName: "SectionHeaderView", bundle: nil ), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SectionHeaderView")
     }
     
-    func NumberOfSection(in collectionView: UICollectionView) -> Int {
+    func numberOfSection() -> Int {
         return layouts.count
     }
     

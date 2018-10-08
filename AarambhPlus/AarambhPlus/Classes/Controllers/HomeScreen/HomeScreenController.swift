@@ -37,7 +37,7 @@ class HomeScreenController: BaseViewController {
 
 extension HomeScreenController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel?.NumberOfSection(in: collectionView) ?? 0
+        return viewModel?.numberOfSection() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

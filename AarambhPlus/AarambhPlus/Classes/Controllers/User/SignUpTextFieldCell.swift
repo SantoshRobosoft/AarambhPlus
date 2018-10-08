@@ -28,6 +28,7 @@ class SignUpTextFieldCell: UICollectionViewCell {
         self.model = info
         textField.placeholder = info.placeHolder
         textField.text = info.currentValue
+        textField.isSecureTextEntry = info.isSecureText
         if let error = info.errorMessage {
 //            textField.errorMessage = ""//info.placeHolder
 //            textField.errorColor = UIColor.red

@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum PresentationType {
+    case push
+    case present
+    case customModal
+}
+
 class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -42,7 +48,13 @@ class BaseViewController: UIViewController {
         case .failure(let error):
             showAlert(title: nil, message: error.localizedDescription())
         }
+        if self is HomeScreenController {
+            
+        } else {
+            
+        }
         return nil
     }
+
 }
 

@@ -14,6 +14,7 @@ class SignUpTextFieldModel: NSObject {
     var oldValue: String?
     var currentValue: String?
     var errorMessage: String?
+    var isSecureText = false
     
     init(placeHolder: String?, currentValue: String?) {
         self.placeHolder = placeHolder

@@ -19,6 +19,17 @@ extension StoryboardIdentifiable where Self: UIViewController {
     }
 }
 
+extension UIViewController {
+    static var rootViewController: UIViewController? {
+        guard let tabbarController = (appDelegate?.window??.rootViewController  as? TabBarController) else {
+            return nil
+        }
+        let index = tabbarController.selectedIndex
+        let controller = (tabbarController.viewControllers?[index] as? APNavigationController)?.visibleViewController
+        return controller
+    }
+}
+
 extension UIViewController: StoryboardIdentifiable {
     
     func switchToTab(_ item: TabBarItem) {
@@ -44,5 +55,33 @@ extension UIViewController: StoryboardIdentifiable {
         alertController.view.tintColor = UIColor.appColor()
         alertController.preferredAction = actions.last
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    func navigate<T>(to destinationController: T.Type, of storyboardType: AppStoryboard?, animated: Bool = true, presentationType: PresentationType, prepareForNavigation: ((T) -> Void)?) where T : UIViewController {
+        
+        var appStoryboard: UIStoryboard?
+        if let storyboardType = storyboardType {
+            appStoryboard = UIStoryboard.init(name: storyboardType.rawValue, bundle: nil)
+        } else {
+            appStoryboard = self.storyboard
+        }
+        guard let currentStoryboard = appStoryboard else { return }
+        
+        if let destinationController = currentStoryboard.instantiateViewController(withIdentifier: T.storyboardIdentifier) as? T {
+            if let configuration = prepareForNavigation {
+                configuration(destinationController)
+            }
+            switch presentationType {
+            case .push:
+                self.navigationController?.pushViewController(destinationController, animated: animated)
+            case .present:
+                destinationController.modalPresentationStyle = .overCurrentContext
+                self.present(destinationController, animated: animated, completion: nil)
+            case .customModal:
+                destinationController.modalPresentationStyle = .custom
+                self.present(destinationController, animated: animated, completion: nil)
+            }
+        }
     }
 }
