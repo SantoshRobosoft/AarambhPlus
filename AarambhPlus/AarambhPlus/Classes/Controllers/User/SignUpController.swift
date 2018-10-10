@@ -25,6 +25,9 @@ enum SignUpFieldType: String {
             return model
         }
     }
+    static var cases: [SignUpFieldType] {
+        return [.name, .email, .mobile, .password, .confirmPassword]
+    }
 }
 
 class SignUpController: BaseViewController {
@@ -107,7 +110,7 @@ extension SignUpController: UICollectionViewDelegateFlowLayout {
 }
 private extension SignUpController {
     func createFieldsInSignUpScreen() {
-        for item in SignUpFieldType.allCases {
+        for item in SignUpFieldType.cases {
             fields.append(item.getModel())
         }
         collectionView.reloadData()
