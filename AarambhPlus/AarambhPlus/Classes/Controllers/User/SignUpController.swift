@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum SignUpFieldType: String, CaseIterable {
+enum SignUpFieldType: String {
     case name = "Name"
     case email = "Email"
     case mobile = "Mobile"
@@ -74,7 +74,7 @@ class SignUpController: BaseViewController {
 
 extension SignUpController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return SignUpFieldType.allCases.count + 1
+        return 6//SignUpFieldType.allCases.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

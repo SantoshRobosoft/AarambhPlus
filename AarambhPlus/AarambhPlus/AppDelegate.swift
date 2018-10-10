@@ -47,18 +47,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 private extension AppDelegate {
-    func setupAppearence() {
-            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)], for: .normal)
-        UITabBar.appearance().tintColor = UIColor.black
-        UITabBar.appearance().unselectedItemTintColor = UIColor.gray
-        UITabBar.appearance().barTintColor = .red
-        
-        let navigationBarAppearance = UINavigationBar.appearance()
-        navigationBarAppearance.barTintColor = UIColor.white
-        navigationBarAppearance.tintColor = UIColor.gray
-        navigationBarAppearance.isTranslucent = false
-        navigationBarAppearance.backIndicatorImage = #imageLiteral(resourceName: "back_nav").withRenderingMode(.alwaysOriginal)
-        navigationBarAppearance.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back_nav").withRenderingMode(.alwaysOriginal)
-        navigationBarAppearance.titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 12), .foregroundColor: UIColor.black]
-    }
+//    func setupAppearence() {
+//            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)], for: .normal)
+//        UITabBar.appearance().tintColor = UIColor.black
+//        UITabBar.appearance().unselectedItemTintColor = UIColor.gray
+//        UITabBar.appearance().barTintColor = .red
+//        
+//        let navigationBarAppearance = UINavigationBar.appearance()
+//        navigationBarAppearance.barTintColor = UIColor.white
+//        navigationBarAppearance.tintColor = UIColor.gray
+//        navigationBarAppearance.isTranslucent = false
+//        navigationBarAppearance.backIndicatorImage = #imageLiteral(resourceName: "back_nav").withRenderingMode(.alwaysOriginal)
+//        navigationBarAppearance.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back_nav").withRenderingMode(.alwaysOriginal)
+//        navigationBarAppearance.titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 12), .foregroundColor: UIColor.black]
+//    }
 }

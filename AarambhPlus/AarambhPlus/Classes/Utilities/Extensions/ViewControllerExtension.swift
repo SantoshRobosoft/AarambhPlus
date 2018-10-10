@@ -49,13 +49,13 @@ extension UIViewController: StoryboardIdentifiable {
         showAlert(actions: [alertAction], title: title, message: message)
     }
     
-    func showAlert(actions: [UIAlertAction], title: String? = nil, message: String? = nil, type: UIAlertController.Style = .alert) {
-        let alertController = UIAlertController.init(title: title, message: message, preferredStyle: type)
-        actions.forEach { alertController.addAction($0) }
-        alertController.view.tintColor = UIColor.appColor()
-        alertController.preferredAction = actions.last
-        self.present(alertController, animated: true, completion: nil)
-    }
+//    func showAlert(actions: [UIAlertAction], title: String? = nil, message: String? = nil, type: UIAlertController.Style = .alert) {
+//        let alertController = UIAlertController.init(title: title, message: message, preferredStyle: type)
+//        actions.forEach { alertController.addAction($0) }
+//        alertController.view.tintColor = UIColor.appColor()
+//        alertController.preferredAction = actions.last
+//        self.present(alertController, animated: true, completion: nil)
+//    }
     
     
     func navigate<T>(to destinationController: T.Type, of storyboardType: AppStoryboard?, animated: Bool = true, presentationType: PresentationType, prepareForNavigation: ((T) -> Void)?) where T : UIViewController {
