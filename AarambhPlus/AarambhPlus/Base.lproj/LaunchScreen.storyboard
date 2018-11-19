@@ -17,13 +17,27 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="bPL-A5-zh5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99701744318008423" green="0.99203628301620483" blue="0.99195080995559692" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bPL-A5-zh5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MRZ-1c-0No"/>
+                            <constraint firstItem="bPL-A5-zh5" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aMX-U8-tCe"/>
+                            <constraint firstItem="bPL-A5-zh5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bUp-Db-Y1S"/>
+                            <constraint firstItem="bPL-A5-zh5" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="sfM-Cw-2Xn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash" width="1080" height="1708"/>
+    </resources>
 </document>
