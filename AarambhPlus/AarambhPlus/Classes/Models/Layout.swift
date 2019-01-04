@@ -10,16 +10,16 @@ import UIKit
 
 class Layout: NSObject, Codable {
 
-    var layOut: String?
     var title: String?
     var mediaItems: [MediaItem]?
+    var id: String?
     
     //not from response
     var layoutType: LayoutType = .row_Item
     
     enum CodingKeys: String, CodingKey {
-        case layOut, title
-        case mediaItems = "items"
+        case title, id
+        case mediaItems = "contents"
     }
 }
 
@@ -29,10 +29,10 @@ extension Layout: TopBannerProtocol {
     }
     
     func getItemType() -> LayoutType? {
-        if let layout = layOut {
-            return LayoutType(rawValue: layout)
-        }
-        return nil
+//        if let layout = layOut {
+//            return LayoutType(rawValue: layout)
+//        }
+        return .row_Item
     }
     
     func getTitle() -> String? {

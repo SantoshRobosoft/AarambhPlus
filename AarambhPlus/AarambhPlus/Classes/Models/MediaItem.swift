@@ -8,18 +8,19 @@
 
 import UIKit
 
+
 class MediaItem: NSObject, Codable {
 
     var artistName: String?
     var id: String?
     var name: String?
-    var releaseDate: String?
-    var copyright: String?
     var image: String?
+    var uniq_id: String?
     
     enum CodingKeys: String, CodingKey {
-        case artistName, id, name, releaseDate, copyright
-        case image = "artworkUrl100"
+        case artistName, name, uniq_id
+        case image = "poster"
+        case id = "movie_id"
     }
 }
 

@@ -11,7 +11,7 @@ import UIKit
 class NetworkManager: NSObject {
 
     class func fetchHomePageDetails(parameters: [String: Any]?, handler: (APICompletion<[Layout]>)? = nil) {
-        BaseRequestor.getRequest(url: "https://dl.dropboxusercontent.com/s/fwtkowaasfk52cs/videoApi.json?dl=0", parameters: parameters, responseKey: "data.lay_outs", handler: handler)
+        BaseRequestor.getRequest(url: "https://www.muvi.com/rest/loadFeaturedSections?authToken=\(kAuthToken)", parameters: parameters, responseKey: "section", handler: handler)
     }
     
     class func loginWith(email: String, password: String, handler: (APICompletion<User>)? = nil) {
@@ -41,4 +41,5 @@ class NetworkManager: NSObject {
     class func registerUser(param: [String:Any], handler: (APICompletion<User>)? = nil) {
         BaseRequestor.postRequest(url: RestApis.shared.signUpUrl, parameters: param , handler: handler)
     }
+    
 }

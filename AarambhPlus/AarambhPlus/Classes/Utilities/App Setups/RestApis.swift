@@ -9,7 +9,7 @@
 import Foundation
 
 var baseURL = "https://www.muvi.com/rest"
-var kAuthToken = "5cb50718d78a0473a5b2fdb9f1998bbc"
+var kAuthToken = "8065218b2bb9809a2f4c0f9be7d01cdd"
 
 class RestApis {
     

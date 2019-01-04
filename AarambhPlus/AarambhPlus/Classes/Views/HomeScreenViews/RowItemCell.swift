@@ -15,9 +15,9 @@ class RowItemCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageView.addGradientView()
-        layer.cornerRadius = 5
-        layer.masksToBounds = true
+//        imageView.addGradientView()
+        imageView.layer.cornerRadius = 5
+        imageView.layer.masksToBounds = true
     }
     
     func configureCell(dataSource: LayoutProtocol?) {
