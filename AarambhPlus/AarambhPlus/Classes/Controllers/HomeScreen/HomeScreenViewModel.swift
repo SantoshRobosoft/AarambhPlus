@@ -16,12 +16,25 @@ enum LayoutType: String {
 typealias cellSelectionHandler = ((_ model: Any?, _ index: Int) -> Void)
 
 class HomeScreenViewModel: NSObject {
-    var layouts = [Layout]()
-    
-    init(Layout: [Layout]) {
-        self.layouts = Layout
-        super.init()
-//        self.removeLayoutsWithEmptyItems()
+    private var _layOuts = [Layout]()
+    var layouts: [Layout] {
+        set {
+            _layOuts = newValue
+            if let bannerLayout = bannerLayout {
+                _layOuts.insert(bannerLayout, at: 0)
+            }
+        }
+        get {
+            return _layOuts
+        }
+    }
+    var bannerLayout: Layout?
+    var banners = [Banner]() {
+        didSet {
+            bannerLayout = Layout()
+            bannerLayout?.mediaItems = banners
+            bannerLayout?.layoutType = .top_Banner
+        }
     }
     
     func registerNibWith(collectionView: UICollectionView) {
@@ -55,23 +68,20 @@ class HomeScreenViewModel: NSObject {
             cell.configureCell(info: layouts[indexPath.section])
             return cell
         }
-        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let layOut = layouts[indexPath.section].layoutType
         switch layOut {
         case .top_Banner:
-            return CGSize(width: windowWidth, height: 220)
+            return CGSize(width: collectionView.frame.width, height: 220)
         case .row_Item:
-            return CGSize(width: windowWidth, height: 200)
+            return CGSize(width: collectionView.frame.width - 20, height: 200)
         case .small_Carousel:
-            return CGSize(width: windowWidth , height: 150)
+            return CGSize(width: collectionView.frame.width - 10, height: 150)
         case .nXn_Grid:
             return CGSize.zero//CGSize(width: windowWidth, height: 200)
         }
-        
-        return CGSize.zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -86,7 +96,6 @@ class HomeScreenViewModel: NSObject {
         case .nXn_Grid:
             return 0
         }
-        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -101,7 +110,6 @@ class HomeScreenViewModel: NSObject {
         case .nXn_Grid:
             return UIEdgeInsets.zero
         }
-        return UIEdgeInsets.zero
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

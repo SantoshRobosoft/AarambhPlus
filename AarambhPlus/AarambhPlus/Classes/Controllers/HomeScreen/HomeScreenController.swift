@@ -14,6 +14,9 @@ class HomeScreenController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private var isHomeContentFetched = false
+    private var isBannerSFetched = false
+    
     var viewModel: HomeScreenViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,12 +90,32 @@ extension HomeScreenController: UICollectionViewDelegateFlowLayout {
 private extension HomeScreenController {
     func fetchData() {
         CustomLoader.addLoaderOn(view, gradient: false)
+        //Fetch Banners
+        NetworkManager.fetchBannerContent(parameters: nil) { [weak self] (data) in
+            if let banners = data.response?.data {
+                if self?.viewModel == nil {
+                    self?.viewModel = HomeScreenViewModel()
+                }
+                self?.viewModel?.banners = banners
+                self?.isBannerSFetched = true
+                self?.reloadCollectionView()
+            } else {
+                self?.showAlertView("Error!", message: APIError.somethingWentWrong.localizedDescription)
+            }
+            
+        }
+        //Fetch HomeContent
         NetworkManager.fetchHomePageDetails(parameters: nil) { [weak self] (data) in
             if let layouts = data.response?.data {
-                self?.viewModel = HomeScreenViewModel(Layout: layouts)
+                if self?.viewModel == nil {
+                    self?.viewModel = HomeScreenViewModel()
+                }
+                self?.viewModel?.layouts = layouts
                 self?.viewModel?.registerNibWith(collectionView: (self?.collectionView!)!)
-                self?.collectionView.reloadData()
-                CustomLoader.removeLoaderFrom(self?.view)
+                self?.isHomeContentFetched = true
+                self?.reloadCollectionView()
+            } else {
+                self?.showAlertView("Error!", message: APIError.somethingWentWrong.localizedDescription)
             }
         }
     }
@@ -115,5 +138,14 @@ private extension HomeScreenController {
 //        self.present(playerViewController, animated: true) {
 //            playerViewController.player?.play()
 //        }
+    }
+    
+    func reloadCollectionView() {
+        DispatchQueue.main.async {[unowned self] in
+            if self.isBannerSFetched && self.isHomeContentFetched {
+                self.collectionView.reloadData()
+                CustomLoader.removeLoaderFrom(self.view)
+            }
+        }
     }
 }

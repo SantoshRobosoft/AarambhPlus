@@ -17,8 +17,9 @@ class MediaItem: NSObject, Codable {
     var image: String?
     var uniq_id: String?
     
-    enum CodingKeys: String, CodingKey {
-        case artistName, name, uniq_id
+    private enum CodingKeys: String, CodingKey {
+        case artistName, uniq_id
+        case name = "title"
         case image = "poster"
         case id = "movie_id"
     }
@@ -26,11 +27,41 @@ class MediaItem: NSObject, Codable {
 
 extension MediaItem: LayoutProtocol {
     
-    func getTitle() -> String? {
+    @objc func getTitle() -> String? {
         return name
     }
     
-    func getImageUrl() -> String? {
+    @objc func getImageUrl() -> String? {
         return image
     }
+}
+
+class Banner: MediaItem {
+    
+    var url: String?
+    
+    var layoutType: LayoutType = .top_Banner
+    
+    private enum CodingKeys: String, CodingKey {
+        case url = "mobile_view"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.url = try container.decode(String.self, forKey: .url)
+        try super.init(from: decoder)
+    }
+    
+}
+
+extension Banner {
+    
+    override func getTitle() -> String? {
+        return nil
+    }
+    
+    override func getImageUrl() -> String? {
+        return url
+    }
+    
 }

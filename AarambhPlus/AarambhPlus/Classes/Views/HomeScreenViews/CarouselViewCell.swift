@@ -68,7 +68,7 @@ extension CarouselViewCell: iCarouselDataSource, iCarouselDelegate {
             //this `if ... else` statement because the view will be
             //recycled and used with other index values later
             itemView = UIImageView(frame: CGRect(x: 0, y: 0, width: windowWidth, height: 220))
-            itemView.setKfImage(items[index].image)
+            itemView.setKfImage(items[index].getImageUrl())
             itemView.clipsToBounds = true
             itemView.layer.borderColor = UIColor.white.cgColor
             itemView.layer.borderWidth = 4

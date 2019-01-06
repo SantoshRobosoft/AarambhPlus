@@ -13,17 +13,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RowItemCell" id="VOk-Nv-v6E" customClass="RowItemCell" customModule="AarambhPlus" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="198" height="286"/>
+            <rect key="frame" x="0.0" y="0.0" width="198" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="198" height="286"/>
+                <rect key="frame" x="0.0" y="0.0" width="198" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUQ-CG-B0Y">
-                        <rect key="frame" x="0.0" y="0.0" width="198" height="249"/>
+                        <rect key="frame" x="0.0" y="0.0" width="198" height="163"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="163" id="Dla-pQ-NMd"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cab-e4-b5Z">
-                        <rect key="frame" x="5" y="259" width="188" height="17"/>
+                        <rect key="frame" x="5" y="173" width="188" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
