@@ -22,7 +22,7 @@ enum TabBarItem: Int {
         case .music:
             return ("Music", #imageLiteral(resourceName: "Movie_tab"))
         case .originals:
-            return ("Original", #imageLiteral(resourceName: "Home_tab"))
+            return ("Originals", #imageLiteral(resourceName: "Home_tab"))
         case .jatra:
             return ("Jatra",#imageLiteral(resourceName: "ProfilePic_placeholder"))
         case .movies:
@@ -37,11 +37,11 @@ enum TabBarItem: Int {
         case .music:
             return UIStoryboard.init(.home).instantiateViewController(withId: VideoListController.storyboardIdentifier)
         case .originals:
-            return UIStoryboard.init(.home).instantiateViewController(withId: VideoListController.storyboardIdentifier)
+            return UIStoryboard.init(.home).instantiateViewController(withId: HomeScreenController.storyboardIdentifier)
         case .jatra:
             return UIStoryboard.init(.home).instantiateViewController(withIdentifier: HomeScreenController.storyboardIdentifier)
         case .movies:
-            return UIStoryboard.init(.home).instantiateViewController(withId: VideoListController.storyboardIdentifier)
+            return UIStoryboard.init(.home).instantiateViewController(withId: HomeScreenController.storyboardIdentifier)
         }
     }
     
@@ -60,6 +60,14 @@ enum TabBarItem: Int {
         items.append(.jatra)
         items.append(.movies)
         return items
+    }
+    
+    static var selectedTab: TabBarItem {
+        guard let tabBarController = UIViewController.tabBarVC else {
+            return .home
+        }
+        let index = tabBarController.selectedIndex
+        return TabBarItem.tabBarItems()[index]
     }
 }
 

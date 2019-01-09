@@ -16,10 +16,11 @@ class MediaItem: NSObject, Codable {
     var name: String?
     var image: String?
     var uniq_id: String?
+    var title: String?
+    var poster_url: String?
     
     private enum CodingKeys: String, CodingKey {
-        case artistName, uniq_id
-        case name = "title"
+        case artistName, uniq_id, title, name, poster_url
         case image = "poster"
         case id = "movie_id"
     }
@@ -28,11 +29,11 @@ class MediaItem: NSObject, Codable {
 extension MediaItem: LayoutProtocol {
     
     @objc func getTitle() -> String? {
-        return name
+        return name ?? title
     }
     
     @objc func getImageUrl() -> String? {
-        return image
+        return image ?? poster_url
     }
 }
 

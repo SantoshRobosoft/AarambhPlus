@@ -109,7 +109,7 @@ private extension HamburgerMenuController {
     
     @objc func pushProfileScreen() {
         dismiss(animated: true) {
-            (appDelegate?.window??.rootViewController  as? APNavigationController)?.pushViewController(ProfileDetailViewController.controller(), animated: true)
+            UIViewController.rootViewController?.navigate(to: ProfileDetailViewController.self, of: .user, presentationType: .push, prepareForNavigation: nil)
         }
     }
 }

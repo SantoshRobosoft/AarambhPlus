@@ -11,15 +11,22 @@ import UIKit
 class Layout: NSObject, Codable {
 
     var title: String?
-    var mediaItems: [MediaItem]?
+    var mediaItems: [MediaItem]? {
+        return _mediaItems ?? mediaItemsCpy
+    }
+    var _mediaItems: [MediaItem]?
     var id: String?
+    var titelCopy: String?
+    var mediaItemsCpy: [MediaItem]?
     
     //not from response
     var layoutType: LayoutType = .row_Item
     
     enum CodingKeys: String, CodingKey {
         case title, id
-        case mediaItems = "contents"
+        case _mediaItems = "contents"
+        case titelCopy = "menu_title"
+        case mediaItemsCpy = "movieList"
     }
 }
 
@@ -36,6 +43,6 @@ extension Layout: TopBannerProtocol {
     }
     
     func getTitle() -> String? {
-        return title
+        return title ?? titelCopy
     }
 }

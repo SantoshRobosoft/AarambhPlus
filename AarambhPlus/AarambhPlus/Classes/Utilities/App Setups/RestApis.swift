@@ -15,11 +15,26 @@ enum RestApis {
     
 //    static let shared = RestApis()
 //    private init() { }
-    
+    //https://www.muvi.com/rest/getContentList/?authToken=8065218b2bb9809a2f4c0f9be7d01cdd&permalink=movies
     static let loginUrl = "\(baseURL)/login"
     static let signUpUrl = "\(baseURL)/registerUser"
     static let bannerUrl = "\(baseURL)/homePage"
     static let homeContent = "\(baseURL)/loadFeaturedSections"
     static let userInfoUrl = "\(baseURL)/GetProfileDetails"
     static let logOutUrl = "\(baseURL)/logout"
+    static let tabContent = "\(baseURL)/getContentList"
+    
+    static func tabUrl() -> String? {
+        var urlStr: String?
+        switch TabBarItem.selectedTab {
+        case .home:
+            urlStr = "\(RestApis.homeContent)?authToken=\(kAuthToken)"
+        case .music:
+            break
+        case .originals, .jatra,.movies:
+            urlStr =  "\(RestApis.tabContent)?authToken=\(kAuthToken)&permalink=\(TabBarItem.selectedTab.getTitleAndImage().0)"
+        }
+        return urlStr
+    }
+    
 }

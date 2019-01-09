@@ -32,7 +32,7 @@ class HomeScreenViewModel: NSObject {
     var banners = [Banner]() {
         didSet {
             bannerLayout = Layout()
-            bannerLayout?.mediaItems = banners
+            bannerLayout?._mediaItems = banners
             bannerLayout?.layoutType = .top_Banner
         }
     }

@@ -28,6 +28,10 @@ extension UIViewController {
         let controller = (tabbarController.viewControllers?[index] as? APNavigationController)?.visibleViewController
         return controller
     }
+    
+    static var tabBarVC: TabBarController? {
+        return (appDelegate?.window??.rootViewController  as? TabBarController)
+    }
 }
 
 extension UIViewController: StoryboardIdentifiable {
@@ -46,16 +50,16 @@ extension UIViewController: StoryboardIdentifiable {
     
     func showAlertView(_ title: String, message: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alertAction = UIAlertAction.init(title: "Ok", style: .default, handler: handler)
-//        showAlert(actions: [alertAction], title: title, message: message)
+        showAlert(actions: [alertAction], title: title, message: message)
     }
     
-//    func showAlert(actions: [UIAlertAction], title: String? = nil, message: String? = nil, type: UIAlertController.Style = .alert) {
-//        let alertController = UIAlertController.init(title: title, message: message, preferredStyle: type)
-//        actions.forEach { alertController.addAction($0) }
-//        alertController.view.tintColor = UIColor.appColor()
-//        alertController.preferredAction = actions.last
-//        self.present(alertController, animated: true, completion: nil)
-//    }
+    func showAlert(actions: [UIAlertAction], title: String? = nil, message: String? = nil, type: UIAlertController.Style = .alert) {
+        let alertController = UIAlertController.init(title: title, message: message, preferredStyle: type)
+        actions.forEach { alertController.addAction($0) }
+        alertController.view.tintColor = UIColor.appColor()
+        alertController.preferredAction = actions.last
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     
     func navigate<T>(to destinationController: T.Type, of storyboardType: AppStoryboard?, animated: Bool = true, presentationType: PresentationType, prepareForNavigation: ((T) -> Void)?) where T : UIViewController {

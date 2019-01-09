@@ -18,6 +18,7 @@ class HomeScreenController: BaseViewController {
     private var isBannerSFetched = false
     
     var viewModel: HomeScreenViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Home"
@@ -29,7 +30,10 @@ class HomeScreenController: BaseViewController {
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        NetworkManager.fetchHomePageDetails(parameters: nil) { (data) in
+        guard let url = RestApis.tabUrl() else {
+            return
+        }
+        NetworkManager.fetchHomePageDetails(parameters: nil, url: url) { (data) in
             if let data = data.response?.data {
                 print(data)
             }
@@ -98,24 +102,43 @@ private extension HomeScreenController {
                 }
                 self?.viewModel?.banners = banners
                 self?.isBannerSFetched = true
-                self?.reloadCollectionView()
+                self?.reloadCollectionView(nil)
             } else {
-                self?.showAlertView("Error!", message: APIError.somethingWentWrong.localizedDescription)
+                self?.reloadCollectionView(APIError.somethingWentWrong)
             }
             
         }
         //Fetch HomeContent
-        NetworkManager.fetchHomePageDetails(parameters: nil) { [weak self] (data) in
-            if let layouts = data.response?.data {
-                if self?.viewModel == nil {
-                    self?.viewModel = HomeScreenViewModel()
+        guard let url = RestApis.tabUrl() else {
+            return
+        }
+        if TabBarItem.selectedTab == .home {
+            NetworkManager.fetchHomePageDetails(parameters: nil, url: url) { [weak self] (data) in
+                if let layouts = data.response?.data {
+                    if self?.viewModel == nil {
+                        self?.viewModel = HomeScreenViewModel()
+                    }
+                    self?.viewModel?.layouts = layouts
+                    self?.viewModel?.registerNibWith(collectionView: (self?.collectionView!)!)
+                    self?.isHomeContentFetched = true
+                    self?.reloadCollectionView(nil)
+                } else {
+                    self?.reloadCollectionView(APIError.somethingWentWrong)
                 }
-                self?.viewModel?.layouts = layouts
-                self?.viewModel?.registerNibWith(collectionView: (self?.collectionView!)!)
-                self?.isHomeContentFetched = true
-                self?.reloadCollectionView()
-            } else {
-                self?.showAlertView("Error!", message: APIError.somethingWentWrong.localizedDescription)
+            }
+        } else {
+            NetworkManager.fetchContentFor(parameters: nil, url: url) {[weak self] (data) in
+                if let layout = data.response?.data {
+                    if self?.viewModel == nil {
+                        self?.viewModel = HomeScreenViewModel()
+                    }
+                    self?.viewModel?.layouts = [layout]
+                    self?.viewModel?.registerNibWith(collectionView: (self?.collectionView!)!)
+                    self?.isHomeContentFetched = true
+                    self?.reloadCollectionView(nil)
+                } else {
+                    self?.reloadCollectionView(APIError.somethingWentWrong)
+                }
             }
         }
     }
@@ -140,10 +163,13 @@ private extension HomeScreenController {
 //        }
     }
     
-    func reloadCollectionView() {
+    func reloadCollectionView(_ error: Error?) {
         DispatchQueue.main.async {[unowned self] in
             if self.isBannerSFetched && self.isHomeContentFetched {
                 self.collectionView.reloadData()
+                if let error = error {
+                    self.showAlertView("Error!", message: error.localizedDescription)
+                }
                 CustomLoader.removeLoaderFrom(self.view)
             }
         }

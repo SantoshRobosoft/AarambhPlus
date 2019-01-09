@@ -10,8 +10,8 @@ import UIKit
 
 class NetworkManager: NSObject {
 
-    class func fetchHomePageDetails(parameters: [String: Any]?, handler: (APICompletion<[Layout]>)? = nil) {
-        BaseRequestor.getRequest(url: "\(RestApis.homeContent)?authToken=\(kAuthToken)", parameters: parameters, responseKey: "section", handler: handler)
+    class func fetchHomePageDetails(parameters: [String: Any]?, url: String, handler: (APICompletion<[Layout]>)? = nil) {
+        BaseRequestor.getRequest(url: url, parameters: parameters, responseKey: "section", handler: handler)
     }
     //Fetch Banners
     class func fetchBannerContent(parameters: [String: Any]?, handler: (APICompletion<[Banner]>)? = nil) {
@@ -46,4 +46,7 @@ class NetworkManager: NSObject {
         BaseRequestor.postRequest(url: RestApis.signUpUrl, parameters: param , handler: handler)
     }
     
+    class func fetchContentFor(parameters: [String:Any]?, url: String, hander: APICompletion<Layout>?) {
+        BaseRequestor.getRequest(url: url, parameters: parameters, responseKey: nil, handler: hander)
+    }
 }
