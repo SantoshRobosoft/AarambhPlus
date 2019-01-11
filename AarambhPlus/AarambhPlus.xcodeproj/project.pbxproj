@@ -13,6 +13,7 @@
 		E8109776213FFE0D0059913B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8109775213FFE0D0059913B /* StringExtension.swift */; };
 		E82E6FDD2168C7B100059C47 /* HomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E6FDC2168C7B100059C47 /* HomeScreenViewModelTests.swift */; };
 		E82E6FDF2168CB4E00059C47 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E6FDE2168CB4E00059C47 /* StringExtensionTests.swift */; };
+		E832651721E8B529002DAB99 /* VideoDetailBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832651621E8B529002DAB99 /* VideoDetailBaseCell.swift */; };
 		E8472A592143EB1C0002AC5F /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8472A582143EB1C0002AC5F /* HomeScreenViewModel.swift */; };
 		E8472A682143F6EC0002AC5F /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8472A672143F6EC0002AC5F /* ImageViewExtension.swift */; };
 		E8472A70214404320002AC5F /* BannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8472A6A214404320002AC5F /* BannerImageCell.swift */; };
@@ -26,6 +27,7 @@
 		E866E09F214BA60A0045F2DB /* CarouselViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E866E09E214BA60A0045F2DB /* CarouselViewCell.xib */; };
 		E866E0A1214BA6810045F2DB /* CarouselViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E866E0A0214BA6810045F2DB /* CarouselViewCell.swift */; };
 		E866E0A7214BCB6C0045F2DB /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E866E0A6214BCB6C0045F2DB /* VideoPlayerController.swift */; };
+		E86BE4A421E712FE005F83EC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86BE4A321E712FE005F83EC /* Movie.swift */; };
 		E89A72F2213FB2D200BAD081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A72F1213FB2D200BAD081 /* AppDelegate.swift */; };
 		E89A72F7213FB2D200BAD081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89A72F5213FB2D200BAD081 /* Main.storyboard */; };
 		E89A72F9213FB2D500BAD081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E89A72F8213FB2D500BAD081 /* Assets.xcassets */; };
@@ -104,6 +106,7 @@
 		E8109775213FFE0D0059913B /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		E82E6FDC2168C7B100059C47 /* HomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		E82E6FDE2168CB4E00059C47 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		E832651621E8B529002DAB99 /* VideoDetailBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailBaseCell.swift; sourceTree = "<group>"; };
 		E8472A582143EB1C0002AC5F /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		E8472A672143F6EC0002AC5F /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		E8472A6A214404320002AC5F /* BannerImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImageCell.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		E866E09E214BA60A0045F2DB /* CarouselViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselViewCell.xib; sourceTree = "<group>"; };
 		E866E0A0214BA6810045F2DB /* CarouselViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewCell.swift; sourceTree = "<group>"; };
 		E866E0A6214BCB6C0045F2DB /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
+		E86BE4A321E712FE005F83EC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E89A72EE213FB2D200BAD081 /* AarambhPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AarambhPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89A72F1213FB2D200BAD081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E89A72F6213FB2D200BAD081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -230,6 +234,14 @@
 				E8CF00B72164B97D00FD4803 /* ViewControllerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E832651521E8B4FF002DAB99 /* VideoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E832651621E8B529002DAB99 /* VideoDetailBaseCell.swift */,
+			);
+			path = VideoDetails;
 			sourceTree = "<group>";
 		};
 		E8472A69214404320002AC5F /* HomeScreenViews */ = {
@@ -466,6 +478,7 @@
 				E8B4A45C21426D2B004E54D2 /* UserManager.swift */,
 				E89B56AD2143DEF7000C22CD /* MediaItem.swift */,
 				E89B56AF2143DF0E000C22CD /* Layout.swift */,
+				E86BE4A321E712FE005F83EC /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -473,6 +486,7 @@
 		E8F50570214130D200FEF0C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E832651521E8B4FF002DAB99 /* VideoDetails */,
 				E8EEC6DF214928EE005D76A9 /* Profile */,
 				E8472A69214404320002AC5F /* HomeScreenViews */,
 			);
@@ -681,6 +695,7 @@
 				E866E0A7214BCB6C0045F2DB /* VideoPlayerController.swift in Sources */,
 				E89B56C22143E230000C22CD /* APIStatusCodes.swift in Sources */,
 				E89B56C12143E230000C22CD /* APIResponse.swift in Sources */,
+				E832651721E8B529002DAB99 /* VideoDetailBaseCell.swift in Sources */,
 				E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */,
 				E8109776213FFE0D0059913B /* StringExtension.swift in Sources */,
 				E89B56C32143E230000C22CD /* DataResource.swift in Sources */,
@@ -701,6 +716,7 @@
 				E89B56C02143E230000C22CD /* APIResource.swift in Sources */,
 				E8B4A464214274B9004E54D2 /* HamburgerCell.swift in Sources */,
 				E89A7333213FC6AD00BAD081 /* TabBarController.swift in Sources */,
+				E86BE4A421E712FE005F83EC /* Movie.swift in Sources */,
 				E8B4A45B21426D10004E54D2 /* User.swift in Sources */,
 				E89A72F2213FB2D200BAD081 /* AppDelegate.swift in Sources */,
 				E89A733A213FF47500BAD081 /* CustomLoader.swift in Sources */,

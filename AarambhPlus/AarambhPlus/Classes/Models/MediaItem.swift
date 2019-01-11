@@ -18,9 +18,11 @@ class MediaItem: NSObject, Codable {
     var uniq_id: String?
     var title: String?
     var poster_url: String?
+    private var c_permalink: String?
+    private var permalink: String?
     
     private enum CodingKeys: String, CodingKey {
-        case artistName, uniq_id, title, name, poster_url
+        case artistName, uniq_id, title, name, poster_url, c_permalink, permalink
         case image = "poster"
         case id = "movie_id"
     }
@@ -34,6 +36,9 @@ extension MediaItem: LayoutProtocol {
     
     @objc func getImageUrl() -> String? {
         return image ?? poster_url
+    }
+    @objc func getPermLink() -> String? {
+        return c_permalink ?? permalink
     }
 }
 
@@ -65,4 +70,7 @@ extension Banner {
         return url
     }
     
+    override func getPermLink() -> String? {
+        return nil
+    }
 }

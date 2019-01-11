@@ -46,7 +46,12 @@ class NetworkManager: NSObject {
         BaseRequestor.postRequest(url: RestApis.signUpUrl, parameters: param , handler: handler)
     }
     
-    class func fetchContentFor(parameters: [String:Any]?, url: String, hander: APICompletion<Layout>?) {
-        BaseRequestor.getRequest(url: url, parameters: parameters, responseKey: nil, handler: hander)
+    class func fetchContentFor(parameters: [String:Any]?, url: String, handler: APICompletion<Layout>?) {
+        BaseRequestor.getRequest(url: url, parameters: parameters, responseKey: nil, handler: handler)
+    }
+    
+    class func fetchMovieDetail(paramLink: String, handler: APICompletion<Movie>?) {
+        let urlStr = "\(RestApis.movieDetailUrl)?authToken=\(kAuthToken)&permalink=\(paramLink)"
+        BaseRequestor.getRequest(url: urlStr, parameters: nil, responseKey: "movie", handler: handler)
     }
 }

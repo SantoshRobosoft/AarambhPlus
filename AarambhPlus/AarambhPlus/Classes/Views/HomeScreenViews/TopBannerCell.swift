@@ -17,6 +17,7 @@ protocol TopBannerProtocol {
 protocol LayoutProtocol {
     func getTitle() -> String?
     func getImageUrl() -> String?
+    func getPermLink() -> String?
 }
 
 class TopBannerCell: UICollectionViewCell {

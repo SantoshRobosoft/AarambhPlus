@@ -16,7 +16,7 @@ class LaunchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CustomLoader.addLoaderOn(self.view, gradient: false)
-        fetchUserInfo()
+//        fetchUserInfo()
     }
 
     class func controller() -> LaunchViewController {
@@ -25,22 +25,7 @@ class LaunchViewController: BaseViewController {
 }
 
 private extension LaunchViewController {
-    
-    func fetchUserInfo() {
-        if let userId = UserDefaults.standard.value(forKey: kSavedUserId) as? String, let email = UserDefaults.standard.value(forKey: kSavedUserEmail) as? String {
-            NetworkManager.getUserInfo(email: email, userId: userId) {[weak self] (result) in
-                if let user = result.response?.data {
-                    UserManager.shared.updateUser(user)
-                    self?.createTabBarItems()
-                } else {
-                    self?.createTabBarItems()
-                }
-            }
-        } else {
-            createTabBarItems()
-        }
-    }
-    
+        
     /// sdfsfsdfsd
     func createTabBarItems() {
 //        let barItems:[TabBarItemType] = [.home, .music, .originals, .jatra, .movies]

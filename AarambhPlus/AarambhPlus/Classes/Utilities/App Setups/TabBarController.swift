@@ -76,6 +76,25 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addGradient()
+        createTabBarItems()
+        fetchUserInfo()
+    }
+    
+    func fetchUserInfo() {
+        DispatchQueue.global().async {
+            if let userId = UserDefaults.standard.value(forKey: kSavedUserId) as? String, let email = UserDefaults.standard.value(forKey: kSavedUserEmail) as? String {
+                NetworkManager.getUserInfo(email: email, userId: userId) { (result) in
+                    if let user = result.response?.data {
+                        DispatchQueue.main.async {
+                            UserManager.shared.updateUser(user)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func createTabBarItems() {
         var controllersList: [UIViewController] = []
         for item in TabBarItem.tabBarItems().enumerated() {
             let viewController = item.element.getTabControllerAtIndex(item.offset)

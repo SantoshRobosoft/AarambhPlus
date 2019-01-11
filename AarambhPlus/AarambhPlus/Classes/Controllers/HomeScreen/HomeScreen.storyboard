@@ -122,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieImageCell" rowHeight="258" id="N8v-hF-C0u">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VDBannerCell" rowHeight="258" id="N8v-hF-C0u" customClass="VDBannerCell" customModule="AarambhPlus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="258"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N8v-hF-C0u" id="Gza-AT-Wul">
@@ -158,8 +158,12 @@
                                                 <constraint firstItem="QQG-Qb-vFY" firstAttribute="centerX" secondItem="Tce-t9-2JA" secondAttribute="centerX" id="rcT-K6-3vN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bannerImageView" destination="Tce-t9-2JA" id="FAe-kS-t57"/>
+                                            <outlet property="nameLabel" destination="82M-f3-Pmb" id="Mhm-cr-vTX"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MoviesInfo" rowHeight="82" id="7vp-op-bLx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VDInfoCell" rowHeight="82" id="7vp-op-bLx" customClass="VDInfoCell" customModule="AarambhPlus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="286" width="375" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7vp-op-bLx" id="K7R-4w-pNh">
@@ -230,6 +234,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="hvg-x4-1Lx" secondAttribute="bottom" constant="15" id="obT-KQ-bPt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="directerNameLabel" destination="nEa-tf-LKj" id="GFE-Lr-Ijz"/>
+                                            <outlet property="durationLabel" destination="2i5-mq-g6D" id="Z5P-BT-F9Q"/>
+                                            <outlet property="languageLabel" destination="2rp-Oq-caj" id="xAC-Na-jWW"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VideoDescription" rowHeight="69" id="JSE-58-XJf">
                                         <rect key="frame" x="0.0" y="368" width="375" height="69"/>

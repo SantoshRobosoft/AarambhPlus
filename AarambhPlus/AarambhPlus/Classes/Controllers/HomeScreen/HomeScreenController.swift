@@ -53,7 +53,7 @@ extension HomeScreenController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = viewModel?.collectionView(collectionView, cellForItemAt: indexPath, handler: {[weak self] (info, index) in
-            self?.loadVideoPlayer()
+            self?.loadVideoPlayer(info)
         }) {
             return cell
         }
@@ -96,7 +96,7 @@ private extension HomeScreenController {
         CustomLoader.addLoaderOn(view, gradient: false)
         //Fetch Banners
         NetworkManager.fetchBannerContent(parameters: nil) { [weak self] (data) in
-            if let banners = data.response?.data {
+            if let banners = self?.parseError(data)?.data {
                 if self?.viewModel == nil {
                     self?.viewModel = HomeScreenViewModel()
                 }
@@ -114,7 +114,7 @@ private extension HomeScreenController {
         }
         if TabBarItem.selectedTab == .home {
             NetworkManager.fetchHomePageDetails(parameters: nil, url: url) { [weak self] (data) in
-                if let layouts = data.response?.data {
+                if let layouts = self?.parseError(data)?.data {
                     if self?.viewModel == nil {
                         self?.viewModel = HomeScreenViewModel()
                     }
@@ -128,7 +128,7 @@ private extension HomeScreenController {
             }
         } else {
             NetworkManager.fetchContentFor(parameters: nil, url: url) {[weak self] (data) in
-                if let layout = data.response?.data {
+                if let layout = self?.parseError(data)?.data {
                     if self?.viewModel == nil {
                         self?.viewModel = HomeScreenViewModel()
                     }
@@ -149,18 +149,13 @@ private extension HomeScreenController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    func loadVideoPlayer() {
-        let controller = VideoDetailController.controller()
+    func loadVideoPlayer(_ model: Any?) {
+        guard let permLink = (model as? MediaItem)?.getPermLink() else {
+            showAlertView("Error!", message: "No permlink found.")
+            return
+        }
+        let controller = VideoDetailController.controller(permLink)
         navigationController?.pushViewController(controller, animated: true)
-//        guard let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4") else {
-//            return
-//        }
-//        let player = AVPlayer(url: videoURL)
-//        let playerViewController = AVPlayerViewController()
-//        playerViewController.player = player
-//        self.present(playerViewController, animated: true) {
-//            playerViewController.player?.play()
-//        }
     }
     
     func reloadCollectionView(_ error: Error?) {

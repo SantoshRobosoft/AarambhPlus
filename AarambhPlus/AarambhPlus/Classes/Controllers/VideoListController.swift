@@ -60,7 +60,7 @@ extension VideoListController: UICollectionViewDelegateFlowLayout {
 
 private extension VideoListController {
     func loadVideoDetailScreen() {
-        let controller = VideoDetailController.controller()
-        navigationController?.pushViewController(controller, animated: true)
+//        let controller = VideoDetailController.controller()
+//        navigationController?.pushViewController(controller, animated: true)
     }
 }

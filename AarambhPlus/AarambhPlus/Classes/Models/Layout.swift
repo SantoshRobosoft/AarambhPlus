@@ -31,6 +31,7 @@ class Layout: NSObject, Codable {
 }
 
 extension Layout: TopBannerProtocol {
+    
     func getItem() -> [LayoutProtocol] {
         return mediaItems ?? []
     }
