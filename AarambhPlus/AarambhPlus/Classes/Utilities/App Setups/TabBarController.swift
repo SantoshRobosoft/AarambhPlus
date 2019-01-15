@@ -18,15 +18,15 @@ enum TabBarItem: Int {
     func getTitleAndImage() -> (String, UIImage) {
         switch self {
         case .home:
-            return ("Home", #imageLiteral(resourceName: "Home_tab"))
+            return ("Home", #imageLiteral(resourceName: "home"))
         case .music:
-            return ("Music", #imageLiteral(resourceName: "Movie_tab"))
+            return ("Music", #imageLiteral(resourceName: "musical_notes"))
         case .originals:
-            return ("Originals", #imageLiteral(resourceName: "Home_tab"))
+            return ("Originals", #imageLiteral(resourceName: "play"))
         case .jatra:
-            return ("Jatra",#imageLiteral(resourceName: "ProfilePic_placeholder"))
+            return ("Jatra",#imageLiteral(resourceName: "video_call"))
         case .movies:
-            return ("Movies",#imageLiteral(resourceName: "Search_tab"))
+            return ("Movies",#imageLiteral(resourceName: "Movie"))
         }
     }
     
