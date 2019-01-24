@@ -72,7 +72,7 @@ extension CarouselViewCell: iCarouselDataSource, iCarouselDelegate {
             itemView.clipsToBounds = true
             itemView.layer.borderColor = UIColor.white.cgColor
             itemView.layer.borderWidth = 4
-            itemView.contentMode = .scaleAspectFill
+            itemView.contentMode = .scaleToFill
         }
         
         return itemView
