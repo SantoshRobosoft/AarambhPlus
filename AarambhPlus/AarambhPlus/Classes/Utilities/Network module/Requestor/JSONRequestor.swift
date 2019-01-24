@@ -121,7 +121,7 @@ class JSONRequestor: BaseRequestor {
             
             guard status == APIStatusCode.success.rawValue else {
                 //request is invalid
-                let message =  (json["message"] as? String) ?? "We are sorry try after some time."
+                let message =  (json["msg"] as? String) ?? "We are sorry try after some time."
                 return (false, APIError.generalError(code: status, message: message))
             }
             if let respkey = self.apiResource?.responseKeyPath {

@@ -31,11 +31,30 @@ class UserManager: NSObject {
     }
     
     func logoutUser(handler: ((_ success: Bool)->Void)?) {
-        UserDefaults.standard.removeObject(forKey: kSavedUserId)
-        UserDefaults.standard.removeObject(forKey: kSavedUserEmail)
-        UserDefaults.standard.synchronize()
-        self.user = nil
-        handler?(true)
+        guard let user = user else {
+            handler?(false)
+            return
+        }
+        NetworkManager.signOut(user: user) {[weak self] (result) in
+            if self?.parseError(result) != nil {
+                UserDefaults.standard.removeObject(forKey: kSavedUserId)
+                UserDefaults.standard.removeObject(forKey: kSavedUserEmail)
+                UserDefaults.standard.synchronize()
+                self?.user = nil
+                handler?(true)
+            } else {
+                handler?(false)
+            }
+        }
+    }
+    
+    func parseError<T>(_ result: DataResult<T>) -> APIResponse<T>? {
+        switch result {
+        case .success(let response):
+            return response
+        case .failure(_):
+            return nil
+        }
     }
 }
 

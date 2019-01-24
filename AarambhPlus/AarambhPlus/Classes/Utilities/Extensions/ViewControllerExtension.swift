@@ -45,7 +45,7 @@ extension UIViewController: StoryboardIdentifiable {
     func showAlertView(_ title: String, message: String, cancelButtonTitle: String, otherButtonTitle: String, cancelHandler: ((UIAlertAction) -> Void)? = nil, otherOptionHandler: ((UIAlertAction) -> Void)? = nil) {
         let alertAction = UIAlertAction.init(title: otherButtonTitle, style: .default, handler: otherOptionHandler)
         let cancelAction = UIAlertAction.init(title: cancelButtonTitle, style: .default, handler: cancelHandler)
-//        showAlert(actions: [cancelAction, alertAction], title: title, message: message)
+        showAlert(actions: [cancelAction, alertAction], title: title, message: message)
     }
     
     func showAlertView(_ title: String, message: String, handler: ((UIAlertAction) -> Void)? = nil) {

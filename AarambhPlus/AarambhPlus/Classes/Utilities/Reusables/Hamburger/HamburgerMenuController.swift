@@ -16,7 +16,7 @@ class HamburgerMenuController: UIViewController {
 
     @IBOutlet weak private var tableView: UITableView!
     
-    var items = ["Favourites", "Watch List"]
+    var items = ["Dashboard", "Music", "Originals", "Jatra", "Movies"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class HamburgerMenuController: UIViewController {
         super.viewWillAppear(animated)
         if !items.contains("Log Out") {
             if UserManager.shared.isLoggedIn {
+                items.append("My Profile")
                 items.append("Log Out")
             } else {
                 for (index, item) in items.enumerated() {
@@ -90,12 +91,14 @@ extension HamburgerMenuController: UITableViewDataSource {
 
 extension HamburgerMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == HamburgerCellType.profile.rawValue {
+        if indexPath.section == HamburgerCellType.profile.rawValue {
             if UserManager.shared.isLoggedIn {
                 self.performSelector(onMainThread: #selector(pushProfileScreen), with: nil, waitUntilDone: false)
             } else {
                 self.performSelector(onMainThread: #selector(pushLoginScreen), with: nil, waitUntilDone: false)
             }
+        } else {
+            self.performSelector(onMainThread: #selector(handleHamburgerTap), with: items[indexPath.row], waitUntilDone: false)
         }
     }
 }
@@ -111,6 +114,49 @@ private extension HamburgerMenuController {
         dismiss(animated: true) {
             UIViewController.rootViewController?.navigate(to: ProfileDetailViewController.self, of: .user, presentationType: .push, prepareForNavigation: nil)
         }
+    }
+    
+    @objc func handleHamburgerTap(_ type: String) {
+        switch type {
+        case "Dashboard":
+            dismiss(animated: true) { [weak self] in
+                self?.switchToTab(.home)
+            }
+        case "Music":
+            dismiss(animated: true) { [weak self] in
+                self?.switchToTab(.music)
+            }
+        case "Originals":
+            dismiss(animated: true) { [weak self] in
+                self?.switchToTab(.originals)
+            }
+        case "Jatra":
+            dismiss(animated: true) { [weak self] in
+                self?.switchToTab(.jatra)
+            }
+        case "Movies":
+            dismiss(animated: true) { [weak self] in
+                self?.switchToTab(.movies)
+            }
+        case "My Profile":
+            pushProfileScreen()
+        case "Log Out":
+            logOut()
+        default:
+            break
+        }
+    }
+    
+    func logOut() {
+        CustomLoader.addLoaderOn(self.view, gradient: false)
+        UserManager.shared.logoutUser(handler: {[weak self] (success) in
+            CustomLoader.removeLoaderFrom(self?.view)
+            if success {
+                self?.dismiss(animated: true, completion: nil)
+            } else {
+                self?.showAlertView("Error!", message: "Unexpected error occure.")
+            }
+        })
     }
 }
 

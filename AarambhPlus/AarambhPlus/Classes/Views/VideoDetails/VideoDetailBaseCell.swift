@@ -10,13 +10,16 @@ import UIKit
 
 class VideoDetailBaseCell: UITableViewCell {
 
+    var indexPath: IndexPath!
+    var addToFavButtonAction: (()-> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     func configureCell(_ info: Movie?, at indexPath: IndexPath) {
-        
+        //child class must override this methos
+        self.indexPath = indexPath
     }
 
 }
@@ -31,6 +34,11 @@ class VDBannerCell: VideoDetailBaseCell {
         bannerImageView.setKfImage(info?.poster)
         nameLabel.text = info?.name
     }
+    
+    @IBAction func didTapAddToFavoriteButton(_ sender: UIButton) {
+        addToFavButtonAction?()
+    }
+    
 }
 
 class VDInfoCell: VideoDetailBaseCell {
@@ -44,5 +52,14 @@ class VDInfoCell: VideoDetailBaseCell {
         directerNameLabel.text = info?.director
         durationLabel.text = info?.video_duration
         languageLabel.text = info?.content_language
+    }
+}
+
+class VideoDescription: VideoDetailBaseCell {
+    
+    @IBOutlet weak private var descLabel: UILabel!
+    override func configureCell(_ info: Movie?, at indexPath: IndexPath) {
+        super.configureCell(info, at: indexPath)
+        descLabel.text = info?.permalink
     }
 }

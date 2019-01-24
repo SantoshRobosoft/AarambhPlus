@@ -23,24 +23,16 @@ class ProfileDetailViewController: BaseViewController {
     }
     
     @IBAction func didTapLogOutButton(_ sender: UIButton) {
-        guard let user = UserManager.shared.user else {
-            showAlert(title: "Error!!", message: "Unexpected error occure.")
-            return
-        }
         CustomLoader.addLoaderOn(view, gradient: true)
-        NetworkManager.signOut(user: user) {[weak self] (result) in
+        
+        UserManager.shared.logoutUser(handler: {[weak self] (success) in
             CustomLoader.removeLoaderFrom(self?.view)
-            if self?.parseError(result) != nil {
-                UserManager.shared.logoutUser(handler: { (success) in
-                    if success {
-                        self?.navigationController?.popViewController(animated: true)
-                    } else {
-                        self?.showAlert(title: "Error!!", message: "Unexpected error occure.")
-                    }
-                })
-                
+            if success {
+                self?.navigationController?.popViewController(animated: true)
+            } else {
+                self?.showAlert(title: "Error!!", message: "Unexpected error occure.")
             }
-        }
+        })
     }
     
 }

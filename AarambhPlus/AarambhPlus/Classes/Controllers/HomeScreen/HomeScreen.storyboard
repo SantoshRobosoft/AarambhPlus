@@ -122,11 +122,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VDBannerCell" rowHeight="258" id="N8v-hF-C0u" customClass="VDBannerCell" customModule="AarambhPlus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="258"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VDBannerCell" rowHeight="288" id="N8v-hF-C0u" customClass="VDBannerCell" customModule="AarambhPlus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="288"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N8v-hF-C0u" id="Gza-AT-Wul">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="258"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tce-t9-2JA">
@@ -136,8 +136,8 @@
                                                         <constraint firstAttribute="width" secondItem="Tce-t9-2JA" secondAttribute="height" multiplier="275:166" id="S6h-fT-7Xb"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gazzi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82M-f3-Pmb">
-                                                    <rect key="frame" x="25" y="206" width="325" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Gazzi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82M-f3-Pmb">
+                                                    <rect key="frame" x="25" y="206" width="325" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.9722746015" green="0.61051684620000002" blue="0.1090024188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -145,12 +145,32 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Video_Play_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="QQG-Qb-vFY">
                                                     <rect key="frame" x="169.5" y="85" width="36" height="36"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0D-Et-DEC">
+                                                    <rect key="frame" x="104.5" y="238" width="166" height="30"/>
+                                                    <color key="backgroundColor" red="0.97254901960784312" green="0.61176470588235299" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
+                                                    <state key="normal" title="Add To Favorites">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="didTapAddToFavoriteButton:" destination="N8v-hF-C0u" eventType="touchUpInside" id="g4y-QA-IUf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Tce-t9-2JA" secondAttribute="trailing" constant="50" id="0XD-b1-IoI"/>
+                                                <constraint firstItem="J0D-Et-DEC" firstAttribute="centerX" secondItem="Gza-AT-Wul" secondAttribute="centerX" id="2in-3v-PNK"/>
+                                                <constraint firstItem="J0D-Et-DEC" firstAttribute="top" secondItem="82M-f3-Pmb" secondAttribute="bottom" constant="11.5" id="8mO-ll-jmg"/>
                                                 <constraint firstItem="Tce-t9-2JA" firstAttribute="top" secondItem="Gza-AT-Wul" secondAttribute="top" constant="20" id="Ei4-WQ-g4v"/>
-                                                <constraint firstAttribute="bottom" secondItem="82M-f3-Pmb" secondAttribute="bottom" constant="20" id="J7d-Ke-Iun"/>
                                                 <constraint firstItem="Tce-t9-2JA" firstAttribute="leading" secondItem="Gza-AT-Wul" secondAttribute="leading" constant="50" id="Jsa-38-YBo"/>
+                                                <constraint firstAttribute="bottom" secondItem="J0D-Et-DEC" secondAttribute="bottom" constant="20" id="WrK-P6-hBn"/>
                                                 <constraint firstItem="QQG-Qb-vFY" firstAttribute="centerY" secondItem="Tce-t9-2JA" secondAttribute="centerY" id="YYg-cT-9Yy"/>
                                                 <constraint firstAttribute="trailing" secondItem="82M-f3-Pmb" secondAttribute="trailing" constant="25" id="ZIB-ai-iFW"/>
                                                 <constraint firstItem="82M-f3-Pmb" firstAttribute="leading" secondItem="Gza-AT-Wul" secondAttribute="leading" constant="25" id="di5-SA-9zo"/>
@@ -164,7 +184,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VDInfoCell" rowHeight="82" id="7vp-op-bLx" customClass="VDInfoCell" customModule="AarambhPlus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="286" width="375" height="82"/>
+                                        <rect key="frame" x="0.0" y="316" width="375" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7vp-op-bLx" id="K7R-4w-pNh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
@@ -240,8 +260,8 @@
                                             <outlet property="languageLabel" destination="2rp-Oq-caj" id="xAC-Na-jWW"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VideoDescription" rowHeight="69" id="JSE-58-XJf">
-                                        <rect key="frame" x="0.0" y="368" width="375" height="69"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VideoDescription" rowHeight="69" id="JSE-58-XJf" customClass="VideoDescription" customModule="AarambhPlus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="398" width="375" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JSE-58-XJf" id="I9f-d3-mSW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
@@ -263,6 +283,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="e2V-VS-fee" secondAttribute="bottom" constant="15" id="ttt-Ds-VU8"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descLabel" destination="e2V-VS-fee" id="1by-1X-2HY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

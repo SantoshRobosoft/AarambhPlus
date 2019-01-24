@@ -54,4 +54,8 @@ class NetworkManager: NSObject {
         let urlStr = "\(RestApis.movieDetailUrl)?authToken=\(kAuthToken)&permalink=\(paramLink)"
         BaseRequestor.getRequest(url: urlStr, parameters: nil, responseKey: "movie", handler: handler)
     }
+    
+    class func addToFavoriteList(param: [String:Any], handler: (APICompletion<APIStatus>)? = nil) {
+        BaseRequestor.postRequest(url: RestApis.addToFavUrl, parameters: param , handler: handler)
+    }
 }

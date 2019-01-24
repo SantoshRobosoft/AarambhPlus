@@ -30,3 +30,9 @@ class User: NSObject, Codable {
     }
     
 }
+
+class APIStatus: Decodable {
+    var code: Int64?
+    var status: String?
+    var msg: String?
+}

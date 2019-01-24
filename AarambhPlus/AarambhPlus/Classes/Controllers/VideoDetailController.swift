@@ -21,7 +21,7 @@ class VideoDetailController: BaseViewController {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        title = "Gazzi"
+//        title = "Gazzi"
         getMovieDetail()
     }
     
@@ -41,6 +41,9 @@ extension VideoDetailController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cellId = getCellId(indexPath), let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? VideoDetailBaseCell {
             cell.configureCell(movie, at: indexPath)
+            cell.addToFavButtonAction = { [weak self] in
+                self?.addToFabButtonTapped()
+            }
             return cell
         }
         return UITableViewCell()
@@ -106,6 +109,31 @@ private extension VideoDetailController {
             return "VideoDescription"
         default:
             return nil
+        }
+    }
+    
+    func addToFabButtonTapped() {
+        if !UserManager.shared.isLoggedIn {
+            UIViewController.rootViewController?.navigate(to: LoginController.self, of: .user, presentationType: .push, prepareForNavigation: nil)
+            return
+        }
+        CustomLoader.addLoaderOn(self.view, gradient: false)
+        var param = [String:String]()
+        guard  let id = UserManager.shared.user?.id else {
+            return
+        }
+        param["user_id"] = id
+        param["movie_uniq_id"] = movie?.muvi_uniq_id
+        param["authToken"] = kAuthToken
+        NetworkManager.addToFavoriteList(param: param) {[weak self] (status) in
+            CustomLoader.removeLoaderFrom(self?.view)
+            if let status = self?.parseError(status)?.data {
+                if status.status == "Success" {
+                    self?.showAlertView("", message: "Successfully added to favorite list")
+                } else {
+                    self?.showAlertView("Error!", message: status.msg ?? "We are facing some issue, Please try after sometime.")
+                }
+            }
         }
     }
 }
