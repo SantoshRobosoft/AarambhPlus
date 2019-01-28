@@ -58,4 +58,12 @@ class NetworkManager: NSObject {
     class func addToFavoriteList(param: [String:Any], handler: (APICompletion<APIStatus>)? = nil) {
         BaseRequestor.postRequest(url: RestApis.addToFavUrl, parameters: param , handler: handler)
     }
+    
+    class func getFavoriteList(handler: (APICompletion<Layout>)? = nil) {
+        var param = [String:Any]()
+        param["user_id"] = UserManager.shared.user?.id
+        param["authToken"] = kAuthToken
+        BaseRequestor.postRequest(url: RestApis.viewFavUrl, parameters: param , handler: handler)
+    }
+    
 }

@@ -8,15 +8,16 @@
 
 import UIKit
 
-class VideoListController: UIViewController {
+class VideoListController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var layout: Layout?
     override func viewDidLoad() {
         super.viewDidLoad()
-//        title = layout?.title ?? "Videos"
+        title = "Favorites"
         collectionView.register(UINib(nibName: "RowItemCell", bundle: nil) , forCellWithReuseIdentifier: "RowItemCell")
+        getFavList()
     }
 
     class func controller() -> VideoListController {
@@ -54,13 +55,29 @@ extension VideoListController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        loadVideoDetailScreen()
+        loadVideoPlayer(layout?._mediaItems?[indexPath.row])
     }
 }
 
 private extension VideoListController {
-    func loadVideoDetailScreen() {
-//        let controller = VideoDetailController.controller()
-//        navigationController?.pushViewController(controller, animated: true)
+    
+    func getFavList() {
+        CustomLoader.addLoaderOn(view, gradient: false)
+        NetworkManager.getFavoriteList {[weak self] (response) in
+            CustomLoader.removeLoaderFrom(self?.view)
+            if let layout = self?.parseError(response)?.data {
+                self?.layout = layout
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    
+    func loadVideoPlayer(_ model: Any?) {
+        guard let permLink = (model as? MediaItem)?.getPermLink() else {
+            showAlertView("Error!", message: "No permlink found.")
+            return
+        }
+        let controller = VideoDetailController.controller(permLink)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

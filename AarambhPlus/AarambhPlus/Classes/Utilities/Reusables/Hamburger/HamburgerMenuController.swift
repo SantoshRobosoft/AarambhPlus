@@ -28,6 +28,7 @@ class HamburgerMenuController: UIViewController {
         super.viewWillAppear(animated)
         if !items.contains("Log Out") {
             if UserManager.shared.isLoggedIn {
+                items.append("My Favorites")
                 items.append("My Profile")
                 items.append("Log Out")
             } else {
@@ -142,6 +143,10 @@ private extension HamburgerMenuController {
             pushProfileScreen()
         case "Log Out":
             logOut()
+        case "My Favorites":
+            dismiss(animated: true) { [weak self] in
+                self?.showFavoriteList()
+            }
         default:
             break
         }
@@ -157,6 +162,10 @@ private extension HamburgerMenuController {
                 self?.showAlertView("Error!", message: "Unexpected error occure.")
             }
         })
+    }
+    
+    func showFavoriteList() {
+        UIViewController.rootViewController?.navigate(to: VideoListController.self, of: .home, presentationType: .push, prepareForNavigation: nil)
     }
 }
 
