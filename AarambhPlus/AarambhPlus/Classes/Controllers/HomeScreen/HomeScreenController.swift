@@ -14,6 +14,7 @@ class HomeScreenController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var searchBarBtn: UIBarButtonItem?
     private var isHomeContentFetched = false
     private var isBannerSFetched = false
     
@@ -21,8 +22,30 @@ class HomeScreenController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Home"
+        //navigationItem.title = "Home"
+        //jaganth
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "Aarambha LR Logo.png")
+        imageView.image = image
+        navigationItem.titleView = imageView
+        
+        self.searchBarBtn = UIBarButtonItem(image: #imageLiteral(resourceName: "Search_tab"),
+                                            style: UIBarButtonItemStyle.plain,
+                                            target: self,
+                                            action: #selector(searchButtonClicked))
+        searchBarBtn?.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = self.searchBarBtn
+    
         fetchData()
+    }
+    
+    //jaganath
+    @objc func searchButtonClicked() {
+        // create the alert
+        let alert = UIAlertController(title: "Pending...", message: "Work in Progress.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     class func controller() -> HomeScreenController {
