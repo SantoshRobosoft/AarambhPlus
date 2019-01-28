@@ -24,6 +24,7 @@ enum RestApis {
     static let tabContent = "\(baseURL)/getContentList"
     static let movieDetailUrl = "\(baseURL)/getContentDetails"
     static let addToFavUrl = "\(baseURL)/AddtoFavlist"
+    static let viewFavUrl = "\(baseURL)/ViewFavourite"
     
     static func tabUrl() -> String? {
         var urlStr: String?
