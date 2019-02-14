@@ -14,7 +14,6 @@ var kAuthToken = "8065218b2bb9809a2f4c0f9be7d01cdd"
 enum RestApis {
 //    static let shared = RestApis() https://www.muvi.com/rest/getContentDetails
 //    private init() { }
-    //https://www.muvi.com/rest/getContentList/?authToken=8065218b2bb9809a2f4c0f9be7d01cdd&permalink=movies
     static let loginUrl = "\(baseURL)/login"
     static let signUpUrl = "\(baseURL)/registerUser"
     static let bannerUrl = "\(baseURL)/homePage"
@@ -25,6 +24,7 @@ enum RestApis {
     static let movieDetailUrl = "\(baseURL)/getContentDetails"
     static let addToFavUrl = "\(baseURL)/AddtoFavlist"
     static let viewFavUrl = "\(baseURL)/ViewFavourite"
+    static let searchUrl = "\(baseURL)/searchData"
     
     static func tabUrl() -> String? {
         var urlStr: String?

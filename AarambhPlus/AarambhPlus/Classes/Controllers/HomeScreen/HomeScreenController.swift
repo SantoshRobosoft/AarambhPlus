@@ -45,7 +45,9 @@ class HomeScreenController: BaseViewController {
         // create the alert
         let alert = UIAlertController(title: "Pending...", message: "Work in Progress.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        let vc = SearchViewController.controller()
+        navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true, completion: nil)
     }
     
     class func controller() -> HomeScreenController {

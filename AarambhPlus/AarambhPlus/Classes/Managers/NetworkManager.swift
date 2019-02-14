@@ -66,4 +66,9 @@ class NetworkManager: NSObject {
         BaseRequestor.postRequest(url: RestApis.viewFavUrl, parameters: param , handler: handler)
     }
     
+    class func getInfoForSearchedString(_ str: String, handler: APICompletion<[MediaItem]>?) {
+        let urlStr = "\(RestApis.searchUrl)?authToken=\(kAuthToken)&q=\(str)"
+        BaseRequestor.getRequest(url: urlStr, parameters: nil, responseKey: "search", handler: handler)
+    }
+    
 }

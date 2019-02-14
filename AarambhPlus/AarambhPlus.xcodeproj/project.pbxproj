@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		724BAE11241C5D97A8375348 /* Pods_AarambhPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */; };
+		AF18899822147F8100215100 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18899722147F8100215100 /* SearchViewController.swift */; };
 		E80C35D52147ED2700155C6F /* RestApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80C35D42147ED2700155C6F /* RestApis.swift */; };
 		E8109774213FFDA00059913B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8109773213FFDA00059913B /* UILabelExtension.swift */; };
 		E8109776213FFE0D0059913B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8109775213FFE0D0059913B /* StringExtension.swift */; };
@@ -98,6 +99,7 @@
 
 /* Begin PBXFileReference section */
 		88CD0D0E617EDDD6658C2824 /* Pods-AarambhPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.release.xcconfig"; sourceTree = "<group>"; };
+		AF18899722147F8100215100 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BC0C54DCDD5AE4EEBC63AB30 /* Pods-AarambhPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AarambhPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E80C35D42147ED2700155C6F /* RestApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApis.swift; sourceTree = "<group>"; };
@@ -221,6 +223,14 @@
 				D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF18899322147F1000215100 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AF18899722147F8100215100 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		E8109772213FFD560059913B /* Extensions */ = {
@@ -349,6 +359,7 @@
 		E89A7320213FB33E00BAD081 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF18899322147F1000215100 /* Search */,
 				E8B4A45521426A36004E54D2 /* User */,
 				E89A7334213FD7E700BAD081 /* HomeScreen */,
 				E89A7326213FB51300BAD081 /* BaseViewController.swift */,
@@ -727,6 +738,7 @@
 				E89A732F213FC28300BAD081 /* LaunchViewController.swift in Sources */,
 				E8B4A45921426CF0004E54D2 /* LoginController.swift in Sources */,
 				E8472A73214404320002AC5F /* SmallCarouselCell.swift in Sources */,
+				AF18899822147F8100215100 /* SearchViewController.swift in Sources */,
 				E80C35D52147ED2700155C6F /* RestApis.swift in Sources */,
 				E89B56C92143E230000C22CD /* MultipartUploadRequestor.swift in Sources */,
 				E866E09B214BA3FC0045F2DB /* iCarousel.m in Sources */,
