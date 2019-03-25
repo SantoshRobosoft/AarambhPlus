@@ -19,19 +19,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4hH-xC-afn">
-                                <rect key="frame" x="0.0" y="-23" width="300" height="690"/>
+                                <rect key="frame" x="0.0" y="-49" width="300" height="716"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HamburgerProfileCell" rowHeight="136" id="BID-cb-7Ea" customClass="HamburgerProfileCell" customModule="AarambhPlus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="300" height="136"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HamburgerProfileCell" rowHeight="168" id="BID-cb-7Ea" customClass="HamburgerProfileCell" customModule="AarambhPlus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="300" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BID-cb-7Ea" id="wfs-HA-UhZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="136"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="168"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santosh Sahoo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-j3-5yk">
+                                                    <rect key="frame" x="106.5" y="110" width="118" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="lo3-45-V9p">
-                                                    <rect key="frame" x="120" y="40" width="60" height="60"/>
+                                                    <rect key="frame" x="135.5" y="54" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="f7E-53-Ux3"/>
                                                         <constraint firstAttribute="height" constant="60" id="tr3-h9-pZg"/>
@@ -43,20 +49,14 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santosh Sahoo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-j3-5yk">
-                                                    <rect key="frame" x="91" y="110" width="118" height="11"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.97577582470000002" green="0.69463433159999999" blue="0.10763888889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="lo3-45-V9p" firstAttribute="centerX" secondItem="wfs-HA-UhZ" secondAttribute="centerX" id="HLN-a6-maQ"/>
                                                 <constraint firstItem="7Ve-j3-5yk" firstAttribute="centerX" secondItem="lo3-45-V9p" secondAttribute="centerX" id="IjW-d1-GKg"/>
                                                 <constraint firstAttribute="bottom" secondItem="7Ve-j3-5yk" secondAttribute="bottom" constant="15" id="ofb-Jn-rsh"/>
-                                                <constraint firstItem="lo3-45-V9p" firstAttribute="top" secondItem="wfs-HA-UhZ" secondAttribute="top" constant="40" id="r9R-I8-cY5"/>
-                                                <constraint firstItem="7Ve-j3-5yk" firstAttribute="top" secondItem="lo3-45-V9p" secondAttribute="bottom" constant="10" id="x0N-L4-dec"/>
+                                                <constraint firstItem="lo3-45-V9p" firstAttribute="top" secondItem="wfs-HA-UhZ" secondAttribute="top" constant="54" id="r9R-I8-cY5"/>
+                                                <constraint firstItem="7Ve-j3-5yk" firstAttribute="top" secondItem="lo3-45-V9p" secondAttribute="bottom" constant="-4" id="x0N-L4-dec"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -65,20 +65,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HamburgerItemCell" rowHeight="62" id="4NS-KU-lMC" customClass="HamburgerItemCell" customModule="AarambhPlus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="164" width="300" height="62"/>
+                                        <rect key="frame" x="0.0" y="196" width="300" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4NS-KU-lMC" id="BMY-f4-scW">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGG-jc-Fkq">
-                                                    <rect key="frame" x="20" y="15" width="270" height="32"/>
+                                                    <rect key="frame" x="20" y="15" width="301.5" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDM-nh-P5a">
-                                                    <rect key="frame" x="0.0" y="61" width="300" height="1"/>
+                                                    <rect key="frame" x="0.0" y="61" width="331.5" height="1"/>
                                                     <color key="backgroundColor" red="0.92063276294931107" green="0.93213142428362294" blue="0.94126744923857864" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="aJP-tU-z7g"/>
@@ -116,7 +116,7 @@
                         <constraints>
                             <constraint firstItem="4hH-xC-afn" firstAttribute="width" secondItem="Msg-pP-Se7" secondAttribute="width" multiplier="0.8" id="89Z-Np-aQC"/>
                             <constraint firstItem="j3L-QL-041" firstAttribute="leading" secondItem="4hH-xC-afn" secondAttribute="trailing" id="IRj-jv-SuB"/>
-                            <constraint firstItem="4hH-xC-afn" firstAttribute="top" secondItem="Msg-pP-Se7" secondAttribute="top" constant="-23" id="MYw-I2-qky"/>
+                            <constraint firstItem="4hH-xC-afn" firstAttribute="top" secondItem="Msg-pP-Se7" secondAttribute="top" constant="-49" id="MYw-I2-qky"/>
                             <constraint firstItem="E8e-sM-X0v" firstAttribute="bottom" secondItem="j3L-QL-041" secondAttribute="bottom" id="NZk-w8-mhE"/>
                             <constraint firstItem="j3L-QL-041" firstAttribute="top" secondItem="Msg-pP-Se7" secondAttribute="top" id="fiG-tY-wV4"/>
                             <constraint firstItem="4hH-xC-afn" firstAttribute="leading" secondItem="E8e-sM-X0v" secondAttribute="leading" id="nyv-sK-ZDX"/>

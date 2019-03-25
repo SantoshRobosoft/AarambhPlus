@@ -43,11 +43,13 @@ class HomeScreenController: BaseViewController {
     //jaganath
     @objc func searchButtonClicked() {
         // create the alert
-        let alert = UIAlertController(title: "Pending...", message: "Work in Progress.", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        let vc = SearchViewController.controller()
-        navigationController?.pushViewController(vc, animated: true)
+//        let alert = UIAlertController(title: "Pending...", message: "Work in Progress.", preferredStyle: UIAlertController.Style.alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//        let vc = SearchViewController.controller()
+//        navigationController?.pushViewController(vc, animated: true)
 //        self.present(vc, animated: true, completion: nil)
+        
+           UIViewController.rootViewController?.navigate(to: SearchViewController.self, of: .home, presentationType: .push, prepareForNavigation: nil)
     }
     
     class func controller() -> HomeScreenController {

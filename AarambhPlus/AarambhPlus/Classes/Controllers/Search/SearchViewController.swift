@@ -1,11 +1,3 @@
-//
-//  SearchViewController.swift
-//  AarambhPlus
-//
-//  Created by Santosh Kumar Sahoo on 13/02/19.
-//  Copyright © 2019 Santosh Dev. All rights reserved.
-//
-
 import UIKit
 
 final class SearchViewController: BaseViewController {
@@ -21,17 +13,18 @@ final class SearchViewController: BaseViewController {
         searchViewSetup()
         searchTextField.delegate = self
         collectionView.register(UINib(nibName: "RowItemCell", bundle: nil) , forCellWithReuseIdentifier: "RowItemCell")
+        title = "Search"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationController?.navigationBar.isHidden = false
     }
-
+    
     class func controller() -> SearchViewController {
         return UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "\(SearchViewController.self)") as! SearchViewController
     }
@@ -92,16 +85,16 @@ extension SearchViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-//
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        var str = textField.text ?? ""
-//        let textRange = Range(range, in: str)!
-//        str = str.replacingCharacters(in: textRange, with: string)
-//        let searchStr = str as String
-//        let finalStr = searchStr.trimmingCharacters(in: CharacterSet.whitespaces)
-////        getConentForSearchedString(finalStr)
-//        return true
-//    }
+    //
+    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    //        var str = textField.text ?? ""
+    //        let textRange = Range(range, in: str)!
+    //        str = str.replacingCharacters(in: textRange, with: string)
+    //        let searchStr = str as String
+    //        let finalStr = searchStr.trimmingCharacters(in: CharacterSet.whitespaces)
+    ////        getConentForSearchedString(finalStr)
+    //        return true
+    //    }
 }
 
 private extension SearchViewController {
@@ -112,9 +105,9 @@ private extension SearchViewController {
         searchView.layer.borderColor = UIColor.gray.cgColor
         searchView.layer.masksToBounds = true
     }
- 
+    
     func getConentForSearchedString(_ str: String) {
-//        print(str)
+        //        print(str)
         CustomLoader.addLoaderOn(self.view, gradient: false)
         NetworkManager.getInfoForSearchedString(str) {[weak self] (result) in
             CustomLoader.removeLoaderFrom(self?.view)
