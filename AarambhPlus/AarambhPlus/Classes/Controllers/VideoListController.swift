@@ -15,7 +15,6 @@ class VideoListController: BaseViewController {
     var layout: Layout?
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Favorites"
         collectionView.register(UINib(nibName: "RowItemCell", bundle: nil) , forCellWithReuseIdentifier: "RowItemCell")
         getFavList()
     }

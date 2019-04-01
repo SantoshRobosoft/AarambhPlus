@@ -12,7 +12,7 @@ import AVKit
 
 class HomeScreenController: BaseViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak private var collectionView: UICollectionView!
     
     var searchBarBtn: UIBarButtonItem?
     private var isHomeContentFetched = false

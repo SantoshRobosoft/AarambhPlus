@@ -42,6 +42,30 @@ extension MediaItem: LayoutProtocol {
     }
 }
 
+extension MediaItem: AudioDatasource {
+    func titleString() -> String? {
+        return nil
+    }
+    
+    func imageUrl() -> String? {
+        return nil
+    }
+    
+    func mediaUrl() -> String? {
+        return nil
+    }
+    
+    func shouldHideDividerView() -> Bool {
+        return true
+    }
+    
+    func getShareUrl() -> String? {
+        return nil
+    }
+    
+    
+}
+
 class Banner: MediaItem {
     
     var url: String?

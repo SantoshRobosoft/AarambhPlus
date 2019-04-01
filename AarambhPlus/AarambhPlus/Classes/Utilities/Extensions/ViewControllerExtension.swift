@@ -32,6 +32,10 @@ extension UIViewController {
     static var tabBarVC: TabBarController? {
         return (appDelegate?.window??.rootViewController  as? TabBarController)
     }
+    
+    static var navController: APNavigationController? {
+        return UIViewController.tabBarVC?.selectedViewController as? APNavigationController
+    }
 }
 
 extension UIViewController: StoryboardIdentifiable {

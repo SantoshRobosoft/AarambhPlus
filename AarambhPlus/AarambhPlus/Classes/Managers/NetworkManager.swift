@@ -71,4 +71,8 @@ class NetworkManager: NSObject {
         BaseRequestor.getRequest(url: urlStr, parameters: nil, responseKey: "search", handler: handler)
     }
     
+    class func getAudioList(handler: APICompletion<[MediaItem]>?) {
+        let urlStr = "\(RestApis.tabContent)?authToken=\(kAuthToken)&permalink=audio"
+        BaseRequestor.getRequest(url: urlStr, parameters: nil, responseKey: "movieList", handler: handler)
+    }
 }

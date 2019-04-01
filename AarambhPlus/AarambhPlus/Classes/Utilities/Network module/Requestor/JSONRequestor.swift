@@ -207,7 +207,7 @@ class JSONRequestor: BaseRequestor {
                 ///Actual model creation happens here.
                 obj = try self.decoder.decode(T.self, from: data)
             } catch {
-                print(error)
+                debugPrint(error)
                 ///Some decoding error occured.
                 parseError = APIError.parsingError
             }

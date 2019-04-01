@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		724BAE11241C5D97A8375348 /* Pods_AarambhPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */; };
+		AAA042B2224BE466000EF012 /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA042B1224BE466000EF012 /* Music.storyboard */; };
+		AAA042B4224BE49C000EF012 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA042B3224BE49C000EF012 /* AudioPlayerViewController.swift */; };
+		AAA042B6224BE57D000EF012 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA042B5224BE57D000EF012 /* AudioPlayer.swift */; };
+		AAA042B7224BE893000EF012 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E810976F213FFB320059913B /* FadeTransition.swift */; };
+		AAA042B9224BEB60000EF012 /* CubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA042B8224BEB5F000EF012 /* CubePlayer.swift */; };
+		AABB6315222AB666002CA007 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB6314222AB666002CA007 /* MusicViewController.swift */; };
 		AF18899822147F8100215100 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18899722147F8100215100 /* SearchViewController.swift */; };
 		E80C35D52147ED2700155C6F /* RestApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80C35D42147ED2700155C6F /* RestApis.swift */; };
 		E8109774213FFDA00059913B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8109773213FFDA00059913B /* UILabelExtension.swift */; };
@@ -99,6 +105,11 @@
 
 /* Begin PBXFileReference section */
 		88CD0D0E617EDDD6658C2824 /* Pods-AarambhPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.release.xcconfig"; sourceTree = "<group>"; };
+		AAA042B1224BE466000EF012 /* Music.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Music.storyboard; sourceTree = "<group>"; };
+		AAA042B3224BE49C000EF012 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		AAA042B5224BE57D000EF012 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		AAA042B8224BEB5F000EF012 /* CubePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubePlayer.swift; sourceTree = "<group>"; };
+		AABB6314222AB666002CA007 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		AF18899722147F8100215100 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BC0C54DCDD5AE4EEBC63AB30 /* Pods-AarambhPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AarambhPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +226,18 @@
 				88CD0D0E617EDDD6658C2824 /* Pods-AarambhPlus.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AABB6313222AB666002CA007 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				AAA042B8224BEB5F000EF012 /* CubePlayer.swift */,
+				AABB6314222AB666002CA007 /* MusicViewController.swift */,
+				AAA042B1224BE466000EF012 /* Music.storyboard */,
+				AAA042B3224BE49C000EF012 /* AudioPlayerViewController.swift */,
+				AAA042B5224BE57D000EF012 /* AudioPlayer.swift */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		AC32BB3C5AC40EF5224D9FF8 /* Frameworks */ = {
@@ -359,6 +382,7 @@
 		E89A7320213FB33E00BAD081 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AABB6313222AB666002CA007 /* Music */,
 				AF18899322147F1000215100 /* Search */,
 				E8B4A45521426A36004E54D2 /* User */,
 				E89A7334213FD7E700BAD081 /* HomeScreen */,
@@ -610,6 +634,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA042B2224BE466000EF012 /* Music.storyboard in Resources */,
 				E8472A71214404320002AC5F /* BannerImageCell.xib in Resources */,
 				E89A72FC213FB2D500BAD081 /* LaunchScreen.storyboard in Resources */,
 				E8B4A4612142748C004E54D2 /* HamburgerMenu.storyboard in Resources */,
@@ -691,6 +716,7 @@
 				E89B1C6721400A85002823D6 /* HamburgerAnimation.swift in Sources */,
 				E8472A682143F6EC0002AC5F /* ImageViewExtension.swift in Sources */,
 				E8EEC6E12149290B005D76A9 /* ProfileDetailCell.swift in Sources */,
+				AABB6315222AB666002CA007 /* MusicViewController.swift in Sources */,
 				E8472A592143EB1C0002AC5F /* HomeScreenViewModel.swift in Sources */,
 				E89B56C82143E230000C22CD /* JSONRequestor.swift in Sources */,
 				E8EEC6E3214929C4005D76A9 /* ProfileDetailViewController.swift in Sources */,
@@ -703,6 +729,7 @@
 				E8E640D22155307B0002568D /* VideoDetailController.swift in Sources */,
 				E89B56BF2143E230000C22CD /* APIError.swift in Sources */,
 				E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */,
+				AAA042B6224BE57D000EF012 /* AudioPlayer.swift in Sources */,
 				E866E0A7214BCB6C0045F2DB /* VideoPlayerController.swift in Sources */,
 				E89B56C22143E230000C22CD /* APIStatusCodes.swift in Sources */,
 				E89B56C12143E230000C22CD /* APIResponse.swift in Sources */,
@@ -732,7 +759,10 @@
 				E89A72F2213FB2D200BAD081 /* AppDelegate.swift in Sources */,
 				E89A733A213FF47500BAD081 /* CustomLoader.swift in Sources */,
 				E8B4A46A21429490004E54D2 /* SignUpController.swift in Sources */,
+				AAA042B7224BE893000EF012 /* FadeTransition.swift in Sources */,
 				E8472A74214404320002AC5F /* TopBannerCell.swift in Sources */,
+				AAA042B4224BE49C000EF012 /* AudioPlayerViewController.swift in Sources */,
+				AAA042B9224BEB60000EF012 /* CubePlayer.swift in Sources */,
 				E89B1C65214006A4002823D6 /* UIColorExtension.swift in Sources */,
 				E8109774213FFDA00059913B /* UILabelExtension.swift in Sources */,
 				E89A732F213FC28300BAD081 /* LaunchViewController.swift in Sources */,

@@ -35,7 +35,7 @@ enum TabBarItem: Int {
         case .home:
             return UIStoryboard.init(.home).instantiateViewController(withIdentifier: HomeScreenController.storyboardIdentifier)
         case .music:
-            return UIStoryboard.init(.home).instantiateViewController(withId: VideoListController.storyboardIdentifier)
+            return UIStoryboard.init(.home).instantiateViewController(withId: MusicViewController.storyboardIdentifier)
         case .originals:
             return UIStoryboard.init(.home).instantiateViewController(withId: HomeScreenController.storyboardIdentifier)
         case .jatra:

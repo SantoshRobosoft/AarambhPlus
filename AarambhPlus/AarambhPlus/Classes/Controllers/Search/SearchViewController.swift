@@ -10,9 +10,9 @@ import UIKit
 
 final class SearchViewController: BaseViewController {
     
+    @IBOutlet weak private var searchTextField: UITextField!
     @IBOutlet weak private var searchView: UIView!
     @IBOutlet weak private var collectionView: UICollectionView!
-    @IBOutlet weak private var searchTextField: UITextField!
     
     private var searchResults = [MediaItem]()
     
@@ -25,11 +25,14 @@ final class SearchViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
+        searchView.frame = navigationController?.navigationBar.frame ?? CGRect.zero
+        navigationController?.navigationBar.addSubview(searchView)
+//        navigationController?.navigationBar.isHidden = true
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationController?.navigationBar.isHidden = false
+        searchView.removeFromSuperview()
+//        navigationController?.navigationBar.isHidden = false
     }
 
     class func controller() -> SearchViewController {
@@ -109,7 +112,7 @@ private extension SearchViewController {
     func searchViewSetup() {
         searchView.layer.cornerRadius = 10
         searchView.layer.borderWidth = 2
-        searchView.layer.borderColor = UIColor.gray.cgColor
+        searchView.layer.borderColor = #colorLiteral(red: 0.8649813795, green: 0.5759062337, blue: 0.05096345999, alpha: 0.1198558539)
         searchView.layer.masksToBounds = true
     }
  

@@ -13,12 +13,25 @@ import UIKit
 }
 
 
-class FadeTransition: UIViewControllerAnimatedTransitioning {
+class FadeTransition: NSObject, UIViewControllerAnimatedTransitioning {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        if let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+            let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) {
+            if !(toViewController.presentedViewController == fromViewController) {
+                //Presenting Animation
+                presentControllerFrom(fromViewController, to: toViewController, withTransition: transitionContext)
+            } else {
+                //Dismiss Animation
+                dismissController(fromViewController, to: toViewController, withTransition: transitionContext)
+            }
+        }
+    }
+    
     
     var transitionType: TransitionType = .Fade
     var isFromLoginScreen = false
     
-    override func presentControllerFrom(_ fromController: UIViewController, to toController: UIViewController, withTransition transitionContext: UIViewControllerContextTransitioning) {
+    func presentControllerFrom(_ fromController: UIViewController, to toController: UIViewController, withTransition transitionContext: UIViewControllerContextTransitioning) {
         presetToOriginalValue(reset: true, of: toController)
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveLinear, animations: {[weak self] () -> Void in
             
@@ -28,10 +41,12 @@ class FadeTransition: UIViewControllerAnimatedTransitioning {
         }
         
     }
-    override func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Double(duration)
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.5
     }
-    override func dismissController(_ fromController: UIViewController, to toController: UIViewController, withTransition transitionContext: UIViewControllerContextTransitioning) {
+    
+    func dismissController(_ fromController: UIViewController, to toController: UIViewController, withTransition transitionContext: UIViewControllerContextTransitioning) {
         presetToOriginalValue(reset: false, of: fromController)
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveLinear, animations: {[weak self] () -> Void in
@@ -46,7 +61,7 @@ class FadeTransition: UIViewControllerAnimatedTransitioning {
         if  transitionType == .Fade {
             controller.view.alpha = reset ? 0 : 1
         } else {
-            controller.view.height = reset ? 64 : windowHeigth
+//            controller.view.frame.height = reset ? 64 : windowWidth
         }
         
     }
