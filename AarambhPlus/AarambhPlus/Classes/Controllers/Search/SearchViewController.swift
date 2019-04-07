@@ -11,23 +11,31 @@ import UIKit
 final class SearchViewController: BaseViewController {
     
     @IBOutlet weak private var searchTextField: UITextField!
-    @IBOutlet weak private var searchView: UIView!
+    @IBOutlet private var searchView: UIView!
     @IBOutlet weak private var collectionView: UICollectionView!
+    @IBOutlet weak private var navBarWidth: NSLayoutConstraint!
     
     private var searchResults = [MediaItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchViewSetup()
+//        searchViewSetup()
         searchTextField.delegate = self
         collectionView.register(UINib(nibName: "RowItemCell", bundle: nil) , forCellWithReuseIdentifier: "RowItemCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchView.frame = navigationController?.navigationBar.frame ?? CGRect.zero
-        navigationController?.navigationBar.addSubview(searchView)
-//        navigationController?.navigationBar.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {[weak self] in
+            self?.navigationController?.navigationBar.addSubview((self?.searchView)!)
+            self?.navBarWidth.constant = windowWidth
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchView.removeFromSuperview()
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -109,12 +117,12 @@ extension SearchViewController: UITextFieldDelegate {
 
 private extension SearchViewController {
     
-    func searchViewSetup() {
-        searchView.layer.cornerRadius = 10
-        searchView.layer.borderWidth = 2
-        searchView.layer.borderColor = #colorLiteral(red: 0.8649813795, green: 0.5759062337, blue: 0.05096345999, alpha: 0.1198558539)
-        searchView.layer.masksToBounds = true
-    }
+//    func searchViewSetup() {
+//        searchView.layer.cornerRadius = 10
+//        searchView.layer.borderWidth = 2
+//        searchView.layer.borderColor = #colorLiteral(red: 0.8649813795, green: 0.5759062337, blue: 0.05096345999, alpha: 0.1198558539)
+//        searchView.layer.masksToBounds = true
+//    }
  
     func getConentForSearchedString(_ str: String) {
 //        print(str)
