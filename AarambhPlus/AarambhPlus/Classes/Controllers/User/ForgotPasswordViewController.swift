@@ -24,7 +24,7 @@ class ForgotPasswordViewController: BaseViewController {
         self.present(alert, animated: true, completion: nil)
         
         // change to desired number of seconds (in this case 5 seconds)
-        let when = DispatchTime.now() + 3
+        let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when){
             // your code with delay
             alert.dismiss(animated: true, completion: nil)

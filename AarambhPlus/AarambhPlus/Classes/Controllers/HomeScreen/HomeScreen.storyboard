@@ -545,10 +545,102 @@
             </objects>
             <point key="canvasLocation" x="2735.1999999999998" y="-113.79310344827587"/>
         </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="WhH-sT-1tU">
+            <objects>
+                <viewController storyboardIdentifier="ResetPasswordViewController" id="AWP-8c-2sD" customClass="ResetPasswordViewController" customModule="AarambhPlus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GIh-uU-VOA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Po-LF-RKg">
+                                <rect key="frame" x="60" y="293" width="255" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="ZGY-FX-3Ap"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QRQ-lN-YFz">
+                                <rect key="frame" x="60" y="247" width="255" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="4NN-Kq-dzJ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urh-FW-HYR">
+                                <rect key="frame" x="87.5" y="359" width="200" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Rcj-LC-tGT"/>
+                                    <constraint firstAttribute="width" constant="200" id="uB2-k7-ImJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.43137254899999999" green="0.14117647059999999" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapSubmitButton:" destination="AWP-8c-2sD" eventType="touchUpInside" id="7dk-l4-T5G"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JaJ-hp-y92">
+                                <rect key="frame" x="101" y="183" width="172" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="Xy7-9i-Wda">
+                                <rect key="frame" x="129" y="79" width="117" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="f6N-YG-D6X"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sf2-hd-L7v" firstAttribute="trailing" secondItem="0Po-LF-RKg" secondAttribute="trailing" constant="60" id="4gs-Wr-pwl"/>
+                            <constraint firstItem="Xy7-9i-Wda" firstAttribute="top" secondItem="Sf2-hd-L7v" secondAttribute="top" constant="59" id="Bju-rS-kUF"/>
+                            <constraint firstItem="urh-FW-HYR" firstAttribute="top" secondItem="0Po-LF-RKg" secondAttribute="bottom" constant="28" id="IJk-l8-pka"/>
+                            <constraint firstItem="0Po-LF-RKg" firstAttribute="top" secondItem="QRQ-lN-YFz" secondAttribute="bottom" constant="8" id="Lel-mS-F05"/>
+                            <constraint firstItem="Sf2-hd-L7v" firstAttribute="trailing" secondItem="QRQ-lN-YFz" secondAttribute="trailing" constant="60" id="TDN-u7-EKJ"/>
+                            <constraint firstItem="0Po-LF-RKg" firstAttribute="leading" secondItem="Sf2-hd-L7v" secondAttribute="leading" constant="60" id="XNt-qt-TuW"/>
+                            <constraint firstItem="Xy7-9i-Wda" firstAttribute="leading" secondItem="Sf2-hd-L7v" secondAttribute="leading" constant="129" id="aeE-IE-sVW"/>
+                            <constraint firstItem="QRQ-lN-YFz" firstAttribute="top" secondItem="JaJ-hp-y92" secondAttribute="bottom" constant="40" id="fIj-6k-DL4"/>
+                            <constraint firstItem="Sf2-hd-L7v" firstAttribute="trailing" secondItem="Xy7-9i-Wda" secondAttribute="trailing" constant="129" id="gY4-6g-b0J"/>
+                            <constraint firstItem="JaJ-hp-y92" firstAttribute="leading" secondItem="Sf2-hd-L7v" secondAttribute="leading" constant="101" id="iH2-Fr-LzM"/>
+                            <constraint firstItem="JaJ-hp-y92" firstAttribute="top" secondItem="Xy7-9i-Wda" secondAttribute="bottom" constant="16" id="mBV-bQ-rBZ"/>
+                            <constraint firstItem="urh-FW-HYR" firstAttribute="centerX" secondItem="GIh-uU-VOA" secondAttribute="centerX" id="q2e-2b-CIy"/>
+                            <constraint firstItem="QRQ-lN-YFz" firstAttribute="leading" secondItem="Sf2-hd-L7v" secondAttribute="leading" constant="60" id="rVd-wi-aa3"/>
+                            <constraint firstItem="Sf2-hd-L7v" firstAttribute="trailing" secondItem="JaJ-hp-y92" secondAttribute="trailing" constant="102" id="sUR-i9-6no"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Sf2-hd-L7v"/>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="0Po-LF-RKg" id="xX8-HX-fDT"/>
+                        <outlet property="newPasswordTextField" destination="QRQ-lN-YFz" id="t9A-qg-Uxf"/>
+                        <outlet property="submitButton" destination="urh-FW-HYR" id="cb6-x1-Fnq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTr-wD-iKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3426" y="-113"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Search_tab" width="37.5" height="37.5"/>
         <image name="Video_Play_Icon" width="36" height="36"/>
         <image name="back_nav" width="37.5" height="37.5"/>
+        <image name="key" width="185" height="158"/>
     </resources>
 </document>
