@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7050D662225B794400C24F04 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050D661225B794400C24F04 /* ForgotPasswordViewController.swift */; };
 		724BAE11241C5D97A8375348 /* Pods_AarambhPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */; };
 		AAA042B2224BE466000EF012 /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA042B1224BE466000EF012 /* Music.storyboard */; };
 		AAA042B4224BE49C000EF012 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA042B3224BE49C000EF012 /* AudioPlayerViewController.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7050D661225B794400C24F04 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		88CD0D0E617EDDD6658C2824 /* Pods-AarambhPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.release.xcconfig"; sourceTree = "<group>"; };
 		AAA042B1224BE466000EF012 /* Music.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Music.storyboard; sourceTree = "<group>"; };
 		AAA042B3224BE49C000EF012 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				E8B4A4672142910D004E54D2 /* SignUpTextFieldCell.swift */,
 				E8B4A46921429490004E54D2 /* SignUpController.swift */,
 				E8EEC6E2214929C4005D76A9 /* ProfileDetailViewController.swift */,
+				7050D661225B794400C24F04 /* ForgotPasswordViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				E8B4A46621428F99004E54D2 /* SignUpTextFieldModel.swift in Sources */,
 				AAA042B6224BE57D000EF012 /* AudioPlayer.swift in Sources */,
 				E866E0A7214BCB6C0045F2DB /* VideoPlayerController.swift in Sources */,
+				7050D662225B794400C24F04 /* ForgotPasswordViewController.swift in Sources */,
 				E89B56C22143E230000C22CD /* APIStatusCodes.swift in Sources */,
 				E89B56C12143E230000C22CD /* APIResponse.swift in Sources */,
 				E832651721E8B529002DAB99 /* VideoDetailBaseCell.swift in Sources */,

@@ -25,6 +25,7 @@ enum RestApis {
     static let addToFavUrl = "\(baseURL)/AddtoFavlist"
     static let viewFavUrl = "\(baseURL)/ViewFavourite"
     static let searchUrl = "\(baseURL)/searchData"
+     static let forgotPasswordUrl = "\(baseURL)/forgotPassword"
     
     static func tabUrl() -> String? {
         var urlStr: String?

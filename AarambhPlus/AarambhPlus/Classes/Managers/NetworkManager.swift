@@ -41,7 +41,12 @@ class NetworkManager: NSObject {
         param["authToken"] = kAuthToken
         BaseRequestor.postRequest(url: RestApis.logOutUrl, parameters: param, handler: handler)
     }
-    
+    class func forgotPassword(email: String, handler: (APICompletion<User>)? = nil) {
+        var param = [String:Any]()
+        param["email"] = email
+        param["authToken"] = kAuthToken
+        BaseRequestor.postRequest(url: RestApis.forgotPasswordUrl, parameters: param, handler: handler)
+    }
     class func registerUser(param: [String:Any], handler: (APICompletion<User>)? = nil) {
         BaseRequestor.postRequest(url: RestApis.signUpUrl, parameters: param , handler: handler)
     }
