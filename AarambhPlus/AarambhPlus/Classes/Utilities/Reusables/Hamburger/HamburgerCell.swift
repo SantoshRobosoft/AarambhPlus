@@ -21,8 +21,18 @@ class HamburgerProfileCell: UITableViewCell {
         if UserManager.shared.isLoggedIn {
             nameLabel.text = UserManager.shared.user?.displayName
             profilePicImageView.setKfImage(UserManager.shared.user?.profilePic)
+            //Circle the profile Image
+            profilePicImageView?.layer.cornerRadius = (profilePicImageView?.frame.size.width ?? 0.0) / 2
+            profilePicImageView?.clipsToBounds = true
+            profilePicImageView?.layer.borderWidth = 3.0
+            profilePicImageView?.layer.borderColor = UIColor.white.cgColor
         } else {
             nameLabel.text = "Click here to login."
+            //Circle the profile Image
+            profilePicImageView?.layer.cornerRadius = (profilePicImageView?.frame.size.width ?? 0.0) / 2
+            profilePicImageView?.clipsToBounds = true
+            profilePicImageView?.layer.borderWidth = 3.0
+            profilePicImageView?.layer.borderColor = UIColor.white.cgColor
         }
     }
 }

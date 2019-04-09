@@ -54,6 +54,7 @@ class ResetPasswordViewController: BaseViewController {
                 if (self?.parseError(result)) != nil {
                     self?.autoAlert()
                     self?.newPasswordTextField.text = ""
+                    self?.confirmPasswordTextField.text = ""
                 }
             }
         }
