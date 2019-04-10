@@ -402,6 +402,11 @@
                                         <constraint firstAttribute="trailing" secondItem="sln-9u-yib" secondAttribute="trailing" constant="10" id="BkA-xc-j1A"/>
                                         <constraint firstItem="sln-9u-yib" firstAttribute="leading" secondItem="hJt-1m-uIN" secondAttribute="leading" constant="10" id="Hif-pY-hJk"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHx-kz-oln">
                                     <rect key="frame" x="240" y="8" width="50" height="37"/>
