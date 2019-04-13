@@ -88,6 +88,8 @@ extension MusicViewController: UICollectionViewDelegateFlowLayout {
         if selectedTab == .audio {
             let vc = AudioPlayerViewController.controllerWith(audioItem: audios?[indexPath.row])
             present(vc!, animated: true, completion: nil)
+        } else {
+            loadVideoDetailController(audios?[indexPath.row])
         }
     }
 }
@@ -121,5 +123,14 @@ extension MusicViewController {
                 //error handling
             }
         }
+    }
+    
+    func loadVideoDetailController(_ model: Any?) {
+        guard let permLink = (model as? MediaItem)?.getPermLink() else {
+            showAlertView("Error!", message: "No permlink found.")
+            return
+        }
+        let controller = VideoDetailController.controller(permLink)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
