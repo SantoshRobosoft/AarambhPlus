@@ -18,26 +18,35 @@ final class MusicViewController: BaseViewController {
     @IBOutlet weak private var audioHighlightView: UIView!
     @IBOutlet weak private var videoHighlightView: UIView!
     
-    private var audios: [MediaItem]?
+    private var audios: [AudioItem]?
     private var selectedTab: MusicHeaderTabType = .audio
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "RowItemCell", bundle: nil) , forCellWithReuseIdentifier: "RowItemCell")
         videoHighlightView.isHidden = true
+        collectionView.delegate = self
         getAudioList()
     }
     
     @IBAction func didSelectAudioButton(_ sender: UIButton) {
+        if selectedTab == .audio {
+            return
+        }
         audioHighlightView.isHidden = false
         videoHighlightView.isHidden = true
         selectedTab = .audio
+        getAudioList()
     }
     
     @IBAction func didTapVideoButton(_ sender: UIButton) {
+        if selectedTab == .video {
+            return
+        }
         videoHighlightView.isHidden = false
         audioHighlightView.isHidden = true
         selectedTab = .video
+        getVideoList()
     }
     
     class func controller() -> HomeScreenController {
@@ -72,6 +81,9 @@ extension MusicViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if selectedTab == .audio {
             let vc = AudioPlayerViewController.controllerWith(audioItem: audios?[indexPath.row])
@@ -82,12 +94,29 @@ extension MusicViewController: UICollectionViewDelegateFlowLayout {
 
 extension MusicViewController {
     func getAudioList() {
+        collectionView.isHidden = true
         CustomLoader.addLoaderOn(view, gradient: false)
         NetworkManager.getAudioList {[weak self] (response) in
             CustomLoader.removeLoaderFrom(self?.view)
             if let items = self?.parseError(response)?.data {
                 self?.audios = items
                 self?.collectionView.reloadData()
+                self?.collectionView.isHidden = false
+            } else {
+                //error handling
+            }
+        }
+    }
+    
+    func getVideoList() {
+        collectionView.isHidden = true
+        CustomLoader.addLoaderOn(view, gradient: false)
+        NetworkManager.getVideoList {[weak self] (response) in
+            CustomLoader.removeLoaderFrom(self?.view)
+            if let items = self?.parseError(response)?.data {
+                self?.audios = items
+                self?.collectionView.reloadData()
+                self?.collectionView.isHidden = false
             } else {
                 //error handling
             }

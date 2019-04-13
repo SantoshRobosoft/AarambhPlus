@@ -29,10 +29,21 @@ class AudioPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        audioPlayer.stop()
-//        startAnimatingActivityIndicator()
-        setupPlayer()
-        startPlaying()
+//        audioPlayer.stop()
+////        startAnimatingActivityIndicator()
+//        setupPlayer()
+//        startPlaying()
+        var player: AVPlayer!
+        let url  = URL.init(string:   "https://lightwaveindia.muvi.com/en/embed/2da2efb91a091e0631f96f69aae45261?Audio_1.mp3")//audioItem?.mediaUrl() ?? "")
+        
+        let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
+        player = AVPlayer(playerItem: playerItem)
+        
+        let playerLayer = AVPlayerLayer(player: player!)
+        
+//        playerLayer?.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
+        self.view.layer.addSublayer(playerLayer)
+        player.play()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,8 +62,8 @@ class AudioPlayerViewController: UIViewController {
         }
         let controller = UIStoryboard(name: "Music", bundle: nil).instantiateViewController(withIdentifier: "\(AudioPlayerViewController.self)") as? AudioPlayerViewController
         controller?.audioItem = audioItem
-        controller?.modalPresentationStyle = .custom
-        controller?.transitioningDelegate = controller
+//        controller?.modalPresentationStyle = .custom
+//        controller?.transitioningDelegate = controller
         return controller
     }
     
@@ -134,6 +145,7 @@ private extension AudioPlayerViewController {
             isPlaying = true
             sliderViewSetup()
         } else {
+            audioPlayer.filePath = URL(string: audioItem?.mediaUrl()?.relaceString() ?? "")
             audioPlayer.play()
         }
         showCubePlayer()

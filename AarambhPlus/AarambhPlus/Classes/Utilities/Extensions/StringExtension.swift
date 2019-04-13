@@ -24,6 +24,13 @@ extension String {
         return false
     }
     
+    func relaceString() -> String {
+        if self.contains("http:") {
+            return self.replacingFirstOccurrenceOfString(target: "http:", withString: "https:")
+        }
+        return self
+    }
+    
     
     /// Call this method to check a string is  numeric or not
     ///

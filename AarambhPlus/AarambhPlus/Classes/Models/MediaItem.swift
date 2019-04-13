@@ -28,6 +28,20 @@ class MediaItem: NSObject, Codable {
     }
 }
 
+class AudioItem: MediaItem {
+    var embeddedUrl: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case embeddedUrl
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.embeddedUrl = try container.decode(String.self, forKey: .embeddedUrl)
+        try super.init(from: decoder)
+    }
+}
+
 extension MediaItem: LayoutProtocol {
     
     @objc func getTitle() -> String? {
@@ -42,7 +56,7 @@ extension MediaItem: LayoutProtocol {
     }
 }
 
-extension MediaItem: AudioDatasource {
+extension AudioItem: AudioDatasource {
     func titleString() -> String? {
         return nil
     }
@@ -52,7 +66,7 @@ extension MediaItem: AudioDatasource {
     }
     
     func mediaUrl() -> String? {
-        return nil
+        return embeddedUrl
     }
     
     func shouldHideDividerView() -> Bool {
