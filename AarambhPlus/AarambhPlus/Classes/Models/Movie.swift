@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Movie: Codable {
+class Movie: NSObject, Codable {
     var id: String?
     var name: String?
     var content_types_id: String?
@@ -25,4 +25,19 @@ class Movie: Codable {
     var movieUrlForTv: String?
     var video_duration: String?
     var content_language: String?
+}
+
+extension Movie: AudioDatasource {
+    func titleString() -> String? {
+        return name
+    }
+    
+    func imageUrl() -> String? {
+        return poster
+    }
+    
+    func mediaUrl() -> String? {
+        return movieUrlForTv
+    }
+    
 }

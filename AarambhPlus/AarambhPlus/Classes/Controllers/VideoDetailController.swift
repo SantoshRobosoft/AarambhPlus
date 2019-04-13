@@ -16,6 +16,7 @@ class VideoDetailController: BaseViewController {
     
     private var movie: Movie?
     private var permLink: String?
+    var isAudio = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,18 +65,24 @@ extension VideoDetailController: UITableViewDelegate {
 
 private extension VideoDetailController {
     func loadVideoPlayer() {
-        guard let url = movie?.movieUrlForTv else {
-            showAlertView("Error!", message: "No video url found.")
-            return
-        }
-        guard let videoURL = URL(string: url) else {
-            return
-        }
-        let player = AVPlayer(url: videoURL)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player?.play()
+        if isAudio {
+            if let audioPlayer = AudioPlayerViewController.controllerWith(audioItem: movie) {
+                present(audioPlayer, animated: true, completion: nil)
+            }
+        } else {
+            guard let url = movie?.movieUrlForTv else {
+                showAlertView("Error!", message: "No video url found.")
+                return
+            }
+            guard let videoURL = URL(string: url) else {
+                return
+            }
+            let player = AVPlayer(url: videoURL)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            self.present(playerViewController, animated: true) {
+                playerViewController.player?.play()
+            }
         }
     }
     

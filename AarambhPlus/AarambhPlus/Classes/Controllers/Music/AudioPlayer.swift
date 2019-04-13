@@ -27,8 +27,6 @@ protocol AudioDatasource: NSObjectProtocol {
     func titleString() -> String?
     func imageUrl() -> String?
     func mediaUrl() -> String?
-    func shouldHideDividerView() -> Bool
-    func getShareUrl() -> String?
 }
 
 class AudioPlayer : NSObject {

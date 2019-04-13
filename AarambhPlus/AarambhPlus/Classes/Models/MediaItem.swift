@@ -69,15 +69,6 @@ extension AudioItem: AudioDatasource {
         return embeddedUrl
     }
     
-    func shouldHideDividerView() -> Bool {
-        return true
-    }
-    
-    func getShareUrl() -> String? {
-        return nil
-    }
-    
-    
 }
 
 class Banner: MediaItem {

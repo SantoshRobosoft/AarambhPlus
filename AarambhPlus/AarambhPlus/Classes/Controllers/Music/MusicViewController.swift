@@ -85,12 +85,14 @@ extension MusicViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if selectedTab == .audio {
-            let vc = AudioPlayerViewController.controllerWith(audioItem: audios?[indexPath.row])
-            present(vc!, animated: true, completion: nil)
-        } else {
-            loadVideoDetailController(audios?[indexPath.row])
-        }
+        loadVideoDetailController(audios?[indexPath.row], isAudio: false)//selectedTab == .audio)
+//        if selectedTab == .audio {
+//            loadVideoDetailController(audios?[indexPath.row], isAudio: selectedTab == .audio)
+////            let vc = AudioPlayerViewController.controllerWith(audioItem: audios?[indexPath.row])
+////            present(vc!, animated: true, completion: nil)
+//        } else {
+//            loadVideoDetailController(audios?[indexPath.row])
+//        }
     }
 }
 
@@ -125,12 +127,13 @@ extension MusicViewController {
         }
     }
     
-    func loadVideoDetailController(_ model: Any?) {
+    func loadVideoDetailController(_ model: Any?, isAudio: Bool) {
         guard let permLink = (model as? MediaItem)?.getPermLink() else {
             showAlertView("Error!", message: "No permlink found.")
             return
         }
         let controller = VideoDetailController.controller(permLink)
+        controller.isAudio = isAudio
         navigationController?.pushViewController(controller, animated: true)
     }
 }
