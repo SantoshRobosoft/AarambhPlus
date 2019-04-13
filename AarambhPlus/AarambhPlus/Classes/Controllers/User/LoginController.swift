@@ -36,6 +36,7 @@ class LoginController: BaseViewController {
     }
     
     @IBAction func didTapForgorPasswordButton(_ sender: UIButton) {
+        UIViewController.rootViewController?.navigate(to: ForgotPasswordViewController.self, of: .user, presentationType: .push, prepareForNavigation: nil)
     }
     
     @IBAction func didTapLogInButton(_ sender: UIButton) {

@@ -30,6 +30,7 @@ class HamburgerMenuController: UIViewController {
             if UserManager.shared.isLoggedIn {
                 items.append("My Favorites")
                 items.append("My Profile")
+                items.append("Reset Password")
                 items.append("Log Out")
             } else {
                 for (index, item) in items.enumerated() {
@@ -147,6 +148,10 @@ private extension HamburgerMenuController {
             dismiss(animated: true) { [weak self] in
                 self?.showFavoriteList()
             }
+        case "Reset Password":
+            dismiss(animated: true) { [weak self] in
+                self?.changePassword()
+            }
         default:
             break
         }
@@ -166,6 +171,9 @@ private extension HamburgerMenuController {
     
     func showFavoriteList() {
         UIViewController.rootViewController?.navigate(to: VideoListController.self, of: .home, presentationType: .push, prepareForNavigation: nil)
+    }
+    func changePassword() {
+        UIViewController.rootViewController?.navigate(to: ResetPasswordViewController.self, of: .home, presentationType: .push, prepareForNavigation: nil)
     }
 }
 
