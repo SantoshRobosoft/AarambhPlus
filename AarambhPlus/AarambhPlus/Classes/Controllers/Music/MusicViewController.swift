@@ -17,7 +17,7 @@ final class MusicViewController: BaseViewController {
     @IBOutlet weak private var collectionView: UICollectionView!
     @IBOutlet weak private var audioHighlightView: UIView!
     @IBOutlet weak private var videoHighlightView: UIView!
-    
+    var searchBarBtn: UIBarButtonItem?
     private var audios: [AudioItem]?
     private var selectedTab: MusicHeaderTabType = .audio
     
@@ -27,8 +27,27 @@ final class MusicViewController: BaseViewController {
         videoHighlightView.isHidden = true
         collectionView.delegate = self
         getAudioList()
+        //jaganth
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "Aarambha LR Logo.png")
+        imageView.image = image
+        navigationItem.titleView = imageView
+        
+        self.searchBarBtn = UIBarButtonItem(image: #imageLiteral(resourceName: "Search_tab"),
+                                            style: UIBarButtonItemStyle.plain,
+                                            target: self,
+                                            action: #selector(searchButtonClicked))
+        searchBarBtn?.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = self.searchBarBtn
+        
     }
     
+    //jaganath
+    @objc func searchButtonClicked() {
+        
+        UIViewController.rootViewController?.navigate(to: SearchViewController.self, of: .home, presentationType: .push, prepareForNavigation: nil)
+    }
     @IBAction func didSelectAudioButton(_ sender: UIButton) {
         if selectedTab == .audio {
             return
