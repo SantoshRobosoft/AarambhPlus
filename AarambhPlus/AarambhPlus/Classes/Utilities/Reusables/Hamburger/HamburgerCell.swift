@@ -38,10 +38,13 @@ class HamburgerProfileCell: UITableViewCell {
 }
 
 class HamburgerItemCell: UITableViewCell {
-    
+     @IBOutlet weak var titleImg: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
     
     func updateUI(title: String?) {
         titleLabel.text = title
+    }
+    func updateUI(imgge: UIImage?) {
+        titleImg.image = imgge
     }
 }

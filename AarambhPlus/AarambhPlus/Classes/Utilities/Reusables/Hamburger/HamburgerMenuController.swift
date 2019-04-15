@@ -84,6 +84,7 @@ extension HamburgerMenuController: UITableViewDataSource {
             case .items:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "HamburgerItemCell", for: indexPath) as! HamburgerItemCell
                 cell.updateUI(title: items[indexPath.row])
+                cell.updateUI(imgge: UIImage(named: items[indexPath.row]))  //for Menu Image
                 return cell
             }
         }

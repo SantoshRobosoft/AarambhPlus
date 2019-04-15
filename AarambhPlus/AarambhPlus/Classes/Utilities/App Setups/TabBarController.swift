@@ -22,9 +22,9 @@ enum TabBarItem: Int {
         case .music:
             return ("Music", #imageLiteral(resourceName: "musical_notes"))
         case .originals:
-            return ("Originals", #imageLiteral(resourceName: "play"))
+            return ("Originals", #imageLiteral(resourceName: "Toriginals"))
         case .jatra:
-            return ("Jatra",#imageLiteral(resourceName: "video_call"))
+            return ("Jatra",#imageLiteral(resourceName: "Tjatra"))
         case .movies:
             return ("Movies",#imageLiteral(resourceName: "Movie"))
         }
