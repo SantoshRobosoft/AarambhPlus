@@ -587,7 +587,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Submit">
-                                    <color key="titleColor" red="0.43137254899999999" green="0.14117647059999999" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.95822482639999995" green="0.56287977430000002" blue="0.001708984375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>

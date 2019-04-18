@@ -16,7 +16,7 @@ class HamburgerMenuController: UIViewController {
 
     @IBOutlet weak private var tableView: UITableView!
     
-    var items = ["Dashboard", "Music", "Originals", "Jatra", "Movies"]
+    var items = ["Dashboard", "Music", "Originals", "Jatra", "Movies", "Log In"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +28,9 @@ class HamburgerMenuController: UIViewController {
         super.viewWillAppear(animated)
         if !items.contains("Log Out") {
             if UserManager.shared.isLoggedIn {
+                items.remove(at: 5)
                 items.append("My Favorites")
-                items.append("My Profile")
+                items.insert("My Profile", at:0)
                 items.append("Reset Password")
                 items.append("Log Out")
             } else {
@@ -84,6 +85,7 @@ extension HamburgerMenuController: UITableViewDataSource {
             case .items:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "HamburgerItemCell", for: indexPath) as! HamburgerItemCell
                 cell.updateUI(title: items[indexPath.row])
+                cell.updateUI(imgge: UIImage(named: items[indexPath.row]))  //for Menu Image
                 return cell
             }
         }
@@ -142,8 +144,13 @@ private extension HamburgerMenuController {
             }
         case "My Profile":
             pushProfileScreen()
+            
+        case "Log In":
+            pushLoginScreen()
+            
         case "Log Out":
             logOut()
+            
         case "My Favorites":
             dismiss(animated: true) { [weak self] in
                 self?.showFavoriteList()
