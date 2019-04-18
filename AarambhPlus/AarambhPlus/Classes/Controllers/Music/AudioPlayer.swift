@@ -323,6 +323,6 @@ class AudioPlayer : NSObject {
     }
     
     func postNotificationWith(status: PlayerStatus) {
-//        NotificationCenter.default.post(name: .bulletinPlayerStateChanged, object: status)
+        NotificationCenter.default.post(name: .audioPlayerStateChanged, object: status)
     }
 }

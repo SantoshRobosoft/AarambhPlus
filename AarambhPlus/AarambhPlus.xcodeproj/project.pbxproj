@@ -16,6 +16,7 @@
 		AAA042B7224BE893000EF012 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E810976F213FFB320059913B /* FadeTransition.swift */; };
 		AAA042B9224BEB60000EF012 /* CubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA042B8224BEB5F000EF012 /* CubePlayer.swift */; };
 		AABB6315222AB666002CA007 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB6314222AB666002CA007 /* MusicViewController.swift */; };
+		AADFB22E2267A3E30026DFB2 /* visualizer_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AADFB22D2267A3E20026DFB2 /* visualizer_gif.gif */; };
 		AF18899822147F8100215100 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18899722147F8100215100 /* SearchViewController.swift */; };
 		E80C35D52147ED2700155C6F /* RestApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80C35D42147ED2700155C6F /* RestApis.swift */; };
 		E8109774213FFDA00059913B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8109773213FFDA00059913B /* UILabelExtension.swift */; };
@@ -114,6 +115,7 @@
 		AAA042B5224BE57D000EF012 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		AAA042B8224BEB5F000EF012 /* CubePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubePlayer.swift; sourceTree = "<group>"; };
 		AABB6314222AB666002CA007 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		AADFB22D2267A3E20026DFB2 /* visualizer_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = visualizer_gif.gif; sourceTree = "<group>"; };
 		AF18899722147F8100215100 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BC0C54DCDD5AE4EEBC63AB30 /* Pods-AarambhPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AarambhPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +244,14 @@
 				AAA042B5224BE57D000EF012 /* AudioPlayer.swift */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		AADFB22C2267A3E20026DFB2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AADFB22D2267A3E20026DFB2 /* visualizer_gif.gif */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		AC32BB3C5AC40EF5224D9FF8 /* Frameworks */ = {
@@ -400,6 +410,7 @@
 		E89A7322213FB33E00BAD081 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AADFB22C2267A3E20026DFB2 /* Resources */,
 				E89B56B12143E230000C22CD /* Network module */,
 				E8109772213FFD560059913B /* Extensions */,
 				E89A732B213FB8F200BAD081 /* App Setups */,
@@ -645,6 +656,7 @@
 				E89A72FC213FB2D500BAD081 /* LaunchScreen.storyboard in Resources */,
 				E8B4A4612142748C004E54D2 /* HamburgerMenu.storyboard in Resources */,
 				E8472A77214406060002AC5F /* RowItemCell.xib in Resources */,
+				AADFB22E2267A3E30026DFB2 /* visualizer_gif.gif in Resources */,
 				E8472A75214404320002AC5F /* TopBannerCell.xib in Resources */,
 				E89A7336213FD7F700BAD081 /* HomeScreen.storyboard in Resources */,
 				E89A72F9213FB2D500BAD081 /* Assets.xcassets in Resources */,

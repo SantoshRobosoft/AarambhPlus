@@ -32,10 +32,9 @@ class FadeTransition: NSObject, UIViewControllerAnimatedTransitioning {
     var isFromLoginScreen = false
     
     func presentControllerFrom(_ fromController: UIViewController, to toController: UIViewController, withTransition transitionContext: UIViewControllerContextTransitioning) {
-        presetToOriginalValue(reset: true, of: toController)
+        toController.view.alpha = 1
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveLinear, animations: {[weak self] () -> Void in
-            
-            self?.presetToOriginalValue(reset: false, of: toController)
+            toController.view.alpha = 1
         }) { (finished: Bool) -> Void in
             transitionContext.completeTransition(true)
         }

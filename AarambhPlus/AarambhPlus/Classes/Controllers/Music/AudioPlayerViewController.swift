@@ -31,19 +31,9 @@ class AudioPlayerViewController: UIViewController {
         super.viewDidLoad()
 //        audioPlayer.stop()
 ////        startAnimatingActivityIndicator()
-//        setupPlayer()
-//        startPlaying()
-        var player: AVPlayer!
-        let url  = URL.init(string:   "https://lightwaveindia.muvi.com/en/embed/2da2efb91a091e0631f96f69aae45261?Audio_1.mp3")//audioItem?.mediaUrl() ?? "")
-        
-        let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
-        player = AVPlayer(playerItem: playerItem)
-        
-        let playerLayer = AVPlayerLayer(player: player!)
-        
-//        playerLayer?.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
-        self.view.layer.addSublayer(playerLayer)
-        player.play()
+        setupPlayer()
+        startPlaying()
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,13 +52,13 @@ class AudioPlayerViewController: UIViewController {
         }
         let controller = UIStoryboard(name: "Music", bundle: nil).instantiateViewController(withIdentifier: "\(AudioPlayerViewController.self)") as? AudioPlayerViewController
         controller?.audioItem = audioItem
-//        controller?.modalPresentationStyle = .custom
-//        controller?.transitioningDelegate = controller
+        controller?.modalPresentationStyle = .custom
+        controller?.transitioningDelegate = controller
         return controller
     }
     
     @IBAction func didTapDismissButton(_ sender: UIButton) {
-        //        showCubePlayer()
+                showCubePlayer()
         dismiss(animated: true, completion: nil)
     }
     
@@ -102,8 +92,8 @@ class AudioPlayerViewController: UIViewController {
 private extension AudioPlayerViewController {
     
     func showCubePlayer() {
-        let customView = CubePlayer.shared.getCubeViewWith(frame: CGRect(x: windowWidth - 150, y: windowHight - 200, width: 100, height: 100), imageUrl: audioItem?.imageUrl(), isPlaying: !(audioPlayer.playerStatus() == .pause))
-        CubePlayer.shared.showCubePlayerOnParent(view: self.navigationController?.view, withFrame: nil, customView: customView, type: .bulletin, dataSource: audioItem)
+        let customView = CubePlayer.shared.getCubeViewWith(frame: CGRect(x: windowWidth - 150, y: windowHight - 200, width: 150, height: 150), imageUrl: audioItem?.imageUrl(), isPlaying: !(audioPlayer.playerStatus() == .pause))
+        CubePlayer.shared.showCubePlayerOnParent(view: UIViewController.tabBarVC?.view, withFrame: nil, customView: customView, type: .bulletin, dataSource: audioItem)
     }
     
     func startAnimatingActivityIndicator() {
@@ -218,15 +208,15 @@ extension AudioPlayerViewController : AudioPlayerDelegate {
 
 extension AudioPlayerViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let animator = FadeTransition()
-        return animator
+//        let animator = FadeTransition()
+        return nil
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let animator = FadeTransition()
 //        animator.presenting = true
 //        animator.duration = 0.2
-        return animator
+        return nil
     }
 }
 

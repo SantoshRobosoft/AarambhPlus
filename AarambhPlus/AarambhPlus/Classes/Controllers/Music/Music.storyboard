@@ -28,13 +28,16 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-Nw-Hij">
                                         <rect key="frame" x="330" y="10" width="30" height="30"/>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="utF-Bz-m55"/>
                                             <constraint firstAttribute="height" constant="30" id="vql-9N-aEX"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="Close_podcast"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" red="0.88574724739999999" green="0.15684421900000001" blue="0.044654785420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -90,8 +93,8 @@
                                             <constraint firstAttribute="width" constant="50" id="FDS-YY-Qef"/>
                                             <constraint firstAttribute="height" constant="50" id="upX-PJ-c6U"/>
                                         </constraints>
-                                        <state key="normal" image="NewsbulletinPause"/>
-                                        <state key="selected" image="Play_on"/>
+                                        <state key="normal" image="Audio_pause"/>
+                                        <state key="selected" image="Audio_play"/>
                                         <connections>
                                             <action selector="didTapPlayPauseButton:" destination="Za6-Tm-q3t" eventType="touchUpInside" id="lLR-On-Mxg"/>
                                         </connections>
@@ -102,7 +105,7 @@
                                             <constraint firstAttribute="width" constant="40" id="kpi-vt-hzq"/>
                                             <constraint firstAttribute="height" constant="40" id="ydr-Hq-3pa"/>
                                         </constraints>
-                                        <state key="normal" image="timeClockWise"/>
+                                        <state key="normal" image="Audio_forward"/>
                                         <connections>
                                             <action selector="didTapForwardButton:" destination="Za6-Tm-q3t" eventType="touchUpInside" id="JVY-Wm-JPu"/>
                                         </connections>
@@ -113,14 +116,14 @@
                                             <constraint firstAttribute="width" constant="40" id="izB-UO-mit"/>
                                             <constraint firstAttribute="height" constant="40" id="ulH-Fk-G8w"/>
                                         </constraints>
-                                        <state key="normal" image="timeAnticlock"/>
+                                        <state key="normal" image="Audio_rewind"/>
                                         <connections>
                                             <action selector="didTapRewindButton:" destination="Za6-Tm-q3t" eventType="touchUpInside" id="zhr-7l-67Y"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-WL-4NL">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="304"/>
-                                        <color key="backgroundColor" red="0.11532196159999999" green="0.11532196159999999" blue="0.11532196159999999" alpha="0.32764340749999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -197,11 +200,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Close_podcast" width="16" height="16"/>
-        <image name="NewsbulletinPause" width="16" height="16"/>
-        <image name="Play_on" width="16" height="16"/>
-        <image name="timeAnticlock" width="16" height="16"/>
-        <image name="timeClockWise" width="16" height="16"/>
+        <image name="Audio_forward" width="156.52174377441406" height="156.52174377441406"/>
+        <image name="Audio_pause" width="156.52174377441406" height="156.52174377441406"/>
+        <image name="Audio_play" width="156.52174377441406" height="156.52174377441406"/>
+        <image name="Audio_rewind" width="156.52174377441406" height="156.52174377441406"/>
         <image name="visuallizer" width="16" height="16"/>
     </resources>
 </document>

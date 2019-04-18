@@ -35,7 +35,7 @@ class CubePlayer: NSObject {
     private override init() {
         super.init()
 //        NotificationCenter.default.addObserver(self, selector: #selector(respondToOtherPlayerStateChange), name: .textToSpeechPlayingStateChanged, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(respondToCubePlayerStateChange), name: .bulletinPlayerStateChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(respondToCubePlayerStateChange), name: .audioPlayerStateChanged, object: nil)
     }
     
     deinit {
@@ -93,7 +93,7 @@ class CubePlayer: NSObject {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: originalFrame.width, height: originalFrame.height))
         let gifView = UIImageView(frame: CGRect(x: 0, y: 0, width: originalFrame.width, height: originalFrame.height))
         if isPlaying {
-//            gifView.loadGif(name: gif ?? "visualizer_gif")
+            gifView.loadGif(name: gif ?? "visualizer_gif")
         } else {
             gifView.image = UIImage(named: "pause")
             gifView.contentMode = .center
@@ -162,12 +162,14 @@ private extension CubePlayer {
             return
         }
         if let vc = AudioPlayerViewController.controllerWith(audioItem: dataSource) {
-//            UIViewController.baseController()?.present(vc, animated: true, completion: nil)
+            UIViewController.navController?.topViewController?.present(vc, animated: true, completion: nil)
         }
     }
     
     func addShadow() {
-//        cubeView?.addBorderShadow(color: UIColor.shadow(), opacity: nil, radius: nil, offset: nil)
+        cubeView?.roundedCorners(radius: 5)
+        cubeView?.addShadow()
+//        cubeView?.addBorderShadow(color: UIColor.lightGray, opacity: nil, radius: nil, offset: nil)
 //        cubeView?.roundedCorners(radius: 5)
 //        cubeView?.clipsToBounds = true
     }
@@ -176,7 +178,7 @@ private extension CubePlayer {
         if let cubeView = cubeView {
             if let gifView = cubeView.viewWithTag(cubePlayerGifTag) as? UIImageView {
                 if !paused {
-//                    gifView.loadGif(name: "visualizer_gif")
+                    gifView.loadGif(name: "visualizer_gif")
                     gifView.contentMode = .scaleAspectFit
                 } else {
                     gifView.image = UIImage(named: "pause")
