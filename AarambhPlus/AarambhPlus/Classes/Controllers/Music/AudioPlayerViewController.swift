@@ -64,7 +64,7 @@ class AudioPlayerViewController: UIViewController {
     
     @IBAction func didTapClosePlayerButton(_ sender: UIButton) {
         audioPlayer.stop()
-        didTapDismissButton(sender)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
@@ -138,7 +138,7 @@ private extension AudioPlayerViewController {
             audioPlayer.filePath = URL(string: audioItem?.mediaUrl()?.relaceString() ?? "")
             audioPlayer.play()
         }
-        showCubePlayer()
+//        showCubePlayer()
         startTimer()
     }
     
