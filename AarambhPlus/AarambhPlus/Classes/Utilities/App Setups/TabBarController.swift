@@ -39,7 +39,7 @@ enum TabBarItem: Int {
         case .originals:
             return UIStoryboard.init(.home).instantiateViewController(withId: HomeScreenController.storyboardIdentifier)
         case .jatra:
-            return UIStoryboard.init(.home).instantiateViewController(withIdentifier: HomeScreenController.storyboardIdentifier)
+            return GridViewController.controller()//UIStoryboard.init(.home).instantiateViewController(withIdentifier: HomeScreenController.storyboardIdentifier)
         case .movies:
             return UIStoryboard.init(.home).instantiateViewController(withId: HomeScreenController.storyboardIdentifier)
         }

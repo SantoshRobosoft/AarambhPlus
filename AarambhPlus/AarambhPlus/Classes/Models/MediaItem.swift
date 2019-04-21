@@ -20,9 +20,10 @@ class MediaItem: NSObject, Codable {
     var poster_url: String?
     private var c_permalink: String?
     private var permalink: String?
+    private var content_permalink: String?
     
     private enum CodingKeys: String, CodingKey {
-        case artistName, uniq_id, title, name, poster_url, c_permalink, permalink
+        case artistName, uniq_id, title, name, poster_url, c_permalink, permalink, content_permalink
         case image = "poster"
         case id = "movie_id"
     }
@@ -52,7 +53,16 @@ extension MediaItem: LayoutProtocol {
         return image ?? poster_url
     }
     @objc func getPermLink() -> String? {
-        return c_permalink ?? permalink
+        if let content_permalink = content_permalink, !content_permalink.isEmpty {
+            return content_permalink
+        }
+        if let c_permalink = c_permalink, !c_permalink.isEmpty {
+            return c_permalink
+        }
+        if let permalink = permalink, !permalink.isEmpty {
+            return permalink
+        }
+        return nil
     }
 }
 

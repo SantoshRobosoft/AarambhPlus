@@ -54,7 +54,7 @@ extension VideoListController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        loadVideoPlayer(layout?._mediaItems?[indexPath.row])
+        loadVideoPlayer(layout?.mediaItems?[indexPath.row])
     }
 }
 

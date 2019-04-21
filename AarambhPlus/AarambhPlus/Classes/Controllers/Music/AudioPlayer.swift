@@ -17,7 +17,14 @@ enum PlayerStatus :Int {
     case failed
 }
 
-protocol AudioPlayerDelegate {
+class AudioDelegate<T: AudioPlayerDelegate> {
+    weak var value: T?
+    init(value: T) {
+        self.value = value
+    }
+}
+
+protocol AudioPlayerDelegate: class {
     func didPlayerStatusUpdated(status : PlayerStatus)
     func didPlayerSeekValueChanged(currentTime : Int, duration : Int)
     func didUpdateDuration(duration : Int)
@@ -34,7 +41,7 @@ class AudioPlayer : NSObject {
     var audioPlayer : AVPlayer?
     private var duration: Int?
     private var currentTime: Int?
-    var audioDelegates = [AudioPlayerDelegate]()
+    var audioDelegates = [AudioDelegate<AudioPlayerViewController>]()
     var filePath : URL?
     static let shared = AudioPlayer()
     
@@ -42,7 +49,7 @@ class AudioPlayer : NSObject {
         super.init()
     }
     
-    func addDelegate(delegate: AudioPlayerDelegate){
+    func addDelegate(delegate: AudioDelegate<AudioPlayerViewController>){
         audioDelegates.append(delegate)
     }
     
@@ -55,19 +62,19 @@ class AudioPlayer : NSObject {
     
     func sendPlayerUpdatedStatus(status : PlayerStatus){
         for delegate in audioDelegates {
-            delegate.didPlayerStatusUpdated(status: status)
+            delegate.value?.didPlayerStatusUpdated(status: status)
         }
     }
     
     func sendPlayerSeekValueChangedStatus(currentTime : Int, duration : Int){
         for delegate in audioDelegates {
-            delegate.didPlayerSeekValueChanged(currentTime: currentTime, duration: duration)
+            delegate.value?.didPlayerSeekValueChanged(currentTime: currentTime, duration: duration)
         }
     }
     
     func sendUpdatedDuration(duration : Int){
         for delegate in audioDelegates {
-            delegate.didUpdateDuration(duration: duration)
+            delegate.value?.didUpdateDuration(duration: duration)
         }
     }
     
@@ -80,7 +87,8 @@ class AudioPlayer : NSObject {
                     
                     try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.duckOthers)
                     try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [])
-                    
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    UIApplication.shared.beginReceivingRemoteControlEvents()
                     audioPlayer = AVPlayer(url: url)
                     audioPlayer?.addObserver(self, forKeyPath: #keyPath(AVPlayer.status), options: [.new, .initial], context: nil)
                     audioPlayer?.addObserver(self, forKeyPath: #keyPath(AVPlayer.currentItem.status), options:[.new, .initial], context: nil)

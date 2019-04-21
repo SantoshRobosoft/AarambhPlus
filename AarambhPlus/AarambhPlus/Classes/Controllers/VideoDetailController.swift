@@ -70,6 +70,7 @@ private extension VideoDetailController {
                 present(audioPlayer, animated: true, completion: nil)
             }
         } else {
+            CubePlayer.shared.removeCubePlayerAndStopPlayer()
             guard let url = movie?.movieUrlForTv else {
                 showAlertView("Error!", message: "No video url found.")
                 return

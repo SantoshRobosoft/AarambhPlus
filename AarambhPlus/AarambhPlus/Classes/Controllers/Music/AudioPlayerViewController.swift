@@ -53,7 +53,7 @@ class AudioPlayerViewController: UIViewController {
         let controller = UIStoryboard(name: "Music", bundle: nil).instantiateViewController(withIdentifier: "\(AudioPlayerViewController.self)") as? AudioPlayerViewController
         controller?.audioItem = audioItem
         controller?.modalPresentationStyle = .custom
-        controller?.transitioningDelegate = controller
+//        controller?.transitioningDelegate = controller
         return controller
     }
     
@@ -109,7 +109,7 @@ private extension AudioPlayerViewController {
     func setupPlayer() {
         podcastImageView.setKfImage(audioItem?.imageUrl())
         titleLabel.text = audioItem?.titleString()
-        audioPlayer.addDelegate(delegate: self)
+        audioPlayer.addDelegate(delegate: AudioDelegate(value: self))
         if audioPlayer.isCurrentMediaItem(urlString: audioItem?.mediaUrl()) {
             
         } else {

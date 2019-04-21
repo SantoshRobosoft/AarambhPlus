@@ -17,6 +17,7 @@
 		AAA042B9224BEB60000EF012 /* CubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA042B8224BEB5F000EF012 /* CubePlayer.swift */; };
 		AABB6315222AB666002CA007 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB6314222AB666002CA007 /* MusicViewController.swift */; };
 		AADFB22E2267A3E30026DFB2 /* visualizer_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AADFB22D2267A3E20026DFB2 /* visualizer_gif.gif */; };
+		AAFE52A52269AB4C00AA7303 /* JatraLandingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE52A42269AB4C00AA7303 /* JatraLandingScreenViewModel.swift */; };
 		AF18899822147F8100215100 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18899722147F8100215100 /* SearchViewController.swift */; };
 		E80C35D52147ED2700155C6F /* RestApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80C35D42147ED2700155C6F /* RestApis.swift */; };
 		E8109774213FFDA00059913B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8109773213FFDA00059913B /* UILabelExtension.swift */; };
@@ -116,6 +117,7 @@
 		AAA042B8224BEB5F000EF012 /* CubePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubePlayer.swift; sourceTree = "<group>"; };
 		AABB6314222AB666002CA007 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		AADFB22D2267A3E20026DFB2 /* visualizer_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = visualizer_gif.gif; sourceTree = "<group>"; };
+		AAFE52A42269AB4C00AA7303 /* JatraLandingScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JatraLandingScreenViewModel.swift; sourceTree = "<group>"; };
 		AF18899722147F8100215100 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BC0C54DCDD5AE4EEBC63AB30 /* Pods-AarambhPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AarambhPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AarambhPlus/Pods-AarambhPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		D5CCDDCFA435B20EF5C986D9 /* Pods_AarambhPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AarambhPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,14 @@
 				AADFB22D2267A3E20026DFB2 /* visualizer_gif.gif */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AAFE52A32269AB2B00AA7303 /* Jatra */ = {
+			isa = PBXGroup;
+			children = (
+				AAFE52A42269AB4C00AA7303 /* JatraLandingScreenViewModel.swift */,
+			);
+			path = Jatra;
 			sourceTree = "<group>";
 		};
 		AC32BB3C5AC40EF5224D9FF8 /* Frameworks */ = {
@@ -396,6 +406,7 @@
 		E89A7320213FB33E00BAD081 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AAFE52A32269AB2B00AA7303 /* Jatra */,
 				AABB6313222AB666002CA007 /* Music */,
 				AF18899322147F1000215100 /* Search */,
 				E8B4A45521426A36004E54D2 /* User */,
@@ -755,6 +766,7 @@
 				E832651721E8B529002DAB99 /* VideoDetailBaseCell.swift in Sources */,
 				E8B4A4682142910D004E54D2 /* SignUpTextFieldCell.swift in Sources */,
 				E8109776213FFE0D0059913B /* StringExtension.swift in Sources */,
+				AAFE52A52269AB4C00AA7303 /* JatraLandingScreenViewModel.swift in Sources */,
 				E89B56C32143E230000C22CD /* DataResource.swift in Sources */,
 				E8EEC6E521492E09005D76A9 /* GridViewController.swift in Sources */,
 				E8CF00B62164B86A00FD4803 /* StoryboardExtension.swift in Sources */,

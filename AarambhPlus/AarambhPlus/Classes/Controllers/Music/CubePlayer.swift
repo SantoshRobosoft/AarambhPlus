@@ -115,6 +115,11 @@ class CubePlayer: NSObject {
         dataSource = nil
     }
     
+    func removeCubePlayerAndStopPlayer() {
+        AudioPlayer.shared.stop()
+        removeCubePlayer()
+    }
+    
     @objc func moveViewWithGestureRecognizer(_ sender: UIPanGestureRecognizer) {
         let touchLocation = sender.location(in: parentView)
         cubeView?.center = touchLocation
