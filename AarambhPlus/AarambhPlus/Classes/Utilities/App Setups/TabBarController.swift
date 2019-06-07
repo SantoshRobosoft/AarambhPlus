@@ -37,11 +37,14 @@ enum TabBarItem: Int {
         case .music:
             return UIStoryboard.init(.home).instantiateViewController(withId: MusicViewController.storyboardIdentifier)
         case .originals:
-            return UIStoryboard.init(.home).instantiateViewController(withId: HomeScreenController.storyboardIdentifier)
+            let model = JatraLandingScreenViewModel()
+            return GridViewController.controller(model)
         case .jatra:
-            return GridViewController.controller()//UIStoryboard.init(.home).instantiateViewController(withIdentifier: HomeScreenController.storyboardIdentifier)
+            let model = JatraLandingScreenViewModel()
+            return GridViewController.controller(model)//UIStoryboard.init(.home).instantiateViewController(withIdentifier: HomeScreenController.storyboardIdentifier)
         case .movies:
-            return UIStoryboard.init(.home).instantiateViewController(withId: HomeScreenController.storyboardIdentifier)
+            let model = JatraLandingScreenViewModel()
+            return GridViewController.controller(model)
         }
     }
     

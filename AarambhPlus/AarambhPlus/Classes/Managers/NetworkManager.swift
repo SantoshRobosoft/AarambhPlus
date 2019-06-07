@@ -83,13 +83,12 @@ class NetworkManager: NSObject {
         BaseRequestor.getRequest(url: urlStr, parameters: nil, responseKey: "search", handler: handler)
     }
     
-    class func getAudioList(handler: APICompletion<[AudioItem]>?) {
-        let urlStr = "\(RestApis.tabContent)?authToken=\(kAuthToken)&permalink=audio"
-        BaseRequestor.getRequest(url: urlStr, parameters: nil, responseKey: "movieList", handler: handler)
+    class func getAudioList(url: String, handler: APICompletion<[AudioItem]>?) {
+        
+        BaseRequestor.getRequest(url: url, parameters: nil, responseKey: "movieList", handler: handler)
     }
     
-    class func getVideoList(handler: APICompletion<[AudioItem]>?) {
-        let urlStr = "\(RestApis.tabContent)?authToken=\(kAuthToken)&permalink=video-1"
-        BaseRequestor.getRequest(url: urlStr, parameters: nil, responseKey: "movieList", handler: handler)
+    class func getVideoList(url: String, handler: APICompletion<[AudioItem]>?) {
+        BaseRequestor.getRequest(url: url, parameters: nil, responseKey: "movieList", handler: handler)
     }
 }

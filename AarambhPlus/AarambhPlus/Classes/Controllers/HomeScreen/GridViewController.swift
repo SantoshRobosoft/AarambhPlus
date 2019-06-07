@@ -16,7 +16,7 @@ class GridViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var viewModel: JatraLandingScreenViewModel?
+    var viewModel: GridViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +24,9 @@ class GridViewController: BaseViewController {
         fetchJatraList()
     }
     
-    class func controller() -> GridViewController {
+    class func controller(_ viewModel: GridViewModelProtocol) -> GridViewController {
         let vc =  UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "\(GridViewController.self)") as! GridViewController
-        vc.viewModel = JatraLandingScreenViewModel()
+        vc.viewModel = viewModel
         return vc
     }
     
@@ -40,7 +40,7 @@ extension GridViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RowItemCell", for: indexPath) as! RowItemCell
-        cell.configureCell(dataSource: viewModel?.jatras[indexPath.row])
+        cell.configureCell(dataSource: viewModel?.mediaItems[indexPath.row])
         return cell
     }
     
@@ -53,7 +53,7 @@ extension GridViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == (viewModel?.jatras.count ?? 0) - 1 {
+        if indexPath.row == (viewModel?.mediaItems.count ?? 0) - 1 {
             fetchJatraList()
         }
     }
@@ -71,7 +71,7 @@ extension GridViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        loadVideoPlayer(viewModel?.jatras[indexPath.row])
+        loadVideoPlayer(viewModel?.mediaItems[indexPath.row])
     }
 }
 
@@ -79,12 +79,14 @@ private extension GridViewController {
     
     func fetchJatraList() {
         CustomLoader.addLoaderOn(view, gradient: false)
-        viewModel?.fetchJatraList(limit: 10, completionHandler: {[weak self] (isSuccess,error) in
+        viewModel?.fetchItems(limit: 10, completionHandler: {[weak self] (isSuccess,error) in
             CustomLoader.removeLoaderFrom(self?.view)
             if isSuccess {
                 self?.collectionView.reloadData()
             } else {
-                self?.showAlert(title: "Error!", message: error?.localizedDescription)
+                if let error = error {
+                    self?.showAlert(title: "Error!", message: error.localizedDescription)
+                }
             }
         })
     }

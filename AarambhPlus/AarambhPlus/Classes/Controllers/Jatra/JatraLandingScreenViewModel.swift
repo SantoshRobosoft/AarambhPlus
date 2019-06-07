@@ -7,41 +7,55 @@
 //
 
 
-class JatraLandingScreenViewModel: NSObject {
+protocol GridViewModelProtocol {
+    var stopFetchingContent: Bool { get set }
+    var mediaItems: [MediaItem] { get set }
+    var pageOffset: Int { get set}
+    var itemsPerPage: Int { get set}
+    func fetchItems(limit: Int, completionHandler handler: @escaping ((Bool,Error?)->Void))
+    func numberOfItemsInSection() -> Int
     
-    private(set) var jatras = [MediaItem]()
+}
+
+class JatraLandingScreenViewModel: GridBaseViewModel {
+    
+    
+    
+    
+}
+
+class GridBaseViewModel: NSObject, GridViewModelProtocol {
+    
+    var pageOffset: Int = 0
+    var mediaItems: [MediaItem] = []
     var refreshAfterFetch: ((Bool,Error?)->Void)?
-    private(set) var offset: Int = 0
-    private var stopFetchingContent = false
+    var itemsPerPage: Int = 10
+    var stopFetchingContent = false
     
-    func fetchJatraList(limit: Int, completionHandler handler: ((Bool,Error?)->Void)?) {
+    func fetchItems(limit: Int, completionHandler handler: @escaping ((Bool, Error?) -> Void)) {
         guard !stopFetchingContent, let url = RestApis.tabUrl() else {
-            handler?(false, nil)
+            handler(false, nil)
             return
         }
         
-        let urlStr = "\(url)&limit=\(limit)&offset=\(offset)"
-        offset += 1
+        let urlStr = "\(url)&limit=\(itemsPerPage)&offset=\(pageOffset)"
+        pageOffset += 1
         NetworkManager.fetchContentFor(parameters: nil, url: urlStr) {[weak self] (data) in
             if let layout = data.response?.data?.mediaItems {
                 if layout.isEmpty {
                     self?.stopFetchingContent = true
                 } else {
-                    self?.jatras.append(contentsOf: layout)
+                    self?.mediaItems.append(contentsOf: layout)
                 }
-                handler?(true, nil)
+                handler(true, nil)
             } else {
-                handler?(false, nil)
+                handler(false, nil)
             }
         }
     }
     
-    
-}
-
-extension JatraLandingScreenViewModel {
-    
     func numberOfItemsInSection() -> Int {
-        return jatras.count
+        return mediaItems.count
     }
 }
+
